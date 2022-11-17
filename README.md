@@ -8,10 +8,10 @@ Create With React vite
     3. Redux Toolkit (State Management)
 
 - How to use
-    1. Git clone https://github.com/Alterra-Batch3-Kelompok-11/hms-frontend.git
+    1. git clone https://github.com/Alterra-Batch3-Kelompok-11/hms-frontend.git
     2. cd capstone
-    3. Npm install
-    4. Npm run dev
+    3. npm install
+    4. npm run dev
 
 - How to push
     1. git checkout -b (yourname)
