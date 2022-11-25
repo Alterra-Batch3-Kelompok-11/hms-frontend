@@ -1,16 +1,14 @@
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Table from 'react-bootstrap/Table';
-import Notification from '../assets/Notification.svg'
-import UserSettings from '../assets/UserSettings.svg'
 import Search from '../assets/Search.svg'
+import UserSettingsAndNotification from '../components/UserSettingsAndNotification'
 
 function Dashboard() {
   return (
     <div className='me-md-5 ms-md-4 ms-3 me-0' style={{ color: "rgba(0, 57, 94, 1)" }}>
         <Row className='my-5'>
             <div className='d-block d-md-flex'>
-                <div style={{ width: "150px"}}>
+                <div style={{ width: "8vw"}}>
                     <h3>Dashboard</h3>
                     <div style={{ height: "2px", backgroundColor: "rgba(0, 57, 94, 1)" }} />
                 </div>
@@ -19,12 +17,7 @@ function Dashboard() {
                         <img src={Search} className='position-absolute ms-3' style={{ marginTop: "13px" }} />
                         <input type="search" placeholder='Cari' className='border border-0 ps-5 shadow pe-4' style={{ height: "40px", borderRadius: "20px" }} />
                     </div>
-                    <a style={{ cursor: "pointer" }} className='mx-4'>
-                    <img src={Notification} className='d-none d-md-block' />
-                    </a>
-                    <a style={{ cursor: "pointer" }}>
-                        <img src={UserSettings} className='d-none d-md-block' />
-                    </a>
+                    <UserSettingsAndNotification />
                 </div>
             </div>
         </Row>
@@ -92,43 +85,51 @@ function Dashboard() {
                 </div>
             </Col>
         </Row>
-        <Row className='my-5'>
-            <Col>
-                <Table>
-                    <thead>
-                        <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Usia(thn)</th>
-                        <th>Keluhan</th>
-                        <th>Jadwal Temu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </Table>
+        <Row className='my-3'>
+            <Col className='shadow px-3 py-4 ms-2 ms-md-0' md={6}>
+                 <div>
+                    <div className='d-flex justify-content-center mb-3'>
+                        <h5 className='me-5'>No</h5>
+                        <h5 className='ms-2 me-5'>Nama</h5>
+                        <h5 className='ms-1 me-2'>Usia (thn)</h5>
+                        <h5 className='ms-5'>Keluhan</h5>
+                        <h5 className='ms-5'>Jadwal Temu</h5>
+                    </div>
+                    <div className='d-flex justify-content-center border border-secondary rounded mx-auto py-2 mb-2' style={{ width: "600px" }}>
+                        <h5 className='me-5'>1</h5>
+                        <h5 className='ms-4 me-5'>Jono</h5>
+                        <h5 className='ms-3 me-3'>38 Tahun</h5>
+                        <h5 className='ms-5 me-3'>Mules</h5>
+                        <h5 className='ms-5'>17-11-2022</h5>
+                    </div>
+                    <div className='d-flex justify-content-center border border-secondary rounded mx-auto py-2 mb-2' style={{ width: "600px" }}>
+                        <h5 className='me-5'>2</h5>
+                        <h5 className='ms-4 me-5'>Jono</h5>
+                        <h5 className='ms-3 me-3'>38 Tahun</h5>
+                        <h5 className='ms-5 me-3'>Mules</h5>
+                        <h5 className='ms-5'>17-11-2022</h5>
+                    </div>
+                    <div className='d-flex justify-content-center border border-secondary rounded mx-auto py-2 mb-2' style={{ width: "600px" }}>
+                        <h5 className='me-5'>3</h5>
+                        <h5 className='ms-4 me-5'>Jono</h5>
+                        <h5 className='ms-3 me-3'>38 Tahun</h5>
+                        <h5 className='ms-5 me-3'>Mules</h5>
+                        <h5 className='ms-5'>17-11-2022</h5>
+                    </div>
+                </div>
             </Col>
-            <Col>
-                <Row style={{ width: "10vw", backgroundColor: "#55A0D2" }}>
+            <Col className='px-3 ms-3 me-2'>
+                <Row style={{ width: "15vw", backgroundColor: "#55A0D2" }} className='text-light py-3'>
                     <span>Total Doctors</span>
                     <h5>20</h5>
+                </Row>
+                <Row style={{ width: "15vw", backgroundColor: "#55A0D2" }} className='text-light my-2 py-3'>
+                    <span>Total Nurses</span>
+                    <h5>15</h5>
+                </Row>
+                <Row style={{ width: "15vw", backgroundColor: "#55A0D2" }} className='text-light py-3'>
+                    <span>Total Patients</span>
+                    <h5>50</h5>
                 </Row>
             </Col>
         </Row>

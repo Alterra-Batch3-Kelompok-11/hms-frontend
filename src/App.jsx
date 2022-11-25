@@ -1,8 +1,8 @@
-import Sidebar from './components/Sidebar'
+import RoutesPage from "./routes/RoutesPage"
 
 function App() {
   return (
-   <Sidebar />
+   <RoutesPage />
   )
 }
 

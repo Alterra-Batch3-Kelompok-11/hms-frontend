@@ -1,5 +1,4 @@
 import '../styles/Sidebar.css'
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ClinicIcon from '../assets/Clinic-logo.svg'
 import DashboardIcon from '../assets/Dashboard.svg'
@@ -8,11 +7,9 @@ import DoctorsIcon from '../assets/Doctors.svg'
 import MessageIcon from '../assets/Message.svg'
 import AccountIcon from '../assets/Account.svg'
 import SettingsIcon from '../assets/Settings.svg'
-import Dashboard from './Dashboard';
 
 function Sidebar() {
   return (
-    <Row>
       <Col xs={2} className='shadow sidebar' style={{ color: "#00395E"}}>
         <div className='d-flex ps-2 ps-md-5 my-3'>
           <img src={ClinicIcon} style={{ height: "30%" }}/>
@@ -56,10 +53,6 @@ function Sidebar() {
           </div>
         </a>
       </Col>
-      <Col xs={6} md>
-        <Dashboard />
-      </Col>
-    </Row>
   )
 }
 
