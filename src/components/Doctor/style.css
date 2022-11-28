@@ -1,0 +1,17 @@
+.col{
+    flex-wrap: wrap;
+    display: flex!important;
+    box-sizing: border-box;
+}
+
+.card{
+    border: 1px solid #d0d4d6;
+    border-radius: 4px;
+    cursor: default;
+    margin: .7rem!important;
+    min-width: 15rem;
+    position: relative;
+    text-align: left;
+    padding: 2rem!important;
+    display: block;
+}

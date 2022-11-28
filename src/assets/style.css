@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+.poppins-font {
+  font-family: "Poppins", serif;
+}
+
+.search-control {
+  color: black;
+  border-radius: 30px;
+  width: 412px;
+  height: 53px;
+}
