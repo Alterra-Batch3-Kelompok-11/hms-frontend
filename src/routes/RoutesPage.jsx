@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Dashboard from '../pages/Dashboard';
 import Sidebar from '../components/Sidebar';
 import DoctorRegistration from '../pages/DoctorRegistration';
+import PatientRegistration from '../pages/PatientRegistration';
 
 function RoutesPage() {
   return (
@@ -10,7 +11,8 @@ function RoutesPage() {
         <Sidebar />
         <Col xs={6} md>
             {/* <Dashboard /> */}
-            <DoctorRegistration />
+            {/* <DoctorRegistration /> */}
+            <PatientRegistration />
         </Col>
     </Row>
   )
