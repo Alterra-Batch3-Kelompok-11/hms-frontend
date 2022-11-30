@@ -3,16 +3,20 @@ import Col from 'react-bootstrap/Col';
 import Dashboard from '../pages/Dashboard';
 import Sidebar from '../components/Sidebar';
 import DoctorRegistration from '../pages/DoctorRegistration';
+import Login from '../pages/login/Login';
 
 function RoutesPage() {
   return (
-    <Row>
+    <>
+      {/* <Login /> */}
+      <Row>
         <Sidebar />
         <Col xs={6} md>
-            {/* <Dashboard /> */}
-            <DoctorRegistration />
+            <Dashboard />
+            {/* <DoctorRegistration /> */}
         </Col>
-    </Row>
+      </Row>
+    </>
   )
 }
 
