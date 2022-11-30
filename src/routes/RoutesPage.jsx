@@ -1,5 +1,6 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ListPasien from '../pages/ListPasien'
 import Dashboard from '../pages/Dashboard';
 import Sidebar from '../components/Sidebar';
 import DoctorRegistration from '../pages/DoctorRegistration';
@@ -14,6 +15,7 @@ function RoutesPage() {
         <Col xs={6} md>
             <Dashboard />
             {/* <DoctorRegistration /> */}
+            <ListPasien />
         </Col>
       </Row>
     </>
