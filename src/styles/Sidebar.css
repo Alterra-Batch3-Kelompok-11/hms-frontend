@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+.sidebar {
+    height: 98vh;
+}
+
+.link{
+    cursor: pointer;
+    padding: 10px 0px;
+}
+
+/* A comment. */
+.link:hover {
+    background:  rgba(151, 171, 187, 0.7);
+}
+
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #00395E;
+  }
