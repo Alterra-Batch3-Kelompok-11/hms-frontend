@@ -23,7 +23,7 @@ const Doctors = (props) => {
                 className="poppins-font border-bottom"
                 style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
               >
-                Data Perawat
+                Data Dokter
               </h3>
             </div>
             <div class="col" style={{width:"400px", marginLeft:"240px"}}>
@@ -46,9 +46,10 @@ const Doctors = (props) => {
             <div class="col" style={{width:"80px"}}>
               <a href="#"><img src={UserSettings} alt="img" /></a>
             </div>
-            <button type="button" href="#" class="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
           </div>
+          <button type="button" href="#" class="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
           </div>
+          <div className="home">  
           {DoctorList.filter((val) => {
             if (searchTerm === "") {
               return val;
@@ -59,35 +60,34 @@ const Doctors = (props) => {
             }
           }).map((val, doctor) => {
             val.quantity = 1;
-            return (
+          return (
+          <div className="col1">  
+          <div className="card" key={val}>
+            <div className="row">
+             <div className="col-sm-6"> 
+              <img src={val.avatar} style={{width:"150px", height:"280px"}}/>                       
+             </div>
+             <div className="col-sm-6">  
+              <h3>{val.name}</h3>
+              <p>{val.nim}</p>
+              <p>{val.Spesialis}</p>
               <div className="row">
-              <div className="col">
-              <div className="card" key={doctor} style={{width:"500px"}}>
-                <div className="row">
-                    <div className="col-sm-6">
-                    <img src={val.avatar} style={{width:"180px", height:"280px"}}/>                       
-                    </div>
-                    <div className="col-sm-6">
-                    <h3>{val.name}</h3>
-                    <p>{val.nim}</p>
-                    <p>{val.Spesialis}</p>
-                    <div className="row">
-                        <div className="col-sm-3">
-                        <img src={Group1} alt="img" />
-                        </div>
-                        <div className="col-sm-8">
-                        <p>Senin - Kamis
-                        <br />09.00 - 13.00 WIB</p>
-                        </div>    
-                    </div>
-                    <p><button type="button" className="btn btn-primary">Lihat Detail</button></p>
-                    </div> 
+                <div className="col-sm-3">
+                  <img src={Group1} alt="img" />
                 </div>
-              </div>
-              </div>
-              </div>
-            );
-          })}
+                <div className="col-sm-8">
+                  <p>Senin - Kamis
+                  <br />09.00 - 13.00 WIB</p>
+                </div>    
+                </div>
+                  <p><button type="button" className="btn btn-primary">Lihat Detail</button></p> 
+             </div>
+            </div>
+          </div>
+          </div>
+        );
+      })}
+    </div>  
         </div>
     </>
   );

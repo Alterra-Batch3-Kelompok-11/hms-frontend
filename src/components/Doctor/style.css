@@ -1,17 +1,23 @@
-.col{
-    flex-wrap: wrap;
-    display: flex!important;
-    box-sizing: border-box;
+.col1{
+    padding: 10px;
+    width: 550px;
 }
 
-.card{
-    border: 1px solid #d0d4d6;
-    border-radius: 4px;
-    cursor: default;
-    margin: .7rem!important;
-    min-width: 15rem;
-    position: relative;
-    text-align: left;
-    padding: 2rem!important;
-    display: block;
+.home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 50px;
+
 }
+.home .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.home .card img {
+    width: 100%;
+    max-height: 300px;
+}
+  
