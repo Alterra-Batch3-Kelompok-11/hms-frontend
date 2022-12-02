@@ -9,15 +9,15 @@ import Login from '../pages/login/Login';
 function RoutesPage() {
   return (
     <>
-      {/* <Login /> */}
-      <Row>
+      <Login />
+      {/* <Row>
         <Sidebar />
-        <Col xs={6} md>
+        <Col xs={10} md={10}>
             <Dashboard />
-            {/* <DoctorRegistration /> */}
+            <DoctorRegistration />
             <ListPasien />
         </Col>
-      </Row>
+      </Row> */}
     </>
   )
 }

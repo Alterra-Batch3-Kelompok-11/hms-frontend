@@ -14,7 +14,7 @@ function Sidebar() {
     <Col
       xs={2}
       className="shadow sidebar"
-      style={{ color: "#00395E", height: "auto", paddingRight: "0px" }}
+      style={{ color: "#00395E", height: "98vh", paddingRight: "0px" }}
     >
       <div
         className="container d-flex border-bottom border-2"
