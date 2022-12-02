@@ -13,12 +13,12 @@ const Doctors = (props) => {
   return (
     <>
         <div className="content container" style={{ width: "1150px" }}>
-            <div class="container text-center">
+            <div className="container text-center">
             <div
-                class="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
+                className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
                 style={{ marginTop: "41px", marginBottom: "41px" }}
             >
-            <div class="col">
+            <div className="col">
               <h3
                 className="poppins-font border-bottom"
                 style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
@@ -26,7 +26,7 @@ const Doctors = (props) => {
                 Data Dokter
               </h3>
             </div>
-            <div class="col" style={{width:"400px", marginLeft:"240px"}}>
+            <div className="col" style={{width:"400px", marginLeft:"240px"}}>
               <div className="input-group">
                 <input
                   className="search-control shadow me-2 margin-side bg-light ps-4"
@@ -40,14 +40,14 @@ const Doctors = (props) => {
                 />
               </div>
             </div>
-            <div class="col" style={{width:"80px"}}>
+            <div className="col" style={{width:"80px"}}>
             <a href="#"><img src={NotifIcon} alt="img" /></a>
             </div>
-            <div class="col" style={{width:"80px"}}>
+            <div className="col" style={{width:"80px"}}>
               <a href="#"><img src={UserSettings} alt="img" /></a>
             </div>
           </div>
-          <button type="button" href="#" class="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
+          <button type="button" href="#" className="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
           </div>
           <div className="home">  
           {DoctorList.filter((val) => {

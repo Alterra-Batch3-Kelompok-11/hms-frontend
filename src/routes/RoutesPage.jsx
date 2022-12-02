@@ -20,8 +20,8 @@ function RoutesPage() {
             {/* <DoctorRegistration /> */}
             {/* <Patient /> */}
             {/* <PatientRegistration /> */}
-            {/* <ManageDoctor /> */}
-            <Doctors />
+            <ManageDoctor />
+            {/* <Doctors /> */}
         </Col>
       </Row>
     </>

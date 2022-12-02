@@ -6,12 +6,12 @@ const ManageDoctor = () => {
   return (
     <div className='container-fluid'>
         <div className="content container" style={{ width: "1150px" }}>
-            <div class="container text-center">
+            <div className="container text-center">
             <div
-                class="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
+                className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
                 style={{ marginTop: "41px", marginBottom: "41px" }}
             >
-            <div class="col">
+            <div className="col">
               <h3
                 className="poppins-font border-bottom"
                 style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
@@ -40,8 +40,8 @@ const ManageDoctor = () => {
                               <td></td>
                               <td>09.00 - 13.00 WIB</td>
                             </tr>
-                            <button type="button" class="btn btn-light">Hapus Data</button>
-                            <button type="button" class="btn btn-primary">Lihat Detail</button>
+                            <button type="button" className="btn btn-light">Hapus Data</button>
+                            <button type="button" className="btn btn-primary">Lihat Detail</button>
                         </div>
                         </div>
                 </div>
