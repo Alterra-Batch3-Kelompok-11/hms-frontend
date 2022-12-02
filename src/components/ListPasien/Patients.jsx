@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/style.css";
+import style from "../../styles/TablePasien.module.css";
 import Row from "react-bootstrap/Row";
 
 import NotifIcon from "../../assets/Notification.svg";
@@ -185,7 +185,7 @@ const Patient = (props) => {
                           <tr>
                             <th
                               scope="row"
-                              className="counterCell"
+                              className={style.counterCell}
                               style={{
                                 width: "10px",
                                 paddingTop: "22px",
