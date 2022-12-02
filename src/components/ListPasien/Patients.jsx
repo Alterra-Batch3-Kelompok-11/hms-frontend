@@ -65,7 +65,10 @@ const Patient = (props) => {
             </div>
           </Row>
           <Row>
-            <ModalButton />
+            <div style={{marginLeft:"940px", marginBottom:"25px"}}>
+              <ModalButton />
+            </div>
+
             <div className="container border shadow rounded-control">
               <div className="table-responsive">
                 <table

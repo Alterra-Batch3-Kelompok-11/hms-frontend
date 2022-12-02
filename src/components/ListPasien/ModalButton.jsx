@@ -26,7 +26,7 @@ function ModalButton() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div
               className="modal-header border-0"
@@ -46,9 +46,10 @@ function ModalButton() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{marginRight:"30px"}}
               ></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body" style={{marginLeft:"40px"}}>
               <Row>
                 <Col xs={12} md={5}>
                   <div className="mb-2">
@@ -56,30 +57,17 @@ function ModalButton() {
                     <Form.Control type="text" />
                   </div>
                   <div className="mb-2">
-                    <Form.Label>Nomor Lisensi</Form.Label>
+                    <Form.Label>NIK</Form.Label>
                     <Form.Control type="text" />
                   </div>
                   <div className="mb-2">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" />
+                    <Form.Label>Nomor Hp</Form.Label>
+                    <Form.Control type="text" />
                   </div>
-                  <Row className="mb-5">
-                    <Form.Group as={Col}>
-                      <Form.Label>Profesi</Form.Label>
-                      <Form.Select aria-label="Default select example">
-                        <option value="Dokter">Dokter</option>
-                        <option value="Perawat">Perawat</option>
-                      </Form.Select>
-                    </Form.Group>
-
-                    <Form.Group as={Col}>
-                      <Form.Label>Spesialis</Form.Label>
-                      <Form.Select aria-label="Default select example">
-                        <option value="Dokter">Dokter</option>
-                        <option value="Perawat">Perawat</option>
-                      </Form.Select>
-                    </Form.Group>
-                  </Row>
+                  <div className="mb-2">
+                    <Form.Label>Agama</Form.Label>
+                    <Form.Control type="text" />
+                  </div>
                 </Col>
                 <Col xs={12} md={5} className="ms-md-5 mt-5 mt-md-0">
                   <div className="mb-2">
@@ -87,23 +75,24 @@ function ModalButton() {
                     <Form.Control type="datetime-local" />
                   </div>
                   <div className="mb-2">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="Email" />
+                    <Form.Label>Usia</Form.Label>
+                    <Form.Control type="Number" />
                   </div>
                   <div className="mb-2">
-                    <Form.Label>Jadwal Praktek</Form.Label>
+                    <Form.Label>Jenis Kelamin</Form.Label>
                     <Form.Select aria-label="Default select example">
-                      <option value="Senin">Senin</option>
-                      <option value="Selasa">Selasa</option>
-                      <option value="Rabu">Rabu</option>
-                      <option value="Kamis">Kamis</option>
-                      <option value="Jumat">Jumat</option>
+                      <option value="Laki-Laki">Laki-Laki</option>
+                      <option value="Perempuan">Perempuan</option>
                     </Form.Select>
+                  </div>
+                  <div className="mb-2">
+                    <Form.Label>Status Perkawinan</Form.Label>
+                    <Form.Control type="text" />
                   </div>
                 </Col>
               </Row>
             </div>
-            <div className="modal-footer float-start">
+            <div className="modal-footer" style={{float:"left"}}>
               <Button variant="primary" type="submit">
                 Tambah
               </Button>
