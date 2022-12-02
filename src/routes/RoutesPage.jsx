@@ -4,6 +4,7 @@ import ListPasien from '../pages/ListPasien'
 import Dashboard from '../pages/Dashboard';
 import Sidebar from '../components/Sidebar';
 import DoctorRegistration from '../pages/DoctorRegistration';
+import PatientRegistration from '../pages/PatientRegistration';
 import Login from '../pages/login/Login';
 
 function RoutesPage() {
@@ -16,6 +17,7 @@ function RoutesPage() {
             <Dashboard />
             <DoctorRegistration />
             <ListPasien />
+             <PatientRegistration />
         </Col>
       </Row> */}
     </>
