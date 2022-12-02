@@ -13,7 +13,7 @@ function RoutesPage() {
       <Row>
         <Sidebar />
         <Col xs={6} md>
-            {/* <Dashboard /> */}
+            <Dashboard />
             {/* <DoctorRegistration /> */}
             <ListPasien />
         </Col>
