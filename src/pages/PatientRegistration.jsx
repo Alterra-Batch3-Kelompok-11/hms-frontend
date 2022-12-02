@@ -12,7 +12,7 @@ function PatientRegistration() {
         <Row className='my-5'>
             <Col className='d-block d-md-flex'>
                 <div style={{ width: "12vw"}}>
-                    <h3>Registrasi Dokter</h3>
+                    <h3>Registrasi Pasien</h3>
                     <div style={{ height: "2px", backgroundColor: "rgba(0, 57, 94, 1)" }} />
                 </div>
                 <div className='ms-auto d-none d-md-flex'>
