@@ -1,8 +1,10 @@
-import RoutesPage from "./routes/RoutesPage"
+import Router from "./Router";
 
 function App() {
   return (
-   <RoutesPage />
+    <>
+      <Router />
+    </>
   )
 }
 
