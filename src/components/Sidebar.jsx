@@ -8,8 +8,12 @@ import MessageIcon from "../assets/Message.svg";
 import AccountIcon from "../assets/Account.svg";
 import SettingsIcon from "../assets/Settings.svg";
 import Dropdown from "../assets/Dropdown.svg";
+import { Auth } from "../utils/Auth";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate()
+
   return (
     <Col
       xs={2}
@@ -37,7 +41,7 @@ function Sidebar() {
         </h2>
       </div>
       <div style={{ marginTop: "20px" }}>
-        <a className="text-decoration-none link mb-3">
+        <a href="/Admin" className="text-decoration-none link mb-3">
           <div className="link">
             <button className="btn btn-toggle d-inline-flex border-0 collapsed">
               <img
@@ -81,7 +85,7 @@ function Sidebar() {
                 <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li>
                     <a
-                      href="#"
+                      href="/Admin/PatientList"
                       className="link-dark d-inline-flex text-decoration-none rounded"
                     >
                       <p className="poppins-font" style={{ fontSize: "15px", marginTop:"20px", marginLeft:"70px" }}>
@@ -104,7 +108,7 @@ function Sidebar() {
             </div>
           </div>
         </a>
-        <a className="text-decoration-none link mb-3">
+        <a href="/Admin/DoctorList" className="text-decoration-none link mb-3">
           <div className="link">
             <button className="btn btn-toggle d-inline-flex border-0 collapsed">
               <img
@@ -154,7 +158,7 @@ function Sidebar() {
         </a>
         <a className="text-decoration-none link mb-3">
           <div className="link">
-            <button className="btn btn-toggle d-inline-flex border-0 collapsed">
+            <button onClick={() => Auth.signOut(navigate)} className="btn btn-toggle d-inline-flex border-0 collapsed">
               <img
                 src={SettingsIcon}
                 style={{ height: "22px", width: "22px" }}
@@ -163,7 +167,7 @@ function Sidebar() {
                 className="d-none d-md-block ms-3"
                 style={{ color: "#00395E" }}
               >
-                Settings
+                Log Out
               </h5>
             </button>
           </div>
