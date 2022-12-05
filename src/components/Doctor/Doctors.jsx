@@ -6,7 +6,7 @@ import "../../assets/style.css";
 import DoctorList from "./DoctorList";
 import { useState } from "react";
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
-import "../Doctor/style.css";
+import styles from "../Doctor/style.module.css";
 
 const Doctors = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +21,7 @@ const Doctors = (props) => {
             <div class="col">
               <h3
                 className="poppins-font border-bottom"
-                style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
+                style={{ fontSize: "30px", fontWeight:"600", borderBottom:  "1px solid #00395E" , lineHeight:"45px" , color: "#00395E", width:"250px" }}
               >
                 Data Dokter
               </h3>
@@ -47,9 +47,10 @@ const Doctors = (props) => {
               <a href="#"><img src={UserSettings} alt="img" /></a>
             </div>
           </div>
-          <button type="button" href="#" class="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
+          <button type="button" href="#" class="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "flex", 
+          alignItems: "center", padding: "10px", gap: "10px", align:"right", float:"right"}}>Tambah Dokter</button>
           </div>
-          <div className="home">  
+          <div className={styles.home}>  
           {DoctorList.filter((val) => {
             if (searchTerm === "") {
               return val;
@@ -61,26 +62,27 @@ const Doctors = (props) => {
           }).map((val, doctor) => {
             val.quantity = 1;
           return (
-          <div className="col1">  
-          <div className="card" key={val}>
+          <div className={styles.col1}>  
+          <div className={styles.card} key={val}>
             <div className="row">
-             <div className="col-sm-6"> 
-              <img src={val.avatar} style={{width:"150px", height:"280px"}}/>                       
+             <div className="col-sm-4" style={{marginRight:"49px"}}> 
+              <img src={val.avatar} style={{width:"162px", height:"310px"}}/>                       
              </div>
              <div className="col-sm-6">  
-              <h3>{val.name}</h3>
-              <p>{val.nim}</p>
-              <p>{val.Spesialis}</p>
+              <h3 style={{fontFamily:"Poppins", fontWeight:"600", fontSize:"25px", lineHeight:"48px"}}>{val.name}</h3>
+              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>{val.nim}</p>
+              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}} >{val.Spesialis}</p>
               <div className="row">
                 <div className="col-sm-3">
-                  <img src={Group1} alt="img" />
+                  <img src={Group1} alt="img" style={{width:"30px", height:"30px"}} />
                 </div>
-                <div className="col-sm-8">
+                <div className="col-sm-8" style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>
                   <p>Senin - Kamis
                   <br />09.00 - 13.00 WIB</p>
                 </div>    
                 </div>
-                  <p><button type="button" className="btn btn-primary">Lihat Detail</button></p> 
+                  <p><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
+                  background: "#0071BC", flexDirection: "row", justifyContent:"center", alignItems:"center", padding:"10px", gap:"10px"}}>Lihat Detail</button></p> 
              </div>
             </div>
           </div>

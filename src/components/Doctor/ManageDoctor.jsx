@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
+import ManagePatientDoctor from './ManagePatientDoctor';
 
 const ManageDoctor = () => {
+  const [openPopup, setOpenPopup] = useState(false);
+  const [tempdata, setTempdata] = useState([]);
   return (
+    <>
     <div className='container-fluid'>
         <div className="content container" style={{ width: "1150px" }}>
-            <div class="container text-center">
+            <div className="container text-center">
             <div
-                class="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
+                className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
                 style={{ marginTop: "41px", marginBottom: "41px" }}
             >
-            <div class="col">
+            <div className="col">
               <h3
                 className="poppins-font border-bottom"
                 style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
@@ -23,25 +27,28 @@ const ManageDoctor = () => {
           </div>
         <div className='row'>
             <div className='col-sm-6'>
-                <div className='card'>
+                <div className='card' style={{width: "604px", height: "378px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
                     <div className='row'>
-                        <div className='col'>
-                            <img src={Ellipse2} />
+                        <div className='col-sm-4'>
+                            <img src={Ellipse2} style={{padding:"30px", width: "227px", height: "228px"}} />
                         </div>
-                        <div className='col'>
-                            <h3>Dr. Bones</h3>
-                            <p>9824820130492</p>
-                            <p>Spesialist : Dokter Gigi</p>
-                            <tr>
-                              <td>Jadwal:</td>
-                              <td>Senin - Kamis</td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <td>09.00 - 13.00 WIB</td>
-                            </tr>
-                            <button type="button" class="btn btn-light">Hapus Data</button>
-                            <button type="button" class="btn btn-primary">Lihat Detail</button>
+                        <div className='col-sm-8' style={{fontFamily:"Poppins", padding:"30px", color: "#00395E", paddingLeft:"78px"}}>
+                            <h3 style={{fontWeight:"600", fontSize: "30px", lineHeight: "50px"}}>Dr. Bones</h3>
+                            <p style={{fontWeight:"400", fontSize: "18px", lineHeight: "25px"}}>9824820130492</p>
+                            <p style={{fontWeight:"600", fontSize: "16px", lineHeight: "20px"}}>Spesialist : Dokter Gigi</p>
+                            <table style={{fontWeight:"400", fontSize: "16px", lineHeight: "30px"}}>
+                              <tr>
+                              <td rowSpan="2" style={{paddingRight:"20px"}}><b>Jadwal :</b></td>
+                              <td>Senin-Kamis</td>
+                              </tr>
+                              <tr>
+                                <td>09.00 WIB - 13.00 WIB</td>
+                              </tr>
+                            </table>
+                            <button onClick={() => setOpenPopup(true)} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
+                            padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
+                            Lihat Details
+                            </button>
                         </div>
                         </div>
                 </div>
@@ -82,11 +89,11 @@ const ManageDoctor = () => {
               <p style={{color:"#0071BC", float:"right"}}>Selengkapnya</p>
             </div>
             </div>
-            <div className='col-sm-6'>
-            <div className='card'>
+            <div className='col-sm-4' style={{marginLeft:"61px", marginRight:"61px"}}>
+            <div className='card' style={{marginLeft:'61px', width:"342px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px", padding:"10px"}} >
             <h4
                 className=""
-                style={{color: "#00395E", width:"250px" }}
+                style={{color: "#00395E", width:"250px", padding:"20px" }}
               >
                 Appointment
               </h4> <hr />
@@ -132,13 +139,10 @@ const ManageDoctor = () => {
             </div>
             </div>
         </div>
-        <div className="row">
-          <div className='col-sm-6'>
-          
-          </div>
-        </div>
     </div>
     </div>
+    <ManagePatientDoctor />
+    </>
   )
 }
 
