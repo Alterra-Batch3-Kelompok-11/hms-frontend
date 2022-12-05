@@ -1,11 +1,9 @@
-import react from "react";
-import SideBar from "../components/SideBar/SideBar";
-import Patients from "../components/Patient/Patients";
+import SideBar from "../components/SideBar";
+import Patients from "../components/ListPasien/Patients";
 
-export default function Dashboard() {
+export default function ListPasien() {
   return (
     <>
-        <SideBar />
         <Patients />
     </>
   );
