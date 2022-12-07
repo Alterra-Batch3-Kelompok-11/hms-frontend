@@ -16,7 +16,7 @@ function LandingPage() {
       <Services />
       <Personal />
       <Statistic />
-      <Download />
+      <Download /> 
     </div>
   );
 }
