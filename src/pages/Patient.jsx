@@ -64,7 +64,7 @@ const Patient = (props) => {
               </div>
             </div>
           </Row>
-          <Row>
+          <Row> 
             <div style={{ marginLeft: "940px", marginBottom: "25px" }}>
               <ModalButton />
             </div>
