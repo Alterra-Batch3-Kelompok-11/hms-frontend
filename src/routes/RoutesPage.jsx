@@ -19,7 +19,9 @@ function RoutesPage() {
         {/* <Login />  */}
         {/* <AboutUs /> */}
         {/* <LandingPage /> */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/Admin" element={<ProtectedRoutes />}>
           <Route index element={<Dashboard />} />

@@ -14,8 +14,8 @@ function DropDown() {
     <li><a className="dropdown-item" style={{color:"#00395E"}} href="#">Data Riwayat</a></li>
     <li><hr className="dropdown-divider"></hr></li>
     <li><a className="dropdown-item" style={{color:"#00395E"}} href="#">+ Rawat Jalan</a></li>
-    <li><hr className="dropdown-divider"></hr></li>
-    <li><ModalButton /></li>
+    {/* <li><hr className="dropdown-divider"></hr></li>
+    <li><ModalButton /></li> */}
   </ul>
 </div>
   );

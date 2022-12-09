@@ -1,4 +1,3 @@
-import react from "react";
 import logo from "../../assets/logoText.svg";
 import style from "./Landing.module.css";
 
@@ -25,12 +24,12 @@ function Header() {
               style={{ color: "#00395E" }}
             >
               <li>
-                <a href="#" className="nav-link mt-2 mx-4">
+                <a href="/" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>HOME</h2>
                 </a>
               </li>
               <li style={{ color: "#00395E" }}>
-                <a href="#" className="nav-link mt-2 mx-4">
+                <a href="/aboutUs" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>ABOUT</h2>
                 </a>
               </li>
@@ -49,7 +48,7 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link">
+                <a href="/login" className="nav-link">
                   <div>
                     <h2
                     className="text-sm-start py-2 px-3 mx-4"
