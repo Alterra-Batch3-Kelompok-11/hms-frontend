@@ -2,8 +2,8 @@ import { useState } from "react";
 import style from "../../styles/TablePasien.module.css";
 import Row from "react-bootstrap/Row";
 
-import NotifIcon from "../../assets/Notification.svg";
-import UserSettings from "../../assets/UserSettings.svg";
+// import NotifIcon from "../../assets/Notification.svg";
+// import UserSettings from "../../assets/UserSettings.svg";
 import Search from "../../assets/Search.svg";
 
 import PatientList from "./PatientList";

@@ -6,7 +6,7 @@ import Login from '../pages/login/Login';
 import Doctors from '../components/Doctor/Doctors';
 //import Patient from '../pages/Patient';
 import LandingPage from '../pages/LandingPage';
-import ManageDoctor from '../pages/Patient';
+//import ManageDoctor from '../pages/Patient';
 import AboutUs from '../pages/AboutUs';
 import Patient from '../components/ListPasien/Patients';
 import ManageDoctor from '../components/Doctor/ManageDoctor';
@@ -17,8 +17,8 @@ function RoutesPage() {
     <Router>
       <Routes>
         {/* <Login />  */}
-        <LandingPage />
         {/* <AboutUs /> */}
+        {/* <LandingPage /> */}
         <Route path="/" element={<Login />} />
 
         <Route path="/Admin" element={<ProtectedRoutes />}>
