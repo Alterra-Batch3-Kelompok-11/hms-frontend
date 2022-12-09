@@ -4,12 +4,9 @@ import DoctorRegistration from '../pages/DoctorRegistration';
 import PatientRegistration from '../pages/PatientRegistration';
 import Login from '../pages/login/Login';
 import Doctors from '../components/Doctor/Doctors';
-//import Patient from '../pages/Patient';
 import LandingPage from '../pages/LandingPage';
 import ManageDoctor from '../pages/Patient';
 import AboutUs from '../pages/AboutUs';
-import Row from 'react-bootstrap/className=';
-import Col from 'react-bootstrap/Col';
 import ProtectedRoutes from './ProtectedRoutes';
 import Patient from "../pages/Patient";
 
@@ -17,9 +14,6 @@ function RoutesPage() {
   return (
     <Router>
       <Routes>
-        {/* <Login />  */}
-        {/* <AboutUs /> */}
-        {/* <LandingPage /> */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
