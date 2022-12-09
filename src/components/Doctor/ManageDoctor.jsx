@@ -13,7 +13,7 @@ const ManageDoctor = () => {
             <div className="container text-center">
             <div
                 className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
-                style={{ marginTop: "41px", marginBottom: "41px" }}
+                style={{ marginTop: "41px", marginBottom: "10px" }}
             >
             <div className="col">
               <h3
@@ -25,9 +25,11 @@ const ManageDoctor = () => {
             </div>
           </div>
           </div>
-        <div className='row'>
-            <div className='col-sm-6'>
-                <div className='card' style={{width: "604px", height: "378px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
+          <div>
+            <table className="table table-nonbordered">
+              <tr>
+                <td>
+                <div className='card' style={{width: "604px", height: "378px" , boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
                     <div className='row'>
                         <div className='col-sm-4'>
                             <img src={Ellipse2} style={{padding:"30px", width: "227px", height: "228px"}} />
@@ -52,25 +54,62 @@ const ManageDoctor = () => {
                         </div>
                         </div>
                 </div>
+                </td>
+                <td rowSpan="2">
+                <div className='card' style={{marginLeft:'61px', marginTop:'40px' , width:"342px", height:"730px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}} >
+            <h4
+                className="poppins-font"
+                style={{color: "#00395E", width:"250px", padding:"20px 40px ", fontWeight: "600", fontSize: "18px", lineHeight: "27px"}}
+              >
+                Appointment
+              </h4>
+              <div style={{background: "#00395E", height:"49px", verticalAlign:"center"}}>
+              <h4
+                className="poppins-font"
+                style={{textAlign:"center", color: "white", fontSize:"18px"}}
+              >
+                November 2022
+              </h4>
+              </div>
+              <div style={{padding:"10px 40px"}}>
+              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
+                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
+                  09.00 - 13.00 WIB</p>
+              </div>
+              <div style={{padding:"10px 40px"}}>
+              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
+                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
+                  09.00 - 13.00 WIB</p>
+              </div>
+              <div style={{padding:"10px 40px"}}>
+              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
+                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
+                  09.00 - 13.00 WIB</p>
+              </div>
+            </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
                 <h3
                 className="poppins-font border-bottom"
-                style={{ fontSize: "30px", color: "#00395E", width:"250px" }}
+                style={{ fontSize: "30px", color: "#00395E", width:"250px", marginTop:"-30px"}}
               >
                 HIS PATIENTS
               </h3>
-                <div className="card">
-              <table className="table table-nonbordered">
-                <thead>
+                <div className="card" style={{marginTop:"25px", width:"604px" , boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
+              <table className="table table-nonbordered" style={{color: "#00395E"}}>
+                <thead style={{textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "600", fontSize: "16px", lineHeight: "30px"}}>
                   <tr>
-                    <td>No.</td>
-                    <td>Nama</td>
-                    <td>Usia(Thn)</td>
-                    <td>Keluhan</td>
-                    <td>Jadwal Temu</td>
+                    <th scope='col'>No.</th>
+                    <th scope='col'>Nama</th>
+                    <th scope='col'>Usia(Thn)</th>
+                    <th scope='col'>Keluhan</th>
+                    <th scope='col'>Jadwal Temu</th>
                   </tr>
                 </thead>
-                <tbody style={{background: "#CCE3F2", borderRadius:"50px",}}>
-                  <tr>
+                <tbody style={{background: "#CCE3F2", borderRadius:"50px", textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "500", fontSize: "14px", lineHeight: "30px"}}>
+                  <tr style={{borderRadius:"20px"}}>
                     <td>1</td>
                     <td>Jono</td>
                     <td>38</td>
@@ -87,59 +126,12 @@ const ManageDoctor = () => {
                 </tbody>
               </table>
               <p style={{color:"#0071BC", float:"right"}}>Selengkapnya</p>
-            </div>
-            </div>
-            <div className='col-sm-4' style={{marginLeft:"61px", marginRight:"61px"}}>
-            <div className='card' style={{marginLeft:'61px', width:"342px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px", padding:"10px"}} >
-            <h4
-                className=""
-                style={{color: "#00395E", width:"250px", padding:"20px" }}
-              >
-                Appointment
-              </h4> <hr />
-              <h4
-                className="poppins-font border-bottom"
-                style={{textAlign:"center", color: "white", background: "#00395E" }}
-              >
-                November 2022
-              </h4>
-              <div>
-              <p style={{color: "#00395E"}}>Monday, November 21</p> <hr />
-              <div className='row'>
-                <div className='col-sm-3'>
-                  <img src={Group1} />
-                </div>
-                <div className='col-sm-6'>
-                  <p>09.00 - 13.00 WIB</p>
-                </div>
               </div>
-              </div>
-              <div>
-              <p style={{color: "#00395E"}}>Monday, November 21</p> <hr />
-              <div className='row'>
-                <div className='col-sm-3'>
-                  <img src={Group1} />
-                </div>
-                <div className='col-sm-6'>
-                  <p>09.00 - 13.00 WIB</p>
-                </div>
-              </div>
-              </div>
-              <div>
-              <p style={{color: "#00395E"}}>Monday, November 21</p> <hr />
-              <div className='row'>
-                <div className='col-sm-3'>
-                  <img src={Group1} />
-                </div>
-                <div className='col-sm-6'>
-                  <p>09.00 - 13.00 WIB</p>
-                </div>
-              </div>
-              </div>
-            </div>
-            </div>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
-    </div>
     </div>
     <ManagePatientDoctor />
     </>
