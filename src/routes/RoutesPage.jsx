@@ -4,6 +4,10 @@ import DoctorRegistration from '../pages/DoctorRegistration';
 import PatientRegistration from '../pages/PatientRegistration';
 import Login from '../pages/login/Login';
 import Doctors from '../components/Doctor/Doctors';
+//import Patient from '../pages/Patient';
+import LandingPage from '../pages/LandingPage';
+import ManageDoctor from '../pages/Patient';
+import AboutUs from '../pages/AboutUs';
 import Patient from '../components/ListPasien/Patients';
 import ManageDoctor from '../components/Doctor/ManageDoctor';
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -12,6 +16,9 @@ function RoutesPage() {
   return (
     <Router>
       <Routes>
+        {/* <Login />  */}
+        <LandingPage />
+        {/* <AboutUs /> */}
         <Route path="/" element={<Login />} />
 
         <Route path="/Admin" element={<ProtectedRoutes />}>
