@@ -7,6 +7,7 @@ import Doctors from '../components/Doctor/Doctors';
 import Patient from '../components/ListPasien/Patients';
 import ManageDoctor from '../components/Doctor/ManageDoctor';
 import ProtectedRoutes from "./ProtectedRoutes";
+import OutpatientRegistration from "../pages/OutpatientRegistration";
 
 function RoutesPage() {
   return (
@@ -19,6 +20,8 @@ function RoutesPage() {
           <Route path="/Admin/DoctorRegistration" element={<DoctorRegistration />} />
           <Route path="/Admin/PatientList" element={<Patient />} />
           <Route path="/Admin/PatientRegistration" element={<PatientRegistration />} />
+          <Route path="/Admin/PatientEdit/:id" element={<PatientRegistration />} />
+          <Route path="/Admin/Outpatient" element={<OutpatientRegistration />} />
           <Route path="/Admin/ManageDoctor" element={<ManageDoctor />} />
           <Route path="/Admin/DoctorList" element={<Doctors />} />
         </Route>

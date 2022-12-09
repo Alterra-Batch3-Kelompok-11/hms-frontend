@@ -15,7 +15,7 @@ function Dashboard() {
                 <div className='ms-auto d-none d-md-flex'>
                     <div>
                         <img src={Search} className='position-absolute ms-3' style={{ marginTop: "13px" }} />
-                        <input type="search" placeholder='Cari' className='border border-0 ps-5 shadow pe-4' style={{ height: "40px", borderRadius: "20px" }} />
+                        <input type="search" placeholder='Cari' className='border border-0 ps-5 bg-light text-dark shadow pe-4' style={{ height: "40px", borderRadius: "20px" }} />
                     </div>
                     <UserSettingsAndNotification />
                 </div>
