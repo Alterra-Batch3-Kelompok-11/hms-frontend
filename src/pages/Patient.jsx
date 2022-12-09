@@ -1,21 +1,21 @@
 import { useState } from "react";
-import style from "../../styles/TablePasien.module.css";
+import style from "../styles/TablePasien.module.css";
 import Row from "react-bootstrap/Row";
 
-// import NotifIcon from "../../assets/Notification.svg";
-// import UserSettings from "../../assets/UserSettings.svg";
-import Search from "../../assets/Search.svg";
+import NotifIcon from "../assets/Notification.svg";
+import UserSettings from "../assets/UserSettings.svg";
+import Search from "../assets/Search.svg";
 
-import PatientList from "./PatientList";
-import UserSettingsAndNotification from "../UserSettingsAndNotification";
-import DropDown from "./DropDown";
-import ModalButton from "./ModalButton";
+import PatientList from "../components/ListPasien//PatientList";
+import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
+import DropDown from "../components/ListPasien/DropDown";
+import ModalButton from "../components/ListPasien/ModalButton";
 
 const Patient = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
-      <Row style={{ minHeight: "100vh", paddingBottom: "30px" }}>
+      <Row style={{ paddingBottom: "30px" }}>
         <div className="content container-fluid" style={{ width: "1150px" }}>
           <Row>
             <div className="container text-center">
@@ -65,11 +65,10 @@ const Patient = (props) => {
             </div>
           </Row>
           <Row>
-            <div style={{marginLeft:"940px", marginBottom:"25px"}}>
+            <div style={{ marginBottom: "25px" }}>
               <ModalButton />
             </div>
-
-            <div className="container border shadow rounded-control">
+            <div className="container border shadow">
               <div className="table-responsive">
                 <table
                   className="table table-borderless text-center poppins-font"
