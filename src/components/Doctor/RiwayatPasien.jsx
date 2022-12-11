@@ -65,7 +65,7 @@ function RiwayatPasien() {
                                 </div>
                             </div>
                             <div style={{ width: "1000px" }}>
-                                <h5>Data Pasien</h5>
+                                <h5>Riwayat Pemeriksaan</h5>
                                 <div className='mt-3'>
                                     <table>
                                         <tbody>
