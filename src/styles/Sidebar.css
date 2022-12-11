@@ -14,3 +14,9 @@
 .link:hover {
     background:  rgba(151, 171, 187, 0.7);
 }
+
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #00395E;
+}

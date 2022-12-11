@@ -1,18 +1,36 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from '../pages/Dashboard';
-import Sidebar from '../components/Sidebar';
 import DoctorRegistration from '../pages/DoctorRegistration';
-
+import PatientRegistration from '../pages/PatientRegistration';
+import Login from '../pages/login/Login';
+import Doctors from '../components/Doctor/Doctors';
+import ManageDoctor from '../components/Doctor/ManageDoctor';
+import ProtectedRoutes from "./ProtectedRoutes";
+import OutpatientRegistration from "../pages/OutpatientRegistration";
+import LandingPage from '../pages/LandingPage';
+import AboutUs from '../pages/AboutUs';
+import Patient from "../pages/Patient";
 function RoutesPage() {
   return (
-    <Row>
-        <Sidebar />
-        <Col xs={6} md>
-            {/* <Dashboard /> */}
-            <DoctorRegistration />
-        </Col>
-    </Row>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/Admin" element={<ProtectedRoutes />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/Admin/DoctorRegistration" element={<DoctorRegistration />} />
+          <Route path="/Admin/PatientList" element={<Patient />} />
+          <Route path="/Admin/PatientRegistration" element={<PatientRegistration />} />
+          <Route path="/Admin/PatientEdit/:id" element={<PatientRegistration />} />
+          <Route path="/Admin/Outpatient" element={<OutpatientRegistration />} />
+          <Route path="/Admin/ManageDoctor" element={<ManageDoctor />} />
+          <Route path="/Admin/DoctorList" element={<Doctors />} />
+        </Route>
+
+      </Routes>
+    </Router>
   )
 }
 
