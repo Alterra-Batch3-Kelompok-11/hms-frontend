@@ -30,7 +30,7 @@ function Sidebar() {
             height: "48px",
             width: "52px",
             marginTop: "18px",
-            marginLeft: "5px",
+            marginLeft: "5px"
           }}
         />
         <h2
