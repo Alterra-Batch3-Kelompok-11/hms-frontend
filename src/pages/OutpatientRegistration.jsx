@@ -7,12 +7,12 @@ import { useLocation, useParams } from "react-router-dom";
 import instance from "../API/AxiosInstance";
 import { useState } from "react";
 
-function PatientRegistration() {
+function OutpatientRegistration() {
     const [data, setData] = useState([])
     const location = useLocation()
     // const { name } = location.state
     const id = useParams();
-    instance.get('v1/religions')
+    instance.get('v1/doctors/today')
      .then(res => setData(res.data.data))
      .catch(err => console.log(err))
     
@@ -28,8 +28,8 @@ function PatientRegistration() {
     <div className='me-md-5 ms-md-4 ms-3 me-0' style={{ color: "rgba(0, 57, 94, 1)" }}>
         <Row className='my-5'>
             <Col className='d-block d-md-flex'>
-                <div style={{ width: "12vw"}}>
-                    <h3>Registrasi Pasien</h3>
+                <div style={{ width: "16vw"}}>
+                    <h3>Registrasi Rawat Jalan</h3>
                     <div style={{ height: "2px", backgroundColor: "rgba(0, 57, 94, 1)" }} />
                 </div>
                 <div className='ms-auto d-none d-md-flex'>
@@ -51,13 +51,17 @@ function PatientRegistration() {
                     <Form.Label>Nomor Hp</Form.Label>
                     <Form.Control type="number" />
                 </div>
-                <div className='mb-5'>
-                    <Form.Label>Agama</Form.Label>
+                <div className='mb-2'>
+                    <Form.Label>Dokter PJ</Form.Label>
                     <Form.Select aria-label="Default select example">
-                        { data?.map(item => (
+                        {/* { data?.map(item => (
                             <option key={item.id} value={item.name}>{item.name}</option>
-                        )) }
+                        )) } */}
                     </Form.Select>
+                </div>
+                <div className='mb-5'>
+                    <Form.Label>Keluhan</Form.Label>
+                    <Form.Control type="number" />
                 </div>
                 
                 <Button variant="primary" type="submit">
@@ -81,13 +85,8 @@ function PatientRegistration() {
                     </Form.Select>
                 </div>
                 <div className='mb-2'>
-                    <Form.Label>Status Perkawinan</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                        <option value="belumKawin">Belum Kawin</option>
-                        <option value="kawin">Kawin</option>
-                        <option value="ceraiHidup">Cerai Hidup</option>
-                        <option value="ceraiMati">Cerai Mati</option>
-                    </Form.Select>
+                    <Form.Label>Waktu</Form.Label>
+                    <Form.Control type="time" />
                 </div>
             </Col>
         </Row>
@@ -95,4 +94,4 @@ function PatientRegistration() {
   )
 }
 
-export default PatientRegistration
+export default OutpatientRegistration
