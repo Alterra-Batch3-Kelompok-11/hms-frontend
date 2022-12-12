@@ -1,16 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import Slider from "react-slick";
-import astronaut from "./testing/astronaut.png";
-import celebrating from "./testing/celebrating.png";
-import education from "./testing/education.png";
-import taken from "./testing/taken.png";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/Io";
 import CustomerList from "./CustomerList";
 import NextArrow from "../../assets/LandingPage/NextArrow.svg";
 import PrevArrow from "../../assets/LandingPage/PrevArrow.svg";
-
-const images = [astronaut, celebrating, education, taken];
 
 function App() {
   const NextArrow = ({ onClick }) => {
