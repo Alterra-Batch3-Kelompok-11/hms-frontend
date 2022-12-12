@@ -4,11 +4,21 @@ import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
 import ManagePatientDoctor from './ManagePatientDoctor';
 
 const ManageDoctor = () => {
-  const [openPopup, setOpenPopup] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [tempdata, setTempdata] = useState([]);
+  
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
-    <div className='container-fluid'>
+      {showModal && <ManagePatientDoctor closeModal={handleCloseModal} />}
+      <div className='container-fluid'>
         <div className="content container" style={{ width: "1150px" }}>
             <div className="container text-center">
             <div
@@ -47,7 +57,7 @@ const ManageDoctor = () => {
                                 <td>09.00 WIB - 13.00 WIB</td>
                               </tr>
                             </table>
-                            <button onClick={() => setOpenPopup(true)} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
+                            <button onClick={handleShowModal} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
                             padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
                             Lihat Details
                             </button>
@@ -133,7 +143,6 @@ const ManageDoctor = () => {
           </div>
         </div>
     </div>
-    <ManagePatientDoctor />
     </>
   )
 }
