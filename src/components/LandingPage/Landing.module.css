@@ -37,8 +37,6 @@
   );
 }
 
-.absolute {
-  position: absolute;
-  left: 0;
-  right: 0;
+.marginB{
+  margin-bottom: 500px;
 }
