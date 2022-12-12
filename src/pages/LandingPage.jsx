@@ -6,6 +6,7 @@ import Services from "../components/LandingPage/Services";
 import Statistic from "../components/LandingPage/Statistic";
 import Download from "../components/LandingPage/Download";
 import About from "../components/LandingPage/About";
+import CustomerComment from "../components/LandingPage/CustomerComment";
 
 
 function LandingPage() {
@@ -17,6 +18,7 @@ function LandingPage() {
       <Personal />
       <Statistic />
       <Download /> 
+      <CustomerComment />
     </div>
   );
 }
