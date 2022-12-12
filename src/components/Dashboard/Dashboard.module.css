@@ -1,0 +1,25 @@
+.NoWidth{
+    min-width: 50px;
+    max-width: 60px;
+}
+
+.NamaUsiaWidth{
+    min-width: 108px;
+    max-width: 108px;
+}
+
+.KeluhanWidth{
+    min-width: 220px;
+    max-width: 220px;
+}
+
+.JadwalWidth{
+    min-width: 145px;
+    max-width: 145px;
+}
+
+.border{
+    border-radius: 20px;
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+}

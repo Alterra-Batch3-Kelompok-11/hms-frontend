@@ -18,6 +18,7 @@ const ManagePatientDoctor = () => {
   }
 
   return (
+<<<<<<< HEAD
     <ModalWrapper>
       <form ref={(node) => (myRef = node) }>
       <div>
@@ -83,6 +84,9 @@ const ManagePatientDoctor = () => {
         </div>       
       </form>
     </ModalWrapper>
+=======
+    
+>>>>>>> main
   )
 }
 

@@ -8,6 +8,7 @@ import { useState } from "react";
 import DropDown from "./DropDown";
 import Row from "react-bootstrap/Row";
 import UserSettingsAndNotification from "../UserSettingsAndNotification";
+import Button from 'react-bootstrap/Button';
 
 const Patient = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,7 +43,7 @@ const Patient = (props) => {
                   <input
                     type="search"
                     placeholder="Cari"
-                    className="border border-0 ps-5 shadow bg-light text-dark"
+                    className="border border-0 ps-5 shadow bg-light text-dark pe-4"
                     style={{
                       height: "40px",
                       borderRadius: "20px",
@@ -57,6 +58,18 @@ const Patient = (props) => {
               </div>
             </div>
           </div>
+          </Row>
+          <Row className="mb-5">
+            <div className="col"></div>
+            <div className="col"></div>
+
+            <div className="ms-auto" style={{width: "160px"}}>
+              <a href="/Admin/PatientRegistration">
+                <Button variant="primary">
+                  Tambah Pasien
+                </Button>
+              </a>
+            </div>
           </Row>
           <Row>
           <div className="container border shadow rounded-control">

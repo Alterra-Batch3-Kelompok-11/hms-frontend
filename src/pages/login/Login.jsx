@@ -2,30 +2,28 @@ import React, { useState, useRef } from 'react'
 import styles from './styles.module.css'
 import img from './bg-login.png'
 import instance from '../../API/AxiosInstance' 
+import { useNavigate } from "react-router-dom";
+import { Auth } from '../../utils/Auth';
 
 
 function Login() {
     const [err, setErr] = useState("")
     const username = useRef(null)
     const password = useRef(null)
-
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        // console.log(username.current?.value)
-        // console.log(password.current?.value)
 
         instance.post('v1/login', {
             username: username.current?.value,
             password: password.current?.value
         })
         .then(function (response) {
-            console.log(response);
+            Auth.storeUserInfoToCookie(response.data.data.token, navigate)
         })
         .catch(function (error) {
-            // setErr("Username atau password yang dimasukkan salah. Mohon periksa kembali.")
-            console.log(error);
+            setErr("Username atau password yang dimasukkan salah. Mohon periksa kembali.")
         });
     }
     

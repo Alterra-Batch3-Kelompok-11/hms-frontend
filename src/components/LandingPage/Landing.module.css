@@ -1,0 +1,42 @@
+.bgHeader {
+  background-image: url("../../assets/LandingPage/BgHeader.svg");
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.bgBody {
+  background-image: url("../../assets/LandingPage/BgBody.svg");
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.bgAbout {
+  background-image: url("../../assets/LandingPage/BgAbout.svg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: auto;
+}
+
+.gradientText {
+  text-align: center;
+  background: -webkit-linear-gradient(to right, #2b2b2b, #0084db);
+  background: linear-gradient(to right, #2b2b2b, #0084db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.textShadow {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+.bgDownload {
+  background: linear-gradient(
+    242.52deg,
+    #d7eeea 0%,
+    rgba(215, 238, 234, 0) 132.7%
+  );
+}
+
+.marginB{
+  margin-bottom: 500px;
+}
