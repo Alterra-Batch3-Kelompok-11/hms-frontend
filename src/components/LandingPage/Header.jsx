@@ -3,8 +3,8 @@ import style from "./Landing.module.css";
 
 function Header() {
   return (
-    <header className={style.bgHeader}>
-      <div className="">
+    <header className={` sticky-top ${style.bgHeader}`}>
+      <div>
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a
