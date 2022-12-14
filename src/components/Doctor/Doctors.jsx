@@ -47,12 +47,8 @@ const Doctors = (props) => {
               <a href="#"><img src={UserSettings} alt="img" /></a>
             </div>
           </div>
-<<<<<<< HEAD
           <button type="button" href="#" class="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "flex", 
           alignItems: "center", padding: "10px", gap: "10px", align:"right", float:"right"}}>Tambah Dokter</button>
-=======
-          <button type="button" href="#" className="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
->>>>>>> main
           </div>
           <div className={styles.home}>  
           {DoctorList.filter((val) => {

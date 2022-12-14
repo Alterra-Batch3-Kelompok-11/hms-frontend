@@ -23,11 +23,7 @@ const ManageDoctor = () => {
             <div className="container text-center">
             <div
                 className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
-<<<<<<< HEAD
                 style={{ marginTop: "41px", marginBottom: "10px" }}
-=======
-                style={{ marginTop: "41px", marginBottom: "41px" }}
->>>>>>> main
             >
             <div className="col">
               <h3
@@ -48,7 +44,6 @@ const ManageDoctor = () => {
                         <div className='col-sm-4'>
                             <img src={Ellipse2} style={{padding:"30px", width: "227px", height: "228px"}} />
                         </div>
-<<<<<<< HEAD
                         <div className='col-sm-8' style={{fontFamily:"Poppins", padding:"30px", color: "#00395E", paddingLeft:"78px"}}>
                             <h3 style={{fontWeight:"600", fontSize: "30px", lineHeight: "50px"}}>Dr. Bones</h3>
                             <p style={{fontWeight:"400", fontSize: "18px", lineHeight: "25px"}}>9824820130492</p>
@@ -66,22 +61,6 @@ const ManageDoctor = () => {
                             padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
                             Lihat Details
                             </button>
-=======
-                        <div className='col'>
-                            <h3>Dr. Bones</h3>
-                            <p>9824820130492</p>
-                            <p>Spesialist : Dokter Gigi</p>
-                            <tr>
-                              <td>Jadwal:</td>
-                              <td>Senin - Kamis</td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <td>09.00 - 13.00 WIB</td>
-                            </tr>
-                            <button type="button" className="btn btn-light">Hapus Data</button>
-                            <button type="button" className="btn btn-primary">Lihat Detail</button>
->>>>>>> main
                         </div>
                         </div>
                 </div>

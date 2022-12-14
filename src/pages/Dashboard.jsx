@@ -1,23 +1,11 @@
-<<<<<<< HEAD
-import react from "react"
-import SideBar from "../components/SideBar/SideBar";
-=======
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Search from "../assets/Search.svg";
 import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
 import ListPasienDashboard from "../components/Dashboard/ListPasienOnDashboard";
->>>>>>> main
 
-export default function Dashboard() {
+function Dashboard() {
   return (
-<<<<<<< HEAD
-    <>
-      <SideBar />
-    </>
-  );
-}
-=======
     <div
       className="me-md-5 ms-md-4 ms-3 me-0"
       style={{ color: "rgba(0, 57, 94, 1)" }}
@@ -167,4 +155,3 @@ export default function Dashboard() {
 }
 
 export default Dashboard;
->>>>>>> main
