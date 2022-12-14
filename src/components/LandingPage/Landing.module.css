@@ -17,6 +17,13 @@
   height: auto;
 }
 
+.bgAboutHospital {
+  background-image: url("../../assets/LandingPage/Hospital2.svg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: auto;
+}
+
 .gradientText {
   text-align: center;
   background: -webkit-linear-gradient(to right, #2b2b2b, #0084db);
