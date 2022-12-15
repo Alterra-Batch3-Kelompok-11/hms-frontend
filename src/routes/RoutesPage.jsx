@@ -11,6 +11,7 @@ import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import Patient from "../pages/Patient";
 import RiwayatPasien from "../components/Doctor/RiwayatPasien";
+import Download from "../pages/Download";
 
 function RoutesPage() {
   return (
@@ -19,6 +20,7 @@ function RoutesPage() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/download" element={<Download />} />
 
         <Route path="/Admin" element={<ProtectedRoutes />}>
           <Route index element={<Dashboard />} />

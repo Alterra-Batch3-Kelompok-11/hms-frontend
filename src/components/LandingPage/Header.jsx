@@ -41,9 +41,9 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link mt-2 mx-4">
+                <a href="/download" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>
-                    CONTACT US
+                    DOWNLOAD
                   </h2>
                 </a>
               </li>
