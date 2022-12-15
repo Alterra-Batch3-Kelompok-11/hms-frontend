@@ -17,7 +17,7 @@ function Sidebar() {
   return (
     <Col
       xs={2}
-      className="shadow sidebar"
+      className="shadow sidebar sticky-top"
       style={{ color: "#00395E", height: "98vh", paddingRight: "0px" }}
     >
       <div
