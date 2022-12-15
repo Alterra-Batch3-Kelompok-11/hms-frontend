@@ -10,6 +10,8 @@ import OutpatientRegistration from "../pages/OutpatientRegistration";
 import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import Patient from "../pages/Patient";
+import RiwayatPasien from "../components/Doctor/RiwayatPasien";
+
 function RoutesPage() {
   return (
     <Router>
@@ -27,6 +29,7 @@ function RoutesPage() {
           <Route path="/Admin/Outpatient" element={<OutpatientRegistration />} />
           <Route path="/Admin/ManageDoctor" element={<ManageDoctor />} />
           <Route path="/Admin/DoctorList" element={<Doctors />} />
+          <Route path="/Admin/RiwayatPasien" element={<RiwayatPasien />} />
         </Route>
 
       </Routes>
