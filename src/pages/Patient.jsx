@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "../styles/TablePasien.module.css";
 import Row from "react-bootstrap/Row";
 
@@ -9,10 +9,21 @@ import Search from "../assets/Search.svg";
 import PatientList from "../components/ListPasien//PatientList";
 import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
 import DropDown from "../components/ListPasien/DropDown";
-import ModalButton from "../components/ListPasien/ModalButton";
+import ModalButton from "../components/ListPasien/TambahPasien";
+import instance from "../API/AxiosInstance";
 
 const Patient = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [data, setData] = useState([])
+  const d = new Date();
+  let year = d.getFullYear();
+
+  useEffect(() => {
+    instance.get('patients')
+    .then((res) => setData(res.data.data))
+    .catch((err) => console.log(err))
+  }, [])
+
   return (
     <>
       <Row style={{ paddingBottom: "30px" }}>
@@ -161,11 +172,11 @@ const Patient = (props) => {
                       </tr>
                     </thead>
                   </div>
-                  {PatientList.filter((val) => {
+                  {data?.filter((val) => {
                     if (searchTerm === "") {
                       return val;
                     } else if (
-                      val.nama.toLowerCase().includes(searchTerm.toLowerCase())
+                      val.name.toLowerCase().includes(searchTerm.toLowerCase())
                     ) {
                       return val;
                     }
@@ -212,7 +223,7 @@ const Patient = (props) => {
                                 paddingBottom: "22px",
                               }}
                             >
-                              {val.nama}
+                              {val.name}
                             </td>
                             <td
                               style={{
@@ -221,7 +232,7 @@ const Patient = (props) => {
                                 paddingBottom: "22px",
                               }}
                             >
-                              {val.usia} tahun
+                              {year - val.birth_date.slice(0, 4)} tahun
                             </td>
                             <td
                               style={{
@@ -231,7 +242,7 @@ const Patient = (props) => {
                                 paddingLeft: "40px",
                               }}
                             >
-                              {val.kelamin}
+                              {val.gender === 1 ? 'Laki - Laki' : 'Perempuan'}
                             </td>
                             <td
                               style={{
@@ -241,7 +252,7 @@ const Patient = (props) => {
                                 paddingLeft: "40px",
                               }}
                             >
-                              {val.hp}
+                              {val.phone}
                             </td>
                             <td
                               style={{
@@ -250,7 +261,7 @@ const Patient = (props) => {
                                 paddingBottom: "22px",
                               }}
                             >
-                              {val.tanggaldaftar}
+                              {val.created_at.slice(0, 10)}
                             </td>
                             <td
                               style={{
@@ -258,7 +269,7 @@ const Patient = (props) => {
                                 paddingBottom: "22px",
                               }}
                             >
-                              <DropDown />
+                              <DropDown id={val.id} />
                             </td>
                           </tr>
                         </tbody>

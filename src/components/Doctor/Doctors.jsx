@@ -7,9 +7,13 @@ import DoctorList from "./DoctorList";
 import { useState } from "react";
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
 import "../Doctor/style.css";
+import TambahDoctorPage from "./TambahDoctor";
+import Button from 'react-bootstrap/Button';
 
 const Doctors = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <>
         <div className="content container" style={{ width: "1150px" }}>
@@ -47,7 +51,12 @@ const Doctors = (props) => {
               <a href="#"><img src={UserSettings} alt="img" /></a>
             </div>
           </div>
-          <button type="button" href="#" className="btn btn-primary" style={{float:"right", width:"150px"}}>Tambah Dokter</button>
+          
+          <Button variant="btn btn-primary" style={{float:"right", width:"150px"}} onClick={() => setModalShow(true)}>
+            Tambah Dokter
+          </Button>
+          
+          <TambahDoctorPage show={modalShow} onHide={() => setModalShow(false)} />
           </div>
           <div className="home">  
           {DoctorList.filter((val) => {
