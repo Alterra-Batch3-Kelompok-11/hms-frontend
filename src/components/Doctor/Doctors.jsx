@@ -1,55 +1,86 @@
 import React from "react";
-import NotifIcon from "../../assets/icons/Notification.svg";
-import UserSettings from "../../assets/icons/UserSettings.svg";
 import Search from "../../assets/icons/Search.svg";
-import "../../assets/style.css";
 import DoctorList from "./DoctorList";
 import { useState } from "react";
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
 import styles from "../Doctor/style.module.css";
+import Row from "react-bootstrap/Row";
+import UserSettingsAndNotification from "../UserSettingsAndNotification";
+import Button from 'react-bootstrap/Button';
+import ModalButton from "./ModalButtonTambah";
+
 
 const Doctors = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <>
-        <div className="content container" style={{ width: "1150px" }}>
-            <div className="container text-center">
+      {showModal && <ModalButton closeModal={handleCloseModal} />}
+      <Row style={{ minHeight: "100vh", paddingBottom:"30px" }}>
+        <div className="content container-fluid" style={{ width: "1150px" }}>
+        <Row>
+          <div className="container text-center">
             <div
-                className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
-                style={{ marginTop: "41px", marginBottom: "41px" }}
+              className="row row-cols-2 row-cols-lg-4 g-2 g-lg-4 d-flex position-relative"
+              style={{ marginTop: "41px", marginBottom: "41px" }}
             >
-            <div className="col">
-              <h3
-                className="poppins-font border-bottom"
-                style={{ fontSize: "30px", fontWeight:"600", borderBottom:  "1px solid #00395E" , lineHeight:"45px" , color: "#00395E", width:"250px" }}
+              <div className="col">
+                <h3
+                  className="poppins-font border-bottom border-3"
+                  style={{ fontSize: "30px", color: "#00395E", width: "200px" }}
+                >
+                  Data Pasien
+                </h3>
+              </div>
+              <div
+                className="ms-auto d-none d-md-flex"
+                style={{ width: "550px" }}
               >
-                Data Dokter
-              </h3>
-            </div>
-            <div className="col" style={{width:"400px", marginLeft:"240px"}}>
-              <div className="input-group">
-                <input
-                  className="search-control shadow me-2 margin-side bg-light ps-4"
-                 
-                  type="search"
-                  placeholder="Cari"
-                  aria-label="Search"
-                  onChange={(event) => {
-                    setSearchTerm(event.target.value);
-                  }}
-                />
+                <div>
+                  <img
+                    src={Search}
+                    className="position-absolute ms-3"
+                    style={{ marginTop: "13px" }}
+                  />
+                  <input
+                    type="search"
+                    placeholder="Cari"
+                    className="border border-0 ps-5 shadow bg-light text-dark pe-4"
+                    style={{
+                      height: "40px",
+                      borderRadius: "20px",
+                      width: "391px",
+                    }}
+                    onChange={(event) => {
+                      setSearchTerm(event.target.value);
+                    }}
+                  />
+                </div>
+                <UserSettingsAndNotification />
               </div>
             </div>
-            <div className="col" style={{width:"80px"}}>
-            <a href="#"><img src={NotifIcon} alt="img" /></a>
-            </div>
-            <div className="col" style={{width:"80px"}}>
-              <a href="#"><img src={UserSettings} alt="img" /></a>
-            </div>
           </div>
-          <button type="button" href="#" class="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "flex", 
-          alignItems: "center", padding: "10px", gap: "10px", align:"right", float:"right"}}>Tambah Dokter</button>
-          </div>
+          </Row>
+          <Row className="mb-5">
+            <div className="col"></div>
+            <div className="col"></div>
+
+            <div className="ms-auto" style={{width: "160px"}}>
+              <p>
+                <Button variant="primary" onClick={handleShowModal}>
+                  Tambah Pasien
+                </Button>
+              </p>
+            </div>
+          </Row>
           <div className={styles.home}>  
           {DoctorList.filter((val) => {
             if (searchTerm === "") {
@@ -81,8 +112,8 @@ const Doctors = (props) => {
                   <br />09.00 - 13.00 WIB</p>
                 </div>    
                 </div>
-                  <p><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
-                  background: "#0071BC", flexDirection: "row", justifyContent:"center", alignItems:"center", padding:"10px", gap:"10px"}}>Lihat Detail</button></p> 
+                  <a href="/Admin/ManageDoctor"><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
+                  background: "#0071BC", flexDirection: "row", justifyContent:"center", alignItems:"center", padding:"10px", gap:"10px"}}>Lihat Detail</button></a> 
              </div>
             </div>
           </div>
@@ -91,6 +122,7 @@ const Doctors = (props) => {
       })}
     </div>  
         </div>
+      </Row>
     </>
   );
 };

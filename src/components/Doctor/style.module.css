@@ -3,13 +3,12 @@
     margin-bottom: 31px;
     width: 520px;
     height: 322px;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 .home {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 50px 0px;
 
 }
 .home .card {

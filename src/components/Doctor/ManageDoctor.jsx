@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
 import ManagePatientDoctor from './ManagePatientDoctor';
+import ModalButtonEdit from './ModalButtonEdit';
+import HisPatient from './HisPatient';
 
 const ManageDoctor = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [tempdata, setTempdata] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   
   const handleShowModal = () => {
     setShowModal(true);
@@ -15,9 +19,18 @@ const ManageDoctor = () => {
     setShowModal(false);
   };
 
+  const handleShowEditModal = () => {
+    setShowEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+  };
+
   return (
     <>
       {showModal && <ManagePatientDoctor closeModal={handleCloseModal} />}
+      {showEditModal && <ModalButtonEdit closeModal={handleCloseEditModal} />}
       <div className='container-fluid'>
         <div className="content container" style={{ width: "1150px" }}>
             <div className="container text-center">
@@ -103,43 +116,55 @@ const ManageDoctor = () => {
                 <td>
                 <h3
                 className="poppins-font border-bottom"
-                style={{ fontSize: "30px", color: "#00395E", width:"250px", marginTop:"-30px"}}
+                style={{ fontSize: "30px", color: "#00395E", width:"250px", marginTop:"20px"}}
               >
                 HIS PATIENTS
               </h3>
                 <div className="card" style={{marginTop:"25px", width:"604px" , boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
-              <table className="table table-nonbordered" style={{color: "#00395E"}}>
-                <thead style={{textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "600", fontSize: "16px", lineHeight: "30px"}}>
-                  <tr>
-                    <th scope='col'>No.</th>
-                    <th scope='col'>Nama</th>
-                    <th scope='col'>Usia(Thn)</th>
-                    <th scope='col'>Keluhan</th>
-                    <th scope='col'>Jadwal Temu</th>
-                  </tr>
-                </thead>
-                <tbody style={{background: "#CCE3F2", borderRadius:"50px", textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "500", fontSize: "14px", lineHeight: "30px"}}>
-                  <tr style={{borderRadius:"20px"}}>
-                    <td>1</td>
-                    <td>Jono</td>
-                    <td>38</td>
-                    <td>Batuk, pilek</td>
-                    <td>17-11-2022</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jono</td>
-                    <td>38</td>
-                    <td>Batuk, pilek</td>
-                    <td>17-11-2022</td>
-                  </tr>
-                </tbody>
-              </table>
+                  <table className="table table-nonbordered" style={{color: "#00395E"}}>
+                    <thead style={{textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "600", fontSize: "16px", lineHeight: "30px"}}>
+                      <tr>
+                        <th scope='col'>No.</th>
+                        <th scope='col'>Nama</th>
+                        <th scope='col'>Usia(Thn)</th>
+                        <th scope='col'>Keluhan</th>
+                        <th scope='col'>Jadwal Temu</th>
+                      </tr>
+                    </thead>
+                    {HisPatient.filter((val) => {
+                    if (searchTerm === "") {
+                      return val;
+                    } else if (
+                      val.nama.toLowerCase().includes(searchTerm.toLowerCase())
+                    ) {
+                      return val;
+                    }
+                    }).map((val, patient) => {
+                    return (
+                      
+                      <tbody key={patient} style={{background: "#CCE3F2", borderRadius:"50px", textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "500", fontSize: "14px", lineHeight: "30px"}}>
+                        <tr style={{borderRadius:"20px"}}>
+                          
+                            <td>{val.id}</td>
+                            <td>{val.name}</td>
+                            <td>{val.usia}</td>
+                            <td>{val.keluhan}</td>
+                            <td>{val.tanggal}</td>
+                        </tr>
+                      </tbody>
+                      
+                    );
+                    })}
+                    </table>
               <p style={{color:"#0071BC", float:"right"}}>Selengkapnya</p>
               </div>
                 </td>
               </tr>
             </table>
+            <button onClick={handleShowEditModal} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
+              padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px", float:'right', marginRight:'45px'}}>
+              Edit Data
+            </button>
           </div>
         </div>
     </div>

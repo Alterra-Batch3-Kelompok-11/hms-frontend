@@ -23,9 +23,14 @@ function DropDown() {
     <li><a className="dropdown-item" style={{color:"#00395E"}} href="#">Hapus Data</a></li>
     <li><hr className="dropdown-divider"></hr></li>
     <li>
-      <Link className="text-decoration-none" to={'/Admin/Outpatient'}>
+      <a
+        className="text-decoration-none"
+        to={`/Admin/RiwayatPatient/${id}`}
+        state={{
+          name: "hafizh"
+        }}>
         <span className="dropdown-item" style={{color:"#00395E"}}>Riwayat Pasien</span>
-      </Link>
+      </a>
     </li>
     <li><hr className="dropdown-divider"></hr></li>
     <li><a className="dropdown-item" style={{color:"#00395E"}} href="#">+ Rawat Jalan</a></li>

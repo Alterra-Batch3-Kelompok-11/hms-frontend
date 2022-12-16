@@ -1,10 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ModalWrapper } from './style';
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 import { BiPencil } from 'react-icons/bi';
 import { AiOutlineClose } from "react-icons/ai";
+import ModalButtonEdit from './ModalButtonEdit';
 
 const ManagePatientDoctor = () => {
+  const [showEditModal, setShowEditModal] = useState(false);
+  
+  const handleShowEditModal = () => {
+    setShowEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+  };
+
   let myRef;
 
   useEffect(() => {
@@ -19,9 +30,10 @@ const ManagePatientDoctor = () => {
 
   return (
     <ModalWrapper>
+      {showEditModal && <ModalButtonEdit closeModal={handleCloseEditModal} />}
       <form ref={(node) => (myRef = node) }>
       <div>
-      <button onClick={closeManageModal} style={{float:'right', background:'#DDDDDD'}}><AiOutlineClose/></button>
+      <button onClick={closeManageModal} style={{alignItems:'right', background:'#DDDDDD'}}><AiOutlineClose/></button>
       </div>
         <div className='row'>
           <div className='col-sm-4' style={{fontFamily: 'Poppins'}}>
@@ -75,7 +87,7 @@ const ManagePatientDoctor = () => {
             padding: "10px", gap: "10px", borderRadius:"10px"}}>
             Kirim Data
             </button>
-            <button  type="button" className="btn btn-light" style={{display: "flex", flexDirection: "row", justifyContent: "center", 
+            <button onClick={handleShowEditModal} type="button" className="btn btn-light" style={{display: "flex", flexDirection: "row", justifyContent: "center", 
             padding: "10px", gap: "10px", borderRadius:"10px", marginLeft:"20px", color:"#00395E", border:"1px solid #00395E"}}>
             <span><BiPencil/></span>Edit
             </button>
