@@ -1,16 +1,16 @@
 import "./App.css";
 import { useState } from "react";
-import Slider from "react-slick";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/Io";
+// import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/Io";
 import CustomerList from "./CustomerList";
 import NextArrow from "../../assets/LandingPage/NextArrow.svg";
 import PrevArrow from "../../assets/LandingPage/PrevArrow.svg";
+// import Slider from "react-slick";
 
 function App() {
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next bg-transparent mt-5" onClick={onClick}>
-        <IoMdArrowDropright style={{ color: "#0071BC", fontSize: "80px" }} />
+        {/* <IoMdArrowDropright style={{ color: "#0071BC", fontSize: "80px" }} /> */}
       </div>
     );
   };
@@ -18,7 +18,7 @@ function App() {
   const PrevArrow = ({ onClick }) => {
     return (
       <div className="arrow prev bg-transparent mt-5" onClick={onClick}>
-        <IoMdArrowDropleft style={{ color: "#0071BC", fontSize: "80px" }} />
+        {/* <IoMdArrowDropleft style={{ color: "#0071BC", fontSize: "80px" }} /> */}
       </div>
     );
   };
@@ -49,16 +49,16 @@ function App() {
           What Our <span style={{ color: "#0071BC" }}>Customer</span> Say
         </h1>
       </div>
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {CustomerList.map((val, idx) => (
           <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
             <div
-              class="card position-absolute top-50 translate-middle shadow mt-5"
+              className="card position-absolute top-50 translate-middle shadow mt-5"
               style={{ width: "664px", height: "337px", marginLeft: "0px" }}
             >
               <img
                 src={val.images}
-                class="card-img-top"
+                className="card-img-top"
                 alt="img"
                 style={{
                   height: "120px",
@@ -69,13 +69,13 @@ function App() {
                 }}
               ></img>
               <h1 style={{ fontSize: "36px" }}>{val.nama}</h1>
-              <div class="card-body" style={{ margin: "0px 65px" }}>
-                <p class="card-text">{val.komentar}</p>
+              <div className="card-body" style={{ margin: "0px 65px" }}>
+                <p className="card-text">{val.komentar}</p>
               </div>
             </div>
           </div>
         ))}
-      </Slider>
+      </Slider> */}
     </div>
   );
 }
