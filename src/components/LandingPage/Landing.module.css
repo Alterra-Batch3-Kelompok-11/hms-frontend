@@ -47,3 +47,10 @@
 .marginB{
   margin-bottom: 500px;
 }
+
+.gradient {
+  text-align: center;
+  background: linear-gradient(to top, #2b2b2b, #0084db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
