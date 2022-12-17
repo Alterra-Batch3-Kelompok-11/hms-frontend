@@ -98,7 +98,7 @@ function Download() {
                         borderRadius: "0px 0px 20px 20px",
                         padding: "30px",
                         width: "330px"}}>
-                        <h4 style={{fontWeight: "bold"}}>--Scedule--</h4>
+                        <h4 style={{fontWeight: "bold"}}>--Schedule--</h4>
                         <p>You can see what your schedule is today</p>
                     </div>
                 </div>
