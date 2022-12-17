@@ -1,5 +1,6 @@
 import react from "react";
 import Header from "../components/LandingPage/Header";
+import Footer from "../components/LandingPage/Footer";
 import Landing from "../components/LandingPage/Landing";
 import Personal from "../components/LandingPage/MedicalPersonal";
 import Services from "../components/LandingPage/Services";
@@ -18,6 +19,7 @@ function LandingPage() {
       <Statistic />
       <Download /> 
       <CustomerComment />
+      <Footer />
     </div>
   );
 }

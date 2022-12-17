@@ -1,9 +1,10 @@
 import logo from "../../assets/logoText.svg";
 import style from "./Landing.module.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className={` sticky-top ${style.bgHeader}`}>
+    <header className={` ${style.bgHeader}`}>
       <div>
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -21,37 +22,36 @@ function Header() {
 
             <ul
               className="nav col-12 col-lg-auto justify-content-center text-small"
-              style={{ color: "#00395E" }}
             >
               <li>
-                <a href="/" className="nav-link mt-2 mx-4">
+                <Link to="/" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>HOME</h2>
-                </a>
-              </li>
-              <li style={{ color: "#00395E" }}>
-                <a href="/aboutUs" className="nav-link mt-2 mx-4">
-                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>ABOUT</h2>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nav-link mt-2 mx-4">
+                <Link to="/aboutUs" className="nav-link mt-2 mx-4">
+                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>ABOUT</h2>
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>
                     SERVICES
                   </h2>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="nav-link mt-2 mx-4">
+                <Link to="#" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>
-                    CONTACT US
+                    DOWNLOAD
                   </h2>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/login" className="nav-link">
+                <Link to="/login" className="nav-link">
                   <div>
                     <h2
-                    className="text-sm-start py-2 px-3 mx-4"
+                      className="text-sm-start py-2 px-3 mx-4"
                       style={{
                         color: "#00395E",
                         fontSize: "24px",
@@ -64,7 +64,7 @@ function Header() {
                       Login
                     </h2>
                   </div>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

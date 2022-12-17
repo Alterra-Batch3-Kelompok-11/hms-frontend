@@ -30,20 +30,20 @@ function service() {
             medical personel
           </p>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="col">
             <div
-              class="card"
+              className="card"
               style={{
                 backgroundColor: "#EBF2F9",
                 width: "266px",
                 height: "325px",
               }}
             >
-              <img src={Teeth} class="card-img-top" alt="..."></img>
-              <div class="card-body">
+              <img src={Teeth} className="card-img-top" alt="..."></img>
+              <div className="card-body">
                 <h5
-                  class="card-title d-flex justify-content-center"
+                  className="card-title d-flex justify-content-center"
                   style={{ fontSize: "24px", color: "#00395E" }}
                 >
                   Dental Health
@@ -51,19 +51,19 @@ function service() {
               </div>
             </div>
           </div>
-          <div class="col">
+          <div className="col">
             <div
-              class="card"
+              className="card"
               style={{
                 backgroundColor: "#EBF2F9",
                 width: "266px",
                 height: "325px",
               }}
             >
-              <img src={Lungs} class="card-img-top" alt="..."></img>
-              <div class="card-body">
+              <img src={Lungs} className="card-img-top" alt="..."></img>
+              <div className="card-body">
                 <h5
-                  class="card-title d-flex justify-content-center"
+                  className="card-title d-flex justify-content-center"
                   style={{ fontSize: "24px", color: "#00395E" }}
                 >
                   Pulmonary Lungs
@@ -71,19 +71,19 @@ function service() {
               </div>
             </div>
           </div>
-          <div class="col">
+          <div className="col">
             <div
-              class="card"
+              className="card"
               style={{
                 backgroundColor: "#EBF2F9",
                 width: "266px",
                 height: "325px",
               }}
             >
-              <img src={Family} class="card-img-top" alt="..."></img>
-              <div class="card-body">
+              <img src={Family} className="card-img-top" alt="..."></img>
+              <div className="card-body">
                 <h5
-                  class="card-title d-flex justify-content-center"
+                  className="card-title d-flex justify-content-center"
                   style={{ fontSize: "24px", color: "#00395E" }}
                 >
                   Family Medical
@@ -91,19 +91,19 @@ function service() {
               </div>
             </div>
           </div>
-          <div class="col">
+          <div className="col">
             <div
-              class="card"
+              className="card"
               style={{
                 backgroundColor: "#EBF2F9",
                 width: "266px",
                 height: "325px",
               }}
             >
-              <img src={Consultation} class="card-img-top" alt="..."></img>
-              <div class="card-body">
+              <img src={Consultation} className="card-img-top" alt="..."></img>
+              <div className="card-body">
                 <h5
-                  class="card-title d-flex justify-content-center"
+                  className="card-title d-flex justify-content-center"
                   style={{ fontSize: "24px", color: "#00395E" }}
                 >
                   Consultation
@@ -111,19 +111,19 @@ function service() {
               </div>
             </div>
           </div>
-          <div class="col">
+          <div className="col">
             <div
-              class="card"
+              className="card"
               style={{
                 backgroundColor: "#EBF2F9",
                 width: "266px",
                 height: "325px",
               }}
             >
-              <img src={Orthopedic} class="card-img-top" alt="..."></img>
-              <div class="card-body">
+              <img src={Orthopedic} className="card-img-top" alt="..."></img>
+              <div className="card-body">
                 <h5
-                  class="card-title d-flex justify-content-center"
+                  className="card-title d-flex justify-content-center"
                   style={{ fontSize: "24px", color: "#00395E" }}
                 >
                   Orthopedic

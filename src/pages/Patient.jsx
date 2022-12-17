@@ -91,7 +91,7 @@ const Patient = (props) => {
   }
 
   const handleLoadMore = () => {
-    setitemsPerPage(itemsPerPage + 99999999);
+    setitemsPerPage(itemsPerPage + 999999);
   };
 
   const renderData = (data) => {
@@ -122,13 +122,13 @@ const Patient = (props) => {
                   <tr>
                     <th
                       scope="row"
-                      className={style.counterCell}
+                      // className={style.counterCell}
                       style={{
                         minWidth: "80px",
                         maxWidth: "80px",
                       }}
                     >
-                      .
+                      {todo.id}.
                     </th>
                     <td
                       style={{
@@ -364,11 +364,11 @@ const Patient = (props) => {
               className="border mt-4 container text-center"
               style={{ width: "1150px", float: "right" }}
             >
-              <div class="row" style={{ marginTop: "24px" }}>
-                <div class="col-md-4">
+              <div className="row" style={{ marginTop: "24px" }}>
+                <div className="col-md-4">
                   <h4>Data 1 - 6 dari 20 Halaman</h4>
                 </div>
-                <div class="col-md-4 ms-auto">
+                <div className="col-md-4 ms-auto">
                   <ul className="pageNumbers">
                     <li>
                       <button onClick={handleLoadMore} className="loadmore">

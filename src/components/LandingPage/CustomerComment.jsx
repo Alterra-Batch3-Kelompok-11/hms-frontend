@@ -29,7 +29,7 @@ function App() {
     infinite: true,
     lazyLoad: true,
     speed: 300,
-    slidesToShow: 2,
+    slidesToShow: 3,
     centerMode: true,
     centerPadding: 0,
     nextArrow: <NextArrow />,
@@ -39,38 +39,35 @@ function App() {
 
   return (
     <div className="App mt-5 text-center container">
-      <div style={{ width: "467px", fontSize: "38px", marginLeft: "400px" }}>
-        <h1
-          style={{ color: "#CECECE", position: "absolute", marginLeft: "3px" }}
-        >
-          What Our Customer Say
-        </h1>
-        <h1 style={{ position: "absolute", marginTop: "7px" }}>
+      <div>
+        <h1 style={{ marginTop: "7px" }}>
           What Our <span style={{ color: "#0071BC" }}>Customer</span> Say
         </h1>
       </div>
       <Slider {...settings}>
         {CustomerList.map((val, idx) => (
-          <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-            <div
-              class="card position-absolute top-50 translate-middle shadow mt-5"
-              style={{ width: "664px", height: "337px", marginLeft: "0px" }}
-            >
-              <img
-                src={val.images}
-                class="card-img-top"
-                alt="img"
-                style={{
-                  height: "120px",
-                  width: "120px",
-                  borderRadius: "50%",
-                  marginTop: "23px",
-                  marginBottom: "14px",
-                }}
-              ></img>
-              <h1 style={{ fontSize: "36px" }}>{val.nama}</h1>
-              <div class="card-body" style={{ margin: "0px 65px" }}>
-                <p class="card-text">{val.komentar}</p>
+          <div>
+            <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+              <div
+                className="card top-50 translate-middle shadow mt-5"
+                style={{ width: "664px", height: "337px", marginLeft: "-90px" }}
+              >
+                <img
+                  src={val.images}
+                  className="card-img-top"
+                  alt="img"
+                  style={{
+                    height: "120px",
+                    width: "120px",
+                    borderRadius: "50%",
+                    marginTop: "23px",
+                    marginBottom: "14px",
+                  }}
+                ></img>
+                <h1 style={{ fontSize: "36px" }}>{val.nama}</h1>
+                <div className="card-body" style={{ margin: "0px 65px" }}>
+                  <p className="card-text">{val.komentar}</p>
+                </div>
               </div>
             </div>
           </div>
