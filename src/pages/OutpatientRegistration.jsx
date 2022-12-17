@@ -12,7 +12,7 @@ function OutpatientRegistration() {
     const location = useLocation()
     // const { name } = location.state
     const id = useParams();
-    instance.get('v1/doctors/today')
+    instance.get('doctors/today')
      .then(res => setData(res.data.data))
      .catch(err => console.log(err))
     
@@ -54,9 +54,9 @@ function OutpatientRegistration() {
                 <div className='mb-2'>
                     <Form.Label>Dokter PJ</Form.Label>
                     <Form.Select aria-label="Default select example">
-                        {/* { data?.map(item => (
+                        { data?.map(item => (
                             <option key={item.id} value={item.name}>{item.name}</option>
-                        )) } */}
+                        )) }
                     </Form.Select>
                 </div>
                 <div className='mb-5'>

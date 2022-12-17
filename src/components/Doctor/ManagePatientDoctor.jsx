@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ModalWrapper } from './style';
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
-import { BiPencil } from 'react-icons/bi';
-import { AiOutlineClose } from "react-icons/ai";
+// import { BiPencil } from 'react-icons/bi';
+// import { AiOutlineClose } from "react-icons/ai";
 import ModalButtonEdit from './ModalButtonEdit';
 
 const ManagePatientDoctor = () => {
@@ -80,9 +80,9 @@ const ManagePatientDoctor = () => {
               </table>
           </div>
         </div>
-        <div class="button-group" style={{fontFamily: 'Poppins',marginTop:"30px", marginBottom:'30px'}}>
+        <div className="button-group" style={{fontFamily: 'Poppins',marginTop:"30px", marginBottom:'30px'}}>
           <p style={{fontSize:"10px", fontStyle:"italic", marginLeft:'25px'}}>Data akan dikirim melalui email</p>
-          <div class="button" style={{display:"flex", padding:'0px 25px', marginTop:"-15px"}}>
+          <div className="button" style={{display:"flex", padding:'0px 25px', marginTop:"-15px"}}>
             <button  type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
             padding: "10px", gap: "10px", borderRadius:"10px"}}>
             Kirim Data

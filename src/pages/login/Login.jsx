@@ -12,19 +12,26 @@ function Login() {
     const password = useRef(null)
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        instance.post('v1/login', {
-            username: username.current?.value,
-            password: password.current?.value
-        })
-        .then(function (response) {
-            Auth.storeUserInfoToCookie(response.data.data.token, navigate)
-        })
-        .catch(function (error) {
-            setErr("Username atau password yang dimasukkan salah. Mohon periksa kembali.")
-        });
+        try {
+            const data = await instance.post('v1/login', {
+                username: username.current?.value,
+                password: password.current?.value
+            })
+            .then(function (response) {
+                return response.data.data
+            })
+            .catch(function (error) {
+                setErr("Username atau password yang dimasukkan salah. Mohon periksa kembali.")
+            });
+
+            Auth.storeUserInfoToCookie(data.token, navigate)
+
+        } catch (error) {
+            console.log(error)
+        }
     }
     
     return (
