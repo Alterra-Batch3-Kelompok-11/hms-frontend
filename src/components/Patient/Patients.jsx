@@ -2,6 +2,7 @@ import React from "react";
 import NotifIcon from "../../assets/Notification.svg";
 import UserSettings from "../../assets/UserSettings.svg";
 import Search from "../../assets/Search.svg";
+import "../../styles/style.css";
 import PatientList from "./PatientList";
 import { useState } from "react";
 import DropDown from "./DropDown";

@@ -16,7 +16,7 @@ function Login() {
         e.preventDefault()
 
         try {
-            const data = await instance.post('login', {
+            const data = await instance.post('v1/login', {
                 username: username.current?.value,
                 password: password.current?.value
             })

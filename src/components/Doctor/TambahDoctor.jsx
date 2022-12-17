@@ -12,11 +12,11 @@ function TambahDoctorPage(props) {
     const [dataProfesi, setDataProfesi] = useState([])
 
     useEffect(() => {
-        instance.get('specialities')
+        instance.get('v1/specialities')
         .then(res => setDataSpesialis(res.data.data.filter(item => item.name != "")))
         .catch(err => console.log(err))
        
-       instance.get('roles')
+       instance.get('v1/roles')
         .then(res => setDataProfesi(res.data.data))
         .catch(err => console.log(err))
     }, [])

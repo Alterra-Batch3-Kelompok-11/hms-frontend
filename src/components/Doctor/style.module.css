@@ -1,0 +1,29 @@
+.col1{
+    margin-right: 49px;
+    margin-bottom: 31px;
+    width: 520px;
+    height: 322px;
+    margin-top: 0px;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.home .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
+.home .card img {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import style from "../styles/TablePasien.module.css";
 import Row from "react-bootstrap/Row";
-
+// test
 import NotifIcon from "../assets/Notification.svg";
 import UserSettings from "../assets/UserSettings.svg";
 import Search from "../assets/Search.svg";
@@ -19,7 +19,7 @@ const Patient = (props) => {
   let year = d.getFullYear();
 
   useEffect(() => {
-    instance.get('patients')
+    instance.get('v1/patients')
     .then((res) => setData(res.data.data))
     .catch((err) => console.log(err))
   }, [])
