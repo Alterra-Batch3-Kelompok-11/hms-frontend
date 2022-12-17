@@ -55,7 +55,7 @@ function Download() {
                 <h1 style={{ position: "absolute", marginTop: "7px" }}>
                     <span style={{ color: "#0071BC" }}>FEATURE</span> APP
                 </h1>
-                <div className="d-flex justify-content-around" >
+                <div className="d-flex justify-content-around">
                     <img src={phone} style={{ marginTop: "150px" }}/>
                 </div>
             </div>
