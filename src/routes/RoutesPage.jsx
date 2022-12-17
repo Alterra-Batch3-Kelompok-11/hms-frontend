@@ -11,6 +11,7 @@ import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import Patient from "../pages/Patient";
 import ProfilePatientPage from "../pages/ProflePatientPage";
+import RiwayatPasien from "../components/Doctor/RiwayatPasien";
 
 function RoutesPage() {
   return (
@@ -30,6 +31,7 @@ function RoutesPage() {
           <Route path="/Admin/ManageDoctor" element={<ManageDoctor />} />
           <Route path="/Admin/DoctorList" element={<Doctors />} />
           <Route path="/Admin/ProfilePatient" element={<ProfilePatientPage />} />
+          <Route path="/Admin/RiwayatPasien" element={<RiwayatPasien />} />
         </Route>
 
       </Routes>

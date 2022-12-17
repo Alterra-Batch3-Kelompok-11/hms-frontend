@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import DoctorList from "../Doctor/DoctorList";
 
 function PersonalCarousel() {
@@ -17,7 +17,7 @@ function PersonalCarousel() {
 
   return (
     <div className="text-center w-100" style={{marginBottom:"80px"}}>
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {DoctorList.map((item) => (
           <div>
             <img
@@ -28,7 +28,7 @@ function PersonalCarousel() {
             />
           </div>
         ))}
-      </Slider>
+      </Slider> */}
     </div>
   );
 }
