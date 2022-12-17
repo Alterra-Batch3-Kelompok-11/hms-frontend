@@ -17,5 +17,3 @@ Create With React vite
     1. git checkout -b (yourname)
     2. git commit -m (yourworks)
     3. git push origin (yourbranch) 
-
-- NB: Kalo ada conflict di merge dulu ya guys sama branch main trus abis itu branch kamu di fix dulu baru deh di push, makasih
