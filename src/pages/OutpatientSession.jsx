@@ -13,7 +13,7 @@ function SessionOutpatientPage() {
     let year = d.getFullYear();
   
     useEffect(() => {
-      instance.get('outpatient_sessions')
+      instance.get('v1/outpatient_sessions')
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err))
     }, [])

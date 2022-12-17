@@ -8,23 +8,16 @@ import styles from "../Doctor/style.module.css";
 import Row from "react-bootstrap/Row";
 import UserSettingsAndNotification from "../UserSettingsAndNotification";
 import Button from 'react-bootstrap/Button';
-import ModalButton from "./ModalButtonTambah";
+// import ModalButton from "./ModalButtonTambah";
 
 
 const Doctors = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
   
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
   return (
     <>
-      {showModal && <ModalButton closeModal={handleCloseModal} />}
       <Row style={{ minHeight: "100vh", paddingBottom:"30px" }}>
         <div className="content container-fluid" style={{ width: "1150px" }}>
         <Row>
@@ -69,27 +62,17 @@ const Doctors = (props) => {
               </div>
             </div>
           </div>
-{/* <<<<<<< HEAD
-          
-          <Button variant="btn btn-primary" style={{float:"right", width:"150px"}} onClick={() => setModalShow(true)}>
-            Tambah Dokter
-          </Button>
-          
-          <TambahDoctorPage show={modalShow} onHide={() => setModalShow(false)} />
-          </div>
-          <div className="home">  
-======= */}
           </Row>
           <Row className="mb-5">
             <div className="col"></div>
             <div className="col"></div>
 
             <div className="ms-auto" style={{width: "160px"}}>
-              <p>
-                <Button variant="primary" onClick={handleShowModal}>
-                  Tambah Pasien
-                </Button>
-              </p>
+              <Button variant="btn btn-primary" style={{float:"right", width:"150px"}} onClick={() => setModalShow(true)}>
+                Tambah Dokter
+              </Button>
+              
+              <TambahDoctorPage show={modalShow} onHide={() => setModalShow(false)} />
             </div>
           </Row>
           <div className={styles.home}>  

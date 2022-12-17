@@ -6,21 +6,34 @@ import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import instance from '../../API/AxiosInstance';
 import { useState } from 'react';
+import ReligionComponent from '../../API/Religion';
 
 function EditDataPasienPage (props) {
-    const [data, setData] = useState({})
+    const baseData = {}
+    const [data, setData] = useState(baseData)
+    let [name, setName] = useState("")
 
     const id = props.id.id
     
     if (props.show === true) {
         try {
-            instance.get('patients/' + id)
-             .then(res => setData(res.data.data))
+            instance.get('v1/patients/' + id)
+             .then(res => setName(res.data.data.name))
              .catch(err => console.log(err))
 
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const handleEdit = (e) => {
+        setData({...data, [e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        console.log(name)
     }
 
   return (
@@ -37,11 +50,11 @@ function EditDataPasienPage (props) {
                     <Col xs={6} md={6}>
                         <div className="mb-2">
                             <Form.Label>Nama</Form.Label>
-                            <Form.Control type="text" value={data?.name} />
+                            <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>NIK</Form.Label>
-                            <Form.Control type="text" value={data?.nik} />
+                            <Form.Control type="text" value={data.nik} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>Nomor Hp</Form.Label>
@@ -50,7 +63,7 @@ function EditDataPasienPage (props) {
                         <div className="mb-2">
                             <Form.Label>Agama</Form.Label>
                             <Form.Select aria-label="Default select example">
-                                <option value="world">Hello</option>
+                                <ReligionComponent />
                             </Form.Select>
                         </div>
                     </Col>
@@ -79,7 +92,7 @@ function EditDataPasienPage (props) {
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <Button className='me-auto' onClick={props.onHide}>Simpan</Button>
+                <Button className='me-auto' onClick={(e) => handleSubmit(e)}>Simpan</Button>
             </Modal.Footer>
         </Modal>
     </>

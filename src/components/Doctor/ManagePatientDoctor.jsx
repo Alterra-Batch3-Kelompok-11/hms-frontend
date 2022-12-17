@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ModalWrapper } from './style';
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
-import { BiPencil } from 'react-icons/bi';
-import { AiOutlineClose } from "react-icons/ai";
+// import { BiPencil } from 'react-icons/bi';
+// import { AiOutlineClose } from "react-icons/ai";
 import ModalButtonEdit from './ModalButtonEdit';
 
 const ManagePatientDoctor = () => {

@@ -79,21 +79,21 @@ const ManageDoctor = () => {
                 </div>
                 </td>
                 <td rowSpan="2">
-                <div className='card' style={{marginLeft:'61px', marginTop:'40px' , width:"342px", height:"730px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}} >
-            <h4
-                className="poppins-font"
-                style={{color: "#00395E", width:"250px", padding:"20px 40px ", fontWeight: "600", fontSize: "18px", lineHeight: "27px"}}
-              >
-                Appointment
-              </h4>
-              <div style={{background: "#00395E", height:"49px", verticalAlign:"center"}}>
-              <h4
-                className="poppins-font"
-                style={{textAlign:"center", color: "white", fontSize:"18px"}}
-              >
-                November 2022
-              </h4>
-              </div>
+                <div className='card' style={{ top:'-31px',  marginLeft:'61px', width:"342px", height:"730px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}} >
+                  <h4
+                      className="poppins-font"
+                      style={{color: "#00395E", width:"250px", padding:"20px 40px ", fontWeight: "600", fontSize: "18px", lineHeight: "27px"}}
+                    >
+                      Appointment
+                    </h4>
+                    <div style={{background: "#00395E", height:"49px", verticalAlign:"center"}}>
+                    <h4
+                      className="poppins-font"
+                      style={{textAlign:"center", color: "white", fontSize:"18px"}}
+                    >
+                      November 2022
+                    </h4>
+                </div>
               <div style={{padding:"10px 40px"}}>
               <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
                 <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
@@ -110,6 +110,9 @@ const ManageDoctor = () => {
                   09.00 - 13.00 WIB</p>
               </div>
             </div>
+                <button onClick={handleShowEditModal} type="button" className="btn btn-primary">
+                  Edit Data
+                </button>
                 </td>
               </tr>
               <tr>
@@ -161,10 +164,6 @@ const ManageDoctor = () => {
                 </td>
               </tr>
             </table>
-            <button onClick={handleShowEditModal} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
-              padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px", float:'right', marginRight:'45px'}}>
-              Edit Data
-            </button>
           </div>
         </div>
     </div>

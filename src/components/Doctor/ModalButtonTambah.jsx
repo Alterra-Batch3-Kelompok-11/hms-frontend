@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ModalWrapper } from './style';
-import { BiPencil } from 'react-icons/bi';
-import { AiOutlineClose } from "react-icons/ai";
+// import { BiPencil } from 'react-icons/bi';
+// import { AiOutlineClose } from "react-icons/ai";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";

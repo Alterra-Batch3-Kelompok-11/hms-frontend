@@ -70,17 +70,19 @@ function Dashboard() {
           <h3 className="mb-4">Jadwal Temu Pasien</h3>
           { data?.today_outpatient_sessions?.map((val, index) => {
             return (
-              <div
-                className="my-3 p-2"
-                style={{ background: "#CCE3F2", borderRadius: "5px" }}
-                key={index}
-              >
-                <h4>{val?.patient?.name}</h4>
-                <div className="d-flex">
-                  <span>{val.speciality_name}</span>
-                  <span className="ms-auto">{val?.schedule_time}</span>
+              <>
+                <div
+                  className="my-3 p-2"
+                  style={{ background: "#CCE3F2", borderRadius: "5px" }}
+                  key={index}
+                >
+                  <h4>{val?.patient?.name}</h4>
+                  <div className="d-flex">
+                    <span>{val.speciality_name}</span>
+                    <span className="ms-auto">{val?.schedule_time}</span>
+                  </div>
                 </div>
-              </div>
+              </>
             )
           })}
         </Col>

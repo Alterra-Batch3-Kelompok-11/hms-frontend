@@ -29,7 +29,7 @@ function DropDown(props) {
     .then((willDelete) => {
       if (willDelete) {
 
-        deleteData(`patients/${props.id}`)
+        deleteData(`v1/patients/${props.id}`)
     
         swal("Data Pasien Terhapus", {
           icon: "success",

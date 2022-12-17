@@ -5,7 +5,7 @@ function ReligionComponent() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        instance.get('religions')
+        instance.get('v1/religions')
          .then(res => setData(res.data.data))
          .catch(err => console.log(err))
     }, [])
