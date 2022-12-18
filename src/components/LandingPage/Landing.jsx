@@ -17,14 +17,14 @@ function LandingPage() {
               className="fw-bold"
               style={{
                 paddingTop: "10vw",
-                fontSize:  "52px",
+                fontSize:  "50px",
                 marginLeft: "5vw",
               }}
             >
               Get the best Service from Us at{" "}
               <span style={{ color: "#0071BC" }}>Clinic</span>
             </h1>
-            <p className="lead" style={{  fontSize:  "28px"  }}>
+            <p className="lead" style={{  fontSize:  "26px"  }}>
               We provide the best, practical, and efficient healthcare services
               for our patients
             </p>

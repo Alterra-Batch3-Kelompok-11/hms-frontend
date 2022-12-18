@@ -25,24 +25,24 @@ function Header() {
             >
               <li>
                 <Link to="/" className="nav-link mt-2 mx-4">
-                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>HOME</h2>
+                  <h2 style={{ color: "#00395E", fontSize: "20px" }}>HOME</h2>
                 </Link>
               </li>
               <li>
                 <Link to="/aboutUs" className="nav-link mt-2 mx-4">
-                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>ABOUT</h2>
+                  <h2 style={{ color: "#00395E", fontSize: "20px" }}>ABOUT</h2>
                 </Link>
               </li>
               <li>
                 <a href="#services" className="nav-link mt-2 mx-4">
-                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>
+                  <h2 style={{ color: "#00395E", fontSize: "20px" }}>
                     SERVICES
                   </h2>
                 </a>
               </li>
               <li>
                 <Link to="/download" className="nav-link mt-2 mx-4">
-                  <h2 style={{ color: "#00395E", fontSize: "24px" }}>
+                  <h2 style={{ color: "#00395E", fontSize: "20px" }}>
                     DOWNLOAD
                   </h2>
                 </Link>
@@ -54,7 +54,7 @@ function Header() {
                       className="text-sm-start py-2 px-3 mx-4"
                       style={{
                         color: "#00395E",
-                        fontSize: "24px",
+                        fontSize: "20px",
                         border: "3px solid #00395E",
                         borderRadius: "8px",
                       }}

@@ -23,6 +23,7 @@ function RoutesPage() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/download" element={<Download />} />
+        <Route path="/PatientList" element={<Patient />} />
 
         <Route path="/Admin" element={<ProtectedRoutes />}>
           <Route index element={<Dashboard />} />

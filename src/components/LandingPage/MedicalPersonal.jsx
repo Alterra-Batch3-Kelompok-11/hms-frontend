@@ -16,14 +16,14 @@ function Personal() {
         <div className="container">
           <h1
             className="d-flex justify-content-center"
-            style={{ marginTop: "87px" }}
+            style={{ marginTop: "87px", fontSize:"50px" }}
           >
             OUR{" "}
             <span style={{ color: "#0071BC", marginLeft: "10px" }}>
               MEDICAL EXPERT
             </span>
           </h1>
-          <p className=" d-flex justify-content-center"style={{fontSize:"24px", marginTop:"40px", marginBottom:"90px"}}>Meet our Medical expert professionals and enjoy the service</p>
+          <p className=" d-flex justify-content-center"style={{fontSize:"22px", marginTop:"40px", marginBottom:"90px"}}>Meet our Medical expert professionals and enjoy the service</p>
         </div>
         <PersonalCarousel />
       </div>

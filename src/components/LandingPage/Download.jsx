@@ -11,9 +11,9 @@ function Download() {
       <div className="row">
         <div className="col-sm-6">
           <div className="card bg-transparent border-0 " style={{marginLeft:"11vw", fontFamily:"Poppins"}}>
-            <div className="card-body">
-              <h5 className="card-title fs-1" style={{marginTop:"161px"}}>Download <span className={style.gradientText}>Cleanic App</span></h5>
-              <p className="card-text fs-5 mt-4">
+            <div className="card-body" >
+              <h5 className="card-title" style={{marginTop:"161px", fontSize:"50px", width:"593px", marginBottom:"40px"}}>Download <span className={style.gradientText}>Cleanic App</span></h5>
+              <p className="card-text mt-4" style={{fontSize:"20px"}}>
                 Click the Apple Store icon to download the FarmaGym Application
                 from the App Store if you are an Apple user or on the Google
                 Play Store if you are an Android user.

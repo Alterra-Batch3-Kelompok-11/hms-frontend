@@ -63,7 +63,7 @@ function App() {
                     marginBottom: "14px",
                   }}
                 ></img>
-                <h1 style={{ fontSize: "36px" }}>{val.nama}</h1>
+                <h1 style={{ fontSize: "34px" }}>{val.nama}</h1>
                 <div className="card-body" style={{ margin: "0px 65px" }}>
                   <p className="card-text">{val.komentar}</p>
                 </div>
