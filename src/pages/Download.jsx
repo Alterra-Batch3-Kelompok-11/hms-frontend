@@ -9,23 +9,17 @@ function Download() {
     return (
         <div>
             <Header />
-            <div
-                className={` text-center ${style.bgBody}`}
+            <div className={` text-center ${style.bgBody}`}
                 style={{
                     height: "231px",
                     fontFamily: "Poppins",
-                    borderRadius: "0px 0px 200px 200px",
-                }}
-            >
-                <div
-                    className="position-absolute top-0 start-50 translate-middle"
+                    borderRadius: "0px 0px 200px 200px"}}>
+                <div className="position-absolute top-0 start-50 translate-middle"
                     style={{
                         width: "467px",
                         fontSize: "38px",
                         marginTop: "170px",
-                        marginLeft: "120px",
-                    }}
-                >
+                        marginLeft: "120px"}}>
                     <h1 style={{
                         position: "absolute",
                         marginTop: "7px",}}
