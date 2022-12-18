@@ -23,7 +23,7 @@ function ModalButton() {
     const birth = birthDay?.current?.value
     const birthdayPatient = birth.replace("/", "-")
 
-    await postData('patients', {
+    await postData('v1/patients', {
       nik: nikID?.current?.value,
       name: nama?.current?.value,
       gender: parseInt(gender?.current?.value),
