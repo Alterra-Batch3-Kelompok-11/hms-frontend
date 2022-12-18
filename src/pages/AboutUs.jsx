@@ -10,6 +10,6 @@ function AboutUs() {
       <About />
     </>
   );
-}
+} 
 
 export default AboutUs;

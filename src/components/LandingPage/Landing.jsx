@@ -1,6 +1,7 @@
 import react from "react";
 import logo from "../../assets/Clinic-logo.svg";
 import style from "./Landing.module.css";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
@@ -12,17 +13,36 @@ function LandingPage() {
         <div className="row">
           <div className="col-sm-4"></div>
           <div className="col-sm-8">
-            <h1 style={{ paddingTop: "10vw", fontSize:"52px" }}>
-              Dapatkan Pelayanan terbaik dari Kami di
-              <span className={style.gradientText}> Cleanic</span>
+            <h1
+              className="fw-bold"
+              style={{
+                paddingTop: "10vw",
+                fontSize:  "52px",
+                marginLeft: "5vw",
+              }}
+            >
+              Get the best Service from Us at{" "}
+              <span style={{ color: "#0071BC" }}>Clinic</span>
             </h1>
-            <p className="lead" style={{fontSize:"28px"}}>
-              Kami menyediakan pelayanan kesehatan yang terbaik, praktis, dan
-              efisien untuk pasien-pasien kami.
+            <p className="lead" style={{  fontSize:  "28px"  }}>
+              We provide the best, practical, and efficient healthcare services
+              for our patients
             </p>
-            <button type="button" className="btn py-2 px-4" style={{backgroundColor:"#0071BC", color:"white"}}>
-              View More
-            </button>
+            <Link to="/aboutUs">
+              <Link to="/aboutUs">
+              <button
+               
+                type="button"
+               
+                className="btn py-2 px-4"
+               
+                style={{  backgroundColor:  "#0071BC", color:  "white"  }}
+              
+              >
+                  View More
+                </button>
+            </Link>
+            </Link>
           </div>
         </div>
       </div>
