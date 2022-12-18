@@ -2,6 +2,8 @@ import react from "react";
 import logo from "../assets/Clinic-logo.svg";
 import style from "./LandingPage/Landing.module.css";
 import BgAboutText from "../assets/LandingPage/BgAboutText.svg";
+import AboutUs from "../assets/LandingPage/AboutUs.svg";
+import AboutUsDoctor from "../assets/LandingPage/AboutUsDoctor.svg";
 
 function About() {
   return (
@@ -14,29 +16,10 @@ function About() {
           borderRadius: "0px 0px 200px 200px",
         }}
       >
-        <div
-          className="position-absolute top-0 start-50 translate-middle"
-          style={{
-            width: "467px",
-            fontSize: "38px",
-            marginTop: "170px",
-            marginLeft: "120px",
-          }}
-        >
-          <h1
-            style={{
-              color: "#CECECE",
-              position: "absolute",
-              marginLeft: "3px",
-            }}
-          >
-            ABOUT US
-          </h1>
-          <h1 style={{ position: "absolute", marginTop: "7px" }}>
-            <span style={{ color: "#0071BC" }}>ABOUT</span> US
-          </h1>
+        <div className="" style={{}}>
+          <img className="img-fluid" src={AboutUs} alt="img" />
         </div>
-        <p className="fs-5" style={{ color: "#00395E", paddingTop: "70px" }}>
+        <p className="fs-5" style={{ color: "#00395E", paddingTop: "20px" }}>
           Provide the Best Efforts and Services
         </p>
       </div>
@@ -54,38 +37,84 @@ function About() {
           fontFamily: "Poppins",
         }}
       >
-        <div className="whoAreWe text-start " style={{ marginRight: "30vw" }}>
-          <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>
-            Who Are We?
-          </h1>
-          <p style={{ fontSize: "24px", marginBottom: "60px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+        <div className="whoAreWe text-start " style={{ marginTop: "40px" }}>
+          <div class="mb-3">
+            <div class="row g-0">
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h1 style={{ fontSize: "42px" }}>Who Are We?</h1>
+                  <p
+                    class="card-text"
+                    style={{ fontSize: "24px", width: "634px" }}
+                  >
+                    CLINIC is a digital health platform used by our medical
+                    personnel. Since 2022, CLINIC has made it easy, efficient
+                    and practical for medical staff to process patients who come
+                    to our clinic. Furthermore, its features are easy to
+                    understand, simple, and have a clear flow that makes user
+                    feel satisfied.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img
+                  src={AboutUsDoctor}
+                  class="img-fluid rounded-start"
+                  alt="..."
+                ></img>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ourVision justify-content-center text-center"
+          style={{ marginTop: "100px" }}
+        >
+          <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>Our Vision</h1>
+          <p style={{ fontSize: "24px", marginBottom: "80px" }}>
+            Be a clinic that has excellent quality in health services, research,
+            and community service.
           </p>
         </div>
         <div
-          className="ourVision text-end float-end"
-          style={{ marginLeft: "30vw" }}
+          className="ourVision justify-content-center text-center"
+          style={{ marginTop: "100px" }}
         >
-          <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>Our Vision</h1>
-          <p style={{ fontSize: "24px", marginBottom: "60px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <div className="ourMission text-start " style={{ marginRight: "30vw" }}>
           <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>
             Our Mission
           </h1>
-          <p style={{ fontSize: "24px", paddingBottom: "114px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <ol
+            className="text-start"
+            style={{ fontSize: "24px", width: "1170px", marginLeft: "30px" }}
+          >
+            <li>
+              Providing comprehensive, quality and affordable health services to
+              all levels of society that are oriented towards patient safety and
+              customer satisfaction.
+            </li>
+            <li>
+              Carrying out innovative health research in the context of
+              achieving and developing technology in the health sector that is
+              visionary for the benefit of society.
+            </li>
+            <li>
+              Organizing services, especially in the health sector according to
+              the needs of the community and
+            </li>
+            <li>
+              Organizing RSUB management activities in a professional, effective
+              and efficient manner that is useful for service development,
+              research and community service.
+            </li>
+          </ol>
+        </div>
+        <div
+          className="ourVision justify-content-center text-center"
+          style={{ marginTop: "100px" }}
+        >
+          <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>Motto</h1>
+          <p style={{ fontSize: "24px", paddingBottom: "80px" }}>
+            RSUB : Risk management, Safety, Unlimited Quality, Be the Best
           </p>
         </div>
       </div>
