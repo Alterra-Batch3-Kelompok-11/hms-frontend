@@ -21,6 +21,7 @@ function service() {
 
       <div
         className="container"
+        id="services"
         style={{ fontFamily: "Poppins", width: "65%", marginTop: "223px" }}
       >
         <div className="pricing-header p-3 pb-md-4 mx-auto text-center w-100">
