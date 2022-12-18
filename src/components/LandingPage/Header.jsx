@@ -34,11 +34,11 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="#" className="nav-link mt-2 mx-4">
+                <a href="#services" className="nav-link mt-2 mx-4">
                   <h2 style={{ color: "#00395E", fontSize: "24px" }}>
                     SERVICES
                   </h2>
-                </Link>
+                </a>
               </li>
               <li>
                 <Link to="/download" className="nav-link mt-2 mx-4">
