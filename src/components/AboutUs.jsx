@@ -85,7 +85,7 @@ function About() {
           </h1>
           <ol
             className="text-start container"
-            style={{ fontSize: "24px", width: "1170px", marginLeft: "30px" }}
+            style={{ fontSize: "24px", width: "1170px" }}
           >
             <li>
               Providing comprehensive, quality and affordable health services to
