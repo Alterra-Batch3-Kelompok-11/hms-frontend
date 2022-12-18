@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ModalWrapper } from './style';
-import { BiPencil } from 'react-icons/bi';
-import { AiOutlineClose } from "react-icons/ai";
+// import { BiPencil } from 'react-icons/bi';
+// import { AiOutlineClose } from "react-icons/ai";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -82,7 +82,7 @@ const ModalButtonEdit = () => {
        <div className='row'>
         <div className='col-sm-6'></div>
         <div className="col-sm-6" style={{width:'500px'}}>
-            <div class="button-group" style={{fontFamily: 'Poppins',marginTop:"10px", marginBottom:'30px'}}>
+            <div className="button-group" style={{fontFamily: 'Poppins',marginTop:"10px", marginBottom:'30px'}}>
                 <button  type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", float:'right', 
                 padding: "10px", gap: "10px", borderRadius:"10px"}}>
                 Kirim Data

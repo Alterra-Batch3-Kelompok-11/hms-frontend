@@ -95,7 +95,7 @@ function Sidebar() {
                   </li>
                   <li className="link">
                     <a
-                      href="#"
+                      href="/Admin/Outpatient"
                       className="link-dark d-inline-flex text-decoration-none rounded"
                     >
                       <p className="poppins-font" style={{ fontSize: "15px", marginLeft:"70px" }}>

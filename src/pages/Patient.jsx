@@ -13,7 +13,8 @@ import Left from "../assets/Left.svg";
 import PatientList from "../components/ListPasien//PatientList";
 import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
 import DropDown from "../components/ListPasien/DropDown";
-import ModalButton from "../components/ListPasien/ModalButton";
+import ModalButton from "../components/ListPasien/TambahPasien";
+import instance from "../API/AxiosInstance";
 
 const Patient = (props) => {
   const [data, setData] = useState([]);
