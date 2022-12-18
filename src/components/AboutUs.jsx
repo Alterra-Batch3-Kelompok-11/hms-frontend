@@ -30,7 +30,7 @@ function About() {
         }}
       ></div>
       <div
-        className="deskripsi"
+        className="deskripsi container"
         style={{
           marginLeft: "135px",
           marginRight: "135px",
@@ -84,7 +84,7 @@ function About() {
             Our Mission
           </h1>
           <ol
-            className="text-start"
+            className="text-start container"
             style={{ fontSize: "24px", width: "1170px", marginLeft: "30px" }}
           >
             <li>
