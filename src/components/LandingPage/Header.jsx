@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className={` ${style.bgHeader}`}>
+    <header className={`${style.bgHeader}`}>
       <div>
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -55,10 +55,8 @@ function Header() {
                       style={{
                         color: "#00395E",
                         fontSize: "24px",
-                        // padding: "12px 33px",
                         border: "3px solid #00395E",
                         borderRadius: "8px",
-                        // margin: "30px 0px",
                       }}
                     >
                       Login

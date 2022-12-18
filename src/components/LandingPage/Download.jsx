@@ -1,7 +1,9 @@
 import react from "react";
 import Phone from "../../assets/LandingPage/Phone.svg";
 import Playstore from "../../assets/LandingPage/Playstore.svg";
+import ViewDetailsDownload from "../../assets/LandingPage/ViewDetailsDownload.svg";
 import style from "./Landing.module.css";
+import { Link } from "react-router-dom";
 
 function Download() {
   return (
@@ -19,6 +21,9 @@ function Download() {
               <a href="#">
                 <img  src={Playstore} alt="img" style={{marginLeft:"-10px"}} />
               </a>
+              <Link to="/download">
+                <img  src={ViewDetailsDownload} alt="img" style={{marginLeft:"40px"}} />
+              </Link>
             </div>
           </div>
         </div>

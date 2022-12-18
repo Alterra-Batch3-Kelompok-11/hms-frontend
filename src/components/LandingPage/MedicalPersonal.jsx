@@ -8,19 +8,22 @@ import PersonalCarousel from "./MedicalPersonalCarousel";
 
 function Personal() {
   return (
-    <div className={style.bgAbout} style={{ fontFamily: "Poppins" }}>
+    <div
+      className={`${style.borderTop}`}
+      style={{ fontFamily: "Poppins", marginTop: "80px" }}
+    >
       <div>
         <div className="container">
-          <img
-            style={{
-              //   paddingLeft: "139px",
-              marginTop: "88px",
-              marginBottom: "75px",
-            }}
-            className="img-fluid ps-5"
-            src={OurMedicalPersonal}
-            alt="img"
-          />
+          <h1
+            className="d-flex justify-content-center"
+            style={{ marginTop: "87px" }}
+          >
+            OUR{" "}
+            <span style={{ color: "#0071BC", marginLeft: "10px" }}>
+              MEDICAL EXPERT
+            </span>
+          </h1>
+          <p className=" d-flex justify-content-center"style={{fontSize:"24px", marginTop:"40px", marginBottom:"90px"}}>Meet our Medical expert professionals and enjoy the service</p>
         </div>
         <PersonalCarousel />
       </div>

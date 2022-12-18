@@ -10,11 +10,11 @@ function PersonalCarousel() {
     const { className, style, onClick } = props;
     return (
       <div
-        className="arrow next bg-transparent mt-5 mb-5"
+        className="arrow next bg-transparent position-absolute top-0 translate-middle"
         onClick={onClick}
-        style={{ marginRight: "2%" }}
+        style={{ marginRight: "1%", paddingBottom:"50px" }}
       >
-        <img src={next} alt="" />
+        <img src={next} alt="img" />
       </div>
     );
   }
@@ -22,15 +22,17 @@ function PersonalCarousel() {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <div className="arrow prev bg-transparent mt-5" onClick={onClick} style={{ marginLeft:"-70px" }}
+      <div
+        className="arrow next bg-transparent position-absolute top-0 translate-middle"
+        onClick={onClick}
+        style={{ marginRight: "5%", paddingBottom:"50px" }}
       >
-        <img src={prev} alt="" />
+        <img src={prev} alt="img" />
       </div>
     );
   }
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -42,19 +44,19 @@ function PersonalCarousel() {
 
   return (
     <div
-      className="text-center w-100"
-      style={{ marginBottom: "80px", paddingLeft: "10%" }}
+      className="text-center container"
+      style={{ marginBottom: "80px", minWidth: "1170px" }}
     >
       <Slider {...settings}>
         {DoctorList.map((item) => (
-          <div>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="d-flex justify-content-center" >
+            <div className="row row-cols-1 row-cols-md-3 g-4 " style={{ paddingBottom:"130px"}}>
               <div className="col">
                 <div
-                  className="card"
+                  className="card shadow"
                   style={{
                     width: "348px",
-                    height: "483px",
+                    height: "463px",
                   }}
                 >
                   <img

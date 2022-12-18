@@ -5,7 +5,7 @@ import Lungs from "../../assets/LandingPage/Lungs.svg";
 import Family from "../../assets/LandingPage/Family.svg";
 import Orthopedic from "../../assets/LandingPage/Orthopedic.svg";
 import Consultation from "../../assets/LandingPage/Consultation.svg";
-import OurServices from "../../assets/LandingPage/OurServices.svg";
+import Beauty from "../../assets/LandingPage/Beauty.svg";
 
 function service() {
   return (
@@ -14,7 +14,9 @@ function service() {
         className="position-absolute start-50 translate-middle"
         style={{ marginTop: "90px" }}
       >
-        <img className="my-5 py-5 img-fluid" src={OurServices} alt="img" />
+        <h1 style={{ marginTop: "7px", fontSize:'38px' }}>
+          OUR <span style={{ color: "#0071BC" }}>SERVICES</span>
+        </h1>
       </div>
 
       <div
@@ -32,19 +34,11 @@ function service() {
         </div>
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <div className="col">
-            <div
-              className="card"
-              style={{
-                backgroundColor: "#EBF2F9",
-                width: "266px",
-                height: "325px",
-              }}
-            >
+            <div className={`card shadow ${style.cardServices}`}>
               <img src={Teeth} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5
-                  className="card-title d-flex justify-content-center"
-                  style={{ fontSize: "24px", color: "#00395E" }}
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
                 >
                   Dental Health
                 </h5>
@@ -52,19 +46,11 @@ function service() {
             </div>
           </div>
           <div className="col">
-            <div
-              className="card"
-              style={{
-                backgroundColor: "#EBF2F9",
-                width: "266px",
-                height: "325px",
-              }}
-            >
+            <div className={`card shadow ${style.cardServices}`}>
               <img src={Lungs} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5
-                  className="card-title d-flex justify-content-center"
-                  style={{ fontSize: "24px", color: "#00395E" }}
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
                 >
                   Pulmonary Lungs
                 </h5>
@@ -72,19 +58,11 @@ function service() {
             </div>
           </div>
           <div className="col">
-            <div
-              className="card"
-              style={{
-                backgroundColor: "#EBF2F9",
-                width: "266px",
-                height: "325px",
-              }}
-            >
+            <div className={`card shadow ${style.cardServices}`}>
               <img src={Family} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5
-                  className="card-title d-flex justify-content-center"
-                  style={{ fontSize: "24px", color: "#00395E" }}
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
                 >
                   Family Medical
                 </h5>
@@ -92,19 +70,11 @@ function service() {
             </div>
           </div>
           <div className="col">
-            <div
-              className="card"
-              style={{
-                backgroundColor: "#EBF2F9",
-                width: "266px",
-                height: "325px",
-              }}
-            >
+            <div className={`card shadow ${style.cardServices}`}>
               <img src={Consultation} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5
-                  className="card-title d-flex justify-content-center"
-                  style={{ fontSize: "24px", color: "#00395E" }}
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
                 >
                   Consultation
                 </h5>
@@ -112,21 +82,25 @@ function service() {
             </div>
           </div>
           <div className="col">
-            <div
-              className="card"
-              style={{
-                backgroundColor: "#EBF2F9",
-                width: "266px",
-                height: "325px",
-              }}
-            >
+            <div className={`card shadow ${style.cardServices}`}>
               <img src={Orthopedic} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5
-                  className="card-title d-flex justify-content-center"
-                  style={{ fontSize: "24px", color: "#00395E" }}
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
                 >
                   Orthopedic
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className={`card shadow ${style.cardServices}`}>
+              <img src={Beauty} className="card-img-top" alt="..."></img>
+              <div className="card-body">
+                <h5
+                  className={` card-title d-flex justify-content-center ${style.cardServicesText}`}
+                >
+                  Beauty Specialist
                 </h5>
               </div>
             </div>

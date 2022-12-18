@@ -30,6 +30,8 @@ const Patient = (props) => {
     setcurrentPage(Number(event.target.id));
   };
 
+const TotalPage = data.length/6;
+
   const pages = [];
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
     pages.push(i);
@@ -49,7 +51,7 @@ const Patient = (props) => {
           className={currentPage === number ? "active" : null}
         >
           {number}
-        </li>
+        </li> 
       );
     } else {
       return null;
@@ -122,7 +124,7 @@ const Patient = (props) => {
                   <tr>
                     <th
                       scope="row"
-                      // className={style.counterCell}
+                      className={style.counterCell}
                       style={{
                         minWidth: "80px",
                         maxWidth: "80px",
@@ -274,7 +276,7 @@ const Patient = (props) => {
             </div>
           </Row>
           <Row>
-            <div style={{ marginBottom: "25px" }}>
+            <div className="d-flex justify-content-end mb-4">
               <ModalButton />
             </div>
             <div className="container border shadow">
@@ -366,7 +368,7 @@ const Patient = (props) => {
             >
               <div className="row" style={{ marginTop: "24px" }}>
                 <div className="col-md-4">
-                  <h4>Data 1 - 6 dari 20 Halaman</h4>
+                  <h4>Data 1 - 6 dari {Math.ceil(TotalPage)} Halaman</h4>
                 </div>
                 <div className="col-md-4 ms-auto">
                   <ul className="pageNumbers">

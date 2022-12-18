@@ -1,16 +1,15 @@
 import "./App.css";
 import { useState } from "react";
 import Slider from "react-slick";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/Io";
 import CustomerList from "./CustomerList";
-import NextArrow from "../../assets/LandingPage/NextArrow.svg";
-import PrevArrow from "../../assets/LandingPage/PrevArrow.svg";
+import NextArrowComment from "../../assets/LandingPage/NextArrow.svg";
+import PrevArrowComment from "../../assets/LandingPage/PrevArrow.svg";
 
 function App() {
   const NextArrow = ({ onClick }) => {
     return (
-      <div className="arrow next bg-transparent mt-5" onClick={onClick}>
-        <IoMdArrowDropright style={{ color: "#0071BC", fontSize: "80px" }} />
+      <div className="arrow next bg-transparent mt-5" onClick={onClick} >
+        <img src={NextArrowComment} alt="img" style={{marginLeft:"-90px"}}/>
       </div>
     );
   };
@@ -18,7 +17,7 @@ function App() {
   const PrevArrow = ({ onClick }) => {
     return (
       <div className="arrow prev bg-transparent mt-5" onClick={onClick}>
-        <IoMdArrowDropleft style={{ color: "#0071BC", fontSize: "80px" }} />
+        <img src={PrevArrowComment} alt="img" style={{marginRight:"-140px"}}/>
       </div>
     );
   };

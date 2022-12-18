@@ -3,9 +3,26 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row'
+import { useLocation, useParams } from "react-router-dom";
+import instance from "../API/AxiosInstance";
+import { useState } from "react";
 
 function PatientRegistration() {
-    const id = 2 // get data example
+    const [data, setData] = useState([])
+    const location = useLocation()
+    // const { name } = location.state
+    const id = useParams();
+    instance.get('v1/religions')
+     .then(res => setData(res.data.data))
+     .catch(err => console.log(err))
+    
+    //console.log(data)
+    
+
+    // console.log(id.id);
+    // console.log(location.state)
+    //console.log(name)
+
 
   return (
     <div className='me-md-5 ms-md-4 ms-3 me-0' style={{ color: "rgba(0, 57, 94, 1)" }}>
@@ -37,17 +54,14 @@ function PatientRegistration() {
                 <div className='mb-5'>
                     <Form.Label>Agama</Form.Label>
                     <Form.Select aria-label="Default select example">
-                        <option value="islam">Islam</option>
-                        <option value="kristen">Kristen Protestan</option>
-                        <option value="katolik">Katolik</option>
-                        <option value="hindu">Hindu</option>
-                        <option value="buddha">Buddha</option>
-                        <option value="konghucu">Konghucu</option>
+                        { data?.map(item => (
+                            <option key={item.id} value={item.name}>{item.name}</option>
+                        )) }
                     </Form.Select>
                 </div>
                 
                 <Button variant="primary" type="submit">
-                    { id ? "Simpan" : "Tambah" }
+                    { id.id ? "Simpan" : "Tambah" }
                 </Button>
             </Col>
             <Col xs={12} md={5} className="ms-md-5 mt-5 mt-md-0 ps-md-5">

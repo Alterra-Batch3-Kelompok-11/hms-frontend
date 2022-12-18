@@ -57,8 +57,8 @@ function Sidebar() {
             </button>
           </div>
         </a>
-        <a className="text-decoration-none link mb-3">
-          <div className="link">
+        <span className="text-decoration-none link mb-3">
+          <div>
             <div className="mb-1">
               <button
                 className="btn btn-toggle d-inline-flex border-0 collapsed poppins-font"
@@ -83,7 +83,7 @@ function Sidebar() {
               </button>
               <div className="collapse" id="home-collapse">
                 <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li>
+                  <li className="link">
                     <a
                       href="/Admin/PatientList"
                       className="link-dark d-inline-flex text-decoration-none rounded"
@@ -93,7 +93,7 @@ function Sidebar() {
                       </p>
                     </a>
                   </li>
-                  <li>
+                  <li className="link">
                     <a
                       href="#"
                       className="link-dark d-inline-flex text-decoration-none rounded"
@@ -107,7 +107,7 @@ function Sidebar() {
               </div>
             </div>
           </div>
-        </a>
+        </span>
         <a href="/Admin/DoctorList" className="text-decoration-none link mb-3">
           <div className="link">
             <button className="btn btn-toggle d-inline-flex border-0 collapsed">
