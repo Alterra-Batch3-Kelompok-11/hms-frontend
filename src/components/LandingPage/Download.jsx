@@ -30,7 +30,7 @@ function Download() {
         <div className="col-sm-6">
           <div className="card bg-transparent border-0">
             <div className="card-body">
-                <img className="img-fluid" style={{marginTop:"190px", marginBottom:"150px"}} src={Phone} alt="" />
+                <img className="img-fluid" style={{marginTop:"190px", marginBottom:"150px"}} src={Phone} alt="img" />
             </div>
           </div>
         </div>

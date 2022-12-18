@@ -384,7 +384,7 @@ const TotalPage = data.length/6;
                         disabled={currentPage === pages[0] ? true : false}
                         style={{ marginTop: "-100px" }}
                       >
-                        <img src={Left} alt="" />
+                        <img src={Left} alt="img" />
                       </button>
                     </li>
                     {pageDecrementBtn}
@@ -399,7 +399,7 @@ const TotalPage = data.length/6;
                         }
                         style={{ marginTop: "-100px" }}
                       >
-                        <img src={Right} alt="" />
+                        <img src={Right} alt="img" />
                       </button>
                     </li>
                   </ul>

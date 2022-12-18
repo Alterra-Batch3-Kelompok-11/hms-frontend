@@ -38,13 +38,13 @@ function About() {
         }}
       >
         <div className="whoAreWe text-start " style={{ marginTop: "40px" }}>
-          <div class="mb-3">
-            <div class="row g-0">
-              <div class="col-md-8">
-                <div class="card-body">
+          <div className="mb-3">
+            <div className="row g-0">
+              <div className="col-md-8">
+                <div className="card-body">
                   <h1 style={{ fontSize: "42px" }}>Who Are We?</h1>
                   <p
-                    class="card-text"
+                    className="card-text"
                     style={{ fontSize: "24px", width: "634px" }}
                   >
                     CLINIC is a digital health platform used by our medical
@@ -56,10 +56,10 @@ function About() {
                   </p>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div className="col-md-4">
                 <img
                   src={AboutUsDoctor}
-                  class="img-fluid rounded-start"
+                  className="img-fluid rounded-start"
                   alt="..."
                 ></img>
               </div>
