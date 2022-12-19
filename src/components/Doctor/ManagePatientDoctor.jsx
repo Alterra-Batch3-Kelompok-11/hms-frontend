@@ -4,6 +4,7 @@ import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 // import { BiPencil } from 'react-icons/bi';
 // import { AiOutlineClose } from "react-icons/ai";
 import ModalButtonEdit from './ModalButtonEdit';
+import { AiOutlineClose } from "react-icons/ai";
 
 const ManagePatientDoctor = () => {
   const [showEditModal, setShowEditModal] = useState(false);
