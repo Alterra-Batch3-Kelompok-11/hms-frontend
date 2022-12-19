@@ -13,7 +13,7 @@ function Dashboard() {
     instance.get('v1/dashboard/web')
       .then(res => setData(res.data.data))
       .catch(err => console.log(err))
-  }, [data])
+  }, [])
   
 
   return (
