@@ -272,6 +272,7 @@ const Patient = (props) => {
                     <input
                       type="search"
                       placeholder="Cari"
+                      onClick={handleLoadMore}
                       className="border border-0 ps-5 shadow bg-light text-dark"
                       style={{
                         height: "40px",
@@ -419,11 +420,11 @@ const Patient = (props) => {
                 </div>
                 <div className="col-md-4 ms-auto">
                   <ul className="pageNumbers">
-                    <li>
+                    {/* <li>
                       <button onClick={handleLoadMore} className="loadmore">
                         <h5>View All</h5>
                       </button>
-                    </li>
+                    </li> */}
                     <li>
                       <button
                         onClick={handlePrevbtn}
