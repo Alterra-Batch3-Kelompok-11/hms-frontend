@@ -106,7 +106,7 @@ const Patient = (props) => {
   }
 
   const handleLoadMore = () => {
-    setitemsPerPage(itemsPerPage + 999999);
+    setitemsPerPage(itemsPerPage + data.length);
   };
 
   const renderData = (data) => {
