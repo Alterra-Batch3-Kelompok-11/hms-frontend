@@ -35,6 +35,11 @@ const Patient = (props) => {
   const d = new Date();
   let year = d.getFullYear();
   const TotalPage = data.length / 6;
+  const getRandomNumber = Math.floor(Math.random());
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
@@ -62,20 +67,20 @@ const Patient = (props) => {
     }
   });
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/comments")
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json));
-  // }, []);
-
   useEffect(() => {
-    instance
-      .get(
-        "http://ec2-18-142-246-127.ap-southeast-1.compute.amazonaws.com/v1/patients"
-      )
-      .then((res) => setData(res.data.data))
-      .catch((err) => console.log(err));
+    fetch("https://jsonplaceholder.typicode.com/comments")
+      .then((response) => response.json())
+      .then((json) => setData(json));
   }, []);
+
+  // useEffect(() => {
+  //   instance
+  //     .get(
+  //       "http://ec2-18-142-246-127.ap-southeast-1.compute.amazonaws.com/v1/patients"
+  //     )
+  //     .then((res) => setData(res.data.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const handleNextbtn = () => {
     setcurrentPage(currentPage + 1);
@@ -113,7 +118,7 @@ const Patient = (props) => {
     return (
       <div>
         {data
-          ?.filter((val) => {
+          .filter((val) => {
             if (searchTerm === "") {
               return val;
             } else if (
@@ -145,20 +150,16 @@ const Patient = (props) => {
                     >
                       {1 + (index + 6 * (currentPage - 1))}
                     </th>
-                    <td
+                    <th
+                      scope="row"
+                      // className={style.counterCell}
                       style={{
                         minWidth: "150px",
                         maxWidth: "150px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.nik}
-                      </ReactReadMoreReadLess>
-                    </td>
+                      {Math.floor(Math.random() * 100214126757) + 1}
+                    </th>
                     <td
                       style={{
                         minWidth: "200px",
@@ -179,7 +180,7 @@ const Patient = (props) => {
                         maxWidth: "70px",
                       }}
                     >
-                      {year - val.birth_date.slice(0, 4)} tahun
+                      {Math.floor(Math.random() * 47) + 1} tahun
                     </td>
                     <td
                       style={{
@@ -193,7 +194,7 @@ const Patient = (props) => {
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {val.gender === 1 ? "Laki - Laki" : "Perempuan"}
+                        {val.email}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -203,13 +204,7 @@ const Patient = (props) => {
                         paddingLeft: "40px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.phone}
-                      </ReactReadMoreReadLess>
+                      {Math.floor(Math.random() * 421421427) + 1}
                     </td>
                     <td
                       style={{
@@ -217,13 +212,7 @@ const Patient = (props) => {
                         maxWidth: "180px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.created_at.slice(0, 10)}
-                      </ReactReadMoreReadLess>
+                      {Math.floor(Math.random() * 23243632) + 1}
                     </td>
                     <td>
                       <DropDown />
@@ -323,7 +312,7 @@ const Patient = (props) => {
                 borderRadius: "6px",
                 boxShadow:
                   "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
-                  paddingLeft:"15px"
+                paddingLeft: "15px",
               }}
             >
               <div className="table-responsive">
