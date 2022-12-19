@@ -13,3 +13,18 @@ table {
   content: counter(tableCount); 
   counter-increment: tableCount; 
 }
+
+.PaddingTopBottom{
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.TitlePaddingTopBottom{
+  padding-top: 17px;
+  padding-bottom: 27px;
+}
+
+
+
+
+

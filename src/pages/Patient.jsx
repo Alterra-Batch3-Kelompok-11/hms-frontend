@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import style from "../styles/TablePasien.module.css";
+import "../styles/TablePasien.css";
 import Row from "react-bootstrap/Row";
-// test
+import ReactReadMoreReadLess from "react-read-more-read-less";
+
 import NotifIcon from "../assets/Notification.svg";
 import UserSettings from "../assets/UserSettings.svg";
 import Search from "../assets/Search.svg";
+import Right from "../assets/Right.svg";
+import Left from "../assets/Left.svg";
+import Filter from "../assets/Filter.svg";
 
 import PatientList from "../components/ListPasien//PatientList";
 import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
@@ -13,16 +18,224 @@ import ModalButton from "../components/ListPasien/TambahPasien";
 import instance from "../API/AxiosInstance";
 
 const Patient = (props) => {
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [data, setData] = useState([])
+
+  const [currentPage, setcurrentPage] = useState(1);
+  const [itemsPerPage, setitemsPerPage] = useState(6);
+
+  const [pageNumberLimit, setpageNumberLimit] = useState(6);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(6);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  const handleClick = (event) => {
+    setcurrentPage(Number(event.target.id));
+  };
+
   const d = new Date();
   let year = d.getFullYear();
+  const TotalPage = data.length / 6;
+
+  const pages = [];
+  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+    pages.push(i);
+  }
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const renderPageNumbers = pages.map((number) => {
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={handleClick}
+          className={currentPage === number ? "active" : null}
+        >
+          {number}
+        </li>
+      );
+    } else {
+      return null;
+    }
+  });
+
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/comments")
+  //     .then((response) => response.json())
+  //     .then((json) => setData(json));
+  // }, []);
 
   useEffect(() => {
-    instance.get('v1/patients')
-    .then((res) => setData(res.data.data))
-    .catch((err) => console.log(err))
-  }, [])
+    instance
+      .get(
+        "v1/patients"
+      )
+      .then((res) => setData(res.data.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleNextbtn = () => {
+    setcurrentPage(currentPage + 1);
+
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+
+  const handlePrevbtn = () => {
+    setcurrentPage(currentPage - 1);
+
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  };
+
+  let pageIncrementBtn = null;
+  if (pages.length > maxPageNumberLimit) {
+    pageIncrementBtn = <li onClick={handleNextbtn}> &hellip; </li>;
+  }
+
+  let pageDecrementBtn = null;
+  if (minPageNumberLimit >= 1) {
+    pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>;
+  }
+
+  const handleLoadMore = () => {
+    setitemsPerPage(itemsPerPage + data.length);
+  };
+
+  const renderData = (data) => {
+    return (
+      <div>
+        {data
+          ?.filter((val) => {
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((val, index) => {
+            return (
+              <div
+                className={`border ${style.PaddingTopBottom}`}
+                key={index}
+                style={{
+                  background: "#EBF2F9",
+                  borderRadius: "12px",
+                  marginBottom: "8px",
+                }}
+              >
+                <tbody style={{ fontSize: "15px" }}>
+                  <tr>
+                    <th
+                      scope="row"
+                      // className={style.counterCell}
+                      style={{
+                        minWidth: "80px",
+                        maxWidth: "80px",
+                      }}
+                    >
+                      {1 + (index + 6 * (currentPage - 1))}
+                    </th>
+                    <td
+                      style={{
+                        minWidth: "150px",
+                        maxWidth: "150px",
+                      }}
+                    >
+                      <ReactReadMoreReadLess
+                        charLimit={13}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val.nik}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td
+                      style={{
+                        minWidth: "200px",
+                        maxWidth: "200px",
+                      }}
+                    >
+                      <ReactReadMoreReadLess
+                        charLimit={17}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val.name}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td
+                      style={{
+                        minWidth: "70px",
+                        maxWidth: "70px",
+                      }}
+                    >
+                      {year - val.birth_date.slice(0, 4)} tahun
+                    </td>
+                    <td
+                      style={{
+                        minWidth: "160px",
+                        maxWidth: "160px",
+                        paddingLeft: "40px",
+                      }}
+                    >
+                      <ReactReadMoreReadLess
+                        charLimit={15}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val.gender === 1 ? "Laki - Laki" : "Perempuan"}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td
+                      style={{
+                        minWidth: "180px",
+                        maxWidth: "180px",
+                        paddingLeft: "40px",
+                      }}
+                    >
+                      <ReactReadMoreReadLess
+                        charLimit={13}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val.phone}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td
+                      style={{
+                        minWidth: "180px",
+                        maxWidth: "180px",
+                      }}
+                    >
+                      <ReactReadMoreReadLess
+                        charLimit={13}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val.created_at.slice(0, 10)}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td>
+                      <DropDown />
+                    </td>
+                  </tr>
+                </tbody>
+              </div>
+            );
+          })}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -36,14 +249,14 @@ const Patient = (props) => {
               >
                 <div className="col">
                   <h3
-                    className="poppins-font border-bottom border-3"
+                    className="poppins-font"
                     style={{
                       fontSize: "30px",
                       color: "#00395E",
-                      width: "200px",
+                      width: "316px",
                     }}
                   >
-                    Data Pasien
+                    Pasien > Data Pasien
                   </h3>
                 </div>
                 <div
@@ -59,6 +272,7 @@ const Patient = (props) => {
                     <input
                       type="search"
                       placeholder="Cari"
+                      onClick={handleLoadMore}
                       className="border border-0 ps-5 shadow bg-light text-dark"
                       style={{
                         height: "40px",
@@ -76,24 +290,54 @@ const Patient = (props) => {
             </div>
           </Row>
           <Row>
-            <div style={{ marginBottom: "25px" }}>
+            <div className="d-flex justify-content-end mb-4">
+              <div class="dropdown me-4">
+                <img
+                  src={Filter}
+                  class=""
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ></img>
+                <ul class="dropdown-menu">
+                  <li>
+                    <h6 class="dropdown-header">Dropdown header</h6>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                </ul>
+              </div>
               <ModalButton />
             </div>
-            <div className="container border shadow">
+            <div
+              className="container border"
+              style={{
+                borderRadius: "6px",
+                boxShadow:
+                  "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+                  paddingLeft:"15px"
+              }}
+            >
               <div className="table-responsive">
                 <table
                   className="table table-borderless text-center poppins-font"
                   style={{ color: "#00395E" }}
                 >
-                  <div>
+                  <div className={`${style.TitlePaddingTopBottom}`}>
                     <thead style={{ fontSize: "20px" }}>
                       <tr>
                         <th
                           scope="col"
                           style={{
                             width: "10px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
                             paddingLeft: "28px",
                           }}
                         >
@@ -103,8 +347,6 @@ const Patient = (props) => {
                           scope="col"
                           style={{
                             minWidth: "190px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
                           }}
                         >
                           NIK
@@ -113,8 +355,6 @@ const Patient = (props) => {
                           scope="col"
                           style={{
                             minWidth: "150px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
                           }}
                         >
                           Nama
@@ -122,10 +362,8 @@ const Patient = (props) => {
                         <th
                           scope="col"
                           style={{
-                            minWidth: "110px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
-                            paddingLeft: "20px",
+                            minWidth: "130px",
+                            maxWidth: "130px",
                           }}
                         >
                           Usia
@@ -133,10 +371,8 @@ const Patient = (props) => {
                         <th
                           scope="col"
                           style={{
-                            minWidth: "150px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
-                            paddingLeft: "25px",
+                            minWidth: "160px",
+                            maxWidth: "160px",
                           }}
                         >
                           Jenis Kelamin
@@ -144,9 +380,8 @@ const Patient = (props) => {
                         <th
                           scope="col"
                           style={{
-                            minWidth: "180px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
+                            minWidth: "160px",
+                            maxWidth: "160px",
                           }}
                         >
                           No.Hp
@@ -154,9 +389,8 @@ const Patient = (props) => {
                         <th
                           scope="col"
                           style={{
-                            minWidth: "150px",
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
+                            minWidth: "160px",
+                            maxWidth: "160px",
                           }}
                         >
                           Tanggal Daftar
@@ -164,119 +398,77 @@ const Patient = (props) => {
                         <th
                           scope="col"
                           style={{
-                            paddingTop: "17px",
-                            paddingBottom: "27px",
                             paddingLeft: "7px",
                           }}
                         ></th>
                       </tr>
                     </thead>
                   </div>
-                  {data?.filter((val) => {
-                    if (searchTerm === "") {
-                      return val;
-                    } else if (
-                      val.name.toLowerCase().includes(searchTerm.toLowerCase())
-                    ) {
-                      return val;
-                    }
-                  }).map((val, patient) => {
-                    return (
-                      <div
-                        className="border"
-                        key={patient}
-                        style={{
-                          background: "#CCE3F2",
-                          borderRadius: "12px",
-                          marginBottom: "8px",
-                        }}
-                      >
-                        <tbody style={{ fontSize: "15px" }}>
-                          <tr>
-                            <th
-                              scope="row"
-                              className={style.counterCell}
-                              style={{
-                                width: "10px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                                paddingLeft: "31px",
-                              }}
-                            >
-                              .
-                            </th>
-                            <td
-                              style={{
-                                minWidth: "190px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                                paddingLeft: "31px",
-                              }}
-                            >
-                              {val.nik}
-                            </td>
-                            <td
-                              style={{
-                                minWidth: "200px",
-                                maxWidth: "150px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                              }}
-                            >
-                              {val.name}
-                            </td>
-                            <td
-                              style={{
-                                minWidth: "20px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                              }}
-                            >
-                              {year - val.birth_date.slice(0, 4)} tahun
-                            </td>
-                            <td
-                              style={{
-                                minWidth: "160px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                                paddingLeft: "40px",
-                              }}
-                            >
-                              {val.gender === 1 ? 'Laki - Laki' : 'Perempuan'}
-                            </td>
-                            <td
-                              style={{
-                                minWidth: "180px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                                paddingLeft: "40px",
-                              }}
-                            >
-                              {val.phone}
-                            </td>
-                            <td
-                              style={{
-                                minWidth: "180px",
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                              }}
-                            >
-                              {val.created_at.slice(0, 10)}
-                            </td>
-                            <td
-                              style={{
-                                paddingTop: "22px",
-                                paddingBottom: "22px",
-                              }}
-                            >
-                              <DropDown id={val.id} />
-                            </td>
-                          </tr>
-                        </tbody>
-                      </div>
-                    );
-                  })}
+                  {renderData(currentItems)}
                 </table>
+              </div>
+            </div>
+            <div
+              className="border mt-4 container text-center border-1"
+              style={{
+                width: "1150px",
+                float: "right",
+                height: "75px",
+                borderRadius: "6px",
+                boxShadow:
+                  "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+              }}
+            >
+              <div className="row" style={{ marginTop: "24px" }}>
+                <div
+                  className="col-md-4"
+                  style={{ fontSize: "18px", color: "#00395E" }}
+                >
+                  <h4>
+                    Data {indexOfFirstItem + 1} - {indexOfLastItem} dari{" "}
+                    {Math.ceil(TotalPage)} Halaman
+                  </h4>
+                </div>
+                <div className="col-md-4 ms-auto d-flex justify-content-center">
+                  <ul
+                    className="pageNumbers"
+                    style={{
+                      color: "#00395E",
+                      marginRight: "-50px",
+                      marginTop: "-10px",
+                    }}
+                  >
+                    {/* <li>
+                      <button onClick={handleLoadMore} className="loadmore">
+                        <h5>View All</h5>
+                      </button>
+                    </li> */}
+                    <li>
+                      <button
+                        onClick={handlePrevbtn}
+                        disabled={currentPage === pages[0] ? true : false}
+                        style={{ marginTop: "-100px" }}
+                      >
+                        <img src={Left} alt="img" />
+                      </button>
+                    </li>
+                    {pageDecrementBtn}
+                    {renderPageNumbers}
+                    {pageIncrementBtn}
+
+                    <li>
+                      <button
+                        onClick={handleNextbtn}
+                        disabled={
+                          currentPage === pages[pages.length - 1] ? true : false
+                        }
+                        style={{ marginTop: "-100px" }}
+                      >
+                        <img src={Right} alt="img" />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </Row>
