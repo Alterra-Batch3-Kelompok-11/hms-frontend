@@ -35,6 +35,11 @@ const Patient = (props) => {
   const d = new Date();
   let year = d.getFullYear();
   const TotalPage = data.length / 6;
+  const getRandomNumber = Math.floor(Math.random());
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
@@ -62,20 +67,20 @@ const Patient = (props) => {
     }
   });
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/comments")
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json));
-  // }, []);
-
   useEffect(() => {
-    instance
-      .get(
-        "http://ec2-18-142-246-127.ap-southeast-1.compute.amazonaws.com/v1/patients"
-      )
-      .then((res) => setData(res.data.data))
-      .catch((err) => console.log(err));
+    fetch("https://jsonplaceholder.typicode.com/comments")
+      .then((response) => response.json())
+      .then((json) => setData(json));
   }, []);
+
+  // useEffect(() => {
+  //   instance
+  //     .get(
+  //       "http://ec2-18-142-246-127.ap-southeast-1.compute.amazonaws.com/v1/patients"
+  //     )
+  //     .then((res) => setData(res.data.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const handleNextbtn = () => {
     setcurrentPage(currentPage + 1);
@@ -106,14 +111,14 @@ const Patient = (props) => {
   }
 
   const handleLoadMore = () => {
-    setitemsPerPage(itemsPerPage + 999999);
+    setitemsPerPage(itemsPerPage + data.length);
   };
 
   const renderData = (data) => {
     return (
       <div>
         {data
-          ?.filter((val) => {
+          .filter((val) => {
             if (searchTerm === "") {
               return val;
             } else if (
@@ -145,20 +150,16 @@ const Patient = (props) => {
                     >
                       {1 + (index + 6 * (currentPage - 1))}
                     </th>
-                    <td
+                    <th
+                      scope="row"
+                      // className={style.counterCell}
                       style={{
                         minWidth: "150px",
                         maxWidth: "150px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.nik}
-                      </ReactReadMoreReadLess>
-                    </td>
+                      {Math.floor(Math.random() * 100214126757) + 1}
+                    </th>
                     <td
                       style={{
                         minWidth: "200px",
@@ -179,7 +180,7 @@ const Patient = (props) => {
                         maxWidth: "70px",
                       }}
                     >
-                      {year - val.birth_date.slice(0, 4)} tahun
+                      {Math.floor(Math.random() * 47) + 1} tahun
                     </td>
                     <td
                       style={{
@@ -193,7 +194,7 @@ const Patient = (props) => {
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {val.gender === 1 ? "Laki - Laki" : "Perempuan"}
+                        {val.email}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -203,13 +204,7 @@ const Patient = (props) => {
                         paddingLeft: "40px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.phone}
-                      </ReactReadMoreReadLess>
+                      {Math.floor(Math.random() * 421421427) + 1}
                     </td>
                     <td
                       style={{
@@ -217,13 +212,7 @@ const Patient = (props) => {
                         maxWidth: "180px",
                       }}
                     >
-                      <ReactReadMoreReadLess
-                        charLimit={13}
-                        readMoreText={"▼"}
-                        readLessText={"▲"}
-                      >
-                        {val.created_at.slice(0, 10)}
-                      </ReactReadMoreReadLess>
+                      {Math.floor(Math.random() * 23243632) + 1}
                     </td>
                     <td>
                       <DropDown />
@@ -272,6 +261,7 @@ const Patient = (props) => {
                     <input
                       type="search"
                       placeholder="Cari"
+                      onClick={handleLoadMore}
                       className="border border-0 ps-5 shadow bg-light text-dark"
                       style={{
                         height: "40px",
@@ -316,7 +306,15 @@ const Patient = (props) => {
               </div>
               <ModalButton />
             </div>
-            <div className="container border shadow">
+            <div
+              className="container border"
+              style={{
+                borderRadius: "6px",
+                boxShadow:
+                  "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+                paddingLeft: "15px",
+              }}
+            >
               <div className="table-responsive">
                 <table
                   className="table table-borderless text-center poppins-font"
@@ -411,19 +409,29 @@ const Patient = (props) => {
               }}
             >
               <div className="row" style={{ marginTop: "24px" }}>
-                <div className="col-md-4">
+                <div
+                  className="col-md-4"
+                  style={{ fontSize: "18px", color: "#00395E" }}
+                >
                   <h4>
                     Data {indexOfFirstItem + 1} - {indexOfLastItem} dari{" "}
                     {Math.ceil(TotalPage)} Halaman
                   </h4>
                 </div>
-                <div className="col-md-4 ms-auto">
-                  <ul className="pageNumbers">
-                    <li>
+                <div className="col-md-4 ms-auto d-flex justify-content-center">
+                  <ul
+                    className="pageNumbers"
+                    style={{
+                      color: "#00395E",
+                      marginRight: "-50px",
+                      marginTop: "-10px",
+                    }}
+                  >
+                    {/* <li>
                       <button onClick={handleLoadMore} className="loadmore">
                         <h5>View All</h5>
                       </button>
-                    </li>
+                    </li> */}
                     <li>
                       <button
                         onClick={handlePrevbtn}
