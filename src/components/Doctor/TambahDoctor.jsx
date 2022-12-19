@@ -5,11 +5,22 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import instance from '../../API/AxiosInstance';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function TambahDoctorPage(props) {
     const [dataSpesialis, setDataSpesialis] = useState([])
     const [dataProfesi, setDataProfesi] = useState([])
+    const nama = useRef('')
+    const noLisensi = useRef('')
+    const email = useRef('')
+    const jadwalPraktek = useRef('')
+    const profesi = useRef('')
+    const uploadGambar = useRef('')
+    const tanggalLahir = useRef('')
+    const usia = useRef('')
+    const jenisKelamin = useRef('')
+    const statusPerkawinan = useRef('')
+    const spesialis = useRef('')
 
     useEffect(() => {
         instance.get('v1/specialities')
