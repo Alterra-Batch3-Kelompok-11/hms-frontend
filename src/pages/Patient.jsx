@@ -9,6 +9,7 @@ import UserSettings from "../assets/UserSettings.svg";
 import Search from "../assets/Search.svg";
 import Right from "../assets/Right.svg";
 import Left from "../assets/Left.svg";
+import Filter from "../assets/Filter.svg";
 
 import PatientList from "../components/ListPasien//PatientList";
 import UserSettingsAndNotification from "../components/UserSettingsAndNotification";
@@ -31,7 +32,9 @@ const Patient = (props) => {
     setcurrentPage(Number(event.target.id));
   };
 
-const TotalPage = data.length/6;
+  const d = new Date();
+  let year = d.getFullYear();
+  const TotalPage = data.length / 6;
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
@@ -52,17 +55,26 @@ const TotalPage = data.length/6;
           className={currentPage === number ? "active" : null}
         >
           {number}
-        </li> 
+        </li>
       );
     } else {
       return null;
     }
   });
 
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/comments")
+  //     .then((response) => response.json())
+  //     .then((json) => setData(json));
+  // }, []);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/comments")
-      .then((response) => response.json())
-      .then((json) => setData(json));
+    instance
+      .get(
+        "http://ec2-18-142-246-127.ap-southeast-1.compute.amazonaws.com/v1/patients"
+      )
+      .then((res) => setData(res.data.data))
+      .catch((err) => console.log(err));
   }, []);
 
   const handleNextbtn = () => {
@@ -101,16 +113,16 @@ const TotalPage = data.length/6;
     return (
       <div>
         {data
-          .filter((todo) => {
+          ?.filter((val) => {
             if (searchTerm === "") {
-              return todo;
+              return val;
             } else if (
-              todo.name.toLowerCase().includes(searchTerm.toLowerCase())
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
-              return todo;
+              return val;
             }
           })
-          .map((todo, index) => {
+          .map((val, index) => {
             return (
               <div
                 className={`border ${style.PaddingTopBottom}`}
@@ -125,13 +137,13 @@ const TotalPage = data.length/6;
                   <tr>
                     <th
                       scope="row"
-                      className={style.counterCell}
+                      // className={style.counterCell}
                       style={{
                         minWidth: "80px",
                         maxWidth: "80px",
                       }}
                     >
-                      {todo.id}.
+                      {1 + (index + 6 * (currentPage - 1))}
                     </th>
                     <td
                       style={{
@@ -140,11 +152,11 @@ const TotalPage = data.length/6;
                       }}
                     >
                       <ReactReadMoreReadLess
-                        charLimit={10}
+                        charLimit={13}
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {todo.email}
+                        {val.nik}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -154,11 +166,11 @@ const TotalPage = data.length/6;
                       }}
                     >
                       <ReactReadMoreReadLess
-                        charLimit={14}
+                        charLimit={17}
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {todo.name}
+                        {val.name}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -167,7 +179,7 @@ const TotalPage = data.length/6;
                         maxWidth: "70px",
                       }}
                     >
-                      {todo.id} tahun
+                      {year - val.birth_date.slice(0, 4)} tahun
                     </td>
                     <td
                       style={{
@@ -181,7 +193,7 @@ const TotalPage = data.length/6;
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {todo.body}
+                        {val.gender === 1 ? "Laki - Laki" : "Perempuan"}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -196,7 +208,7 @@ const TotalPage = data.length/6;
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {todo.body}
+                        {val.phone}
                       </ReactReadMoreReadLess>
                     </td>
                     <td
@@ -210,7 +222,7 @@ const TotalPage = data.length/6;
                         readMoreText={"▼"}
                         readLessText={"▲"}
                       >
-                        {todo.body}
+                        {val.created_at.slice(0, 10)}
                       </ReactReadMoreReadLess>
                     </td>
                     <td>
@@ -237,14 +249,14 @@ const TotalPage = data.length/6;
               >
                 <div className="col">
                   <h3
-                    className="poppins-font border-bottom border-3"
+                    className="poppins-font"
                     style={{
                       fontSize: "30px",
                       color: "#00395E",
-                      width: "200px",
+                      width: "316px",
                     }}
                   >
-                    Data Pasien
+                    Pasien > Data Pasien
                   </h3>
                 </div>
                 <div
@@ -278,6 +290,30 @@ const TotalPage = data.length/6;
           </Row>
           <Row>
             <div className="d-flex justify-content-end mb-4">
+              <div class="dropdown me-4">
+                <img
+                  src={Filter}
+                  class=""
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ></img>
+                <ul class="dropdown-menu">
+                  <li>
+                    <h6 class="dropdown-header">Dropdown header</h6>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                </ul>
+              </div>
               <ModalButton />
             </div>
             <div className="container border shadow">
@@ -364,12 +400,22 @@ const TotalPage = data.length/6;
               </div>
             </div>
             <div
-              className="border mt-4 container text-center"
-              style={{ width: "1150px", float: "right" }}
+              className="border mt-4 container text-center border-1"
+              style={{
+                width: "1150px",
+                float: "right",
+                height: "75px",
+                borderRadius: "6px",
+                boxShadow:
+                  "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+              }}
             >
               <div className="row" style={{ marginTop: "24px" }}>
                 <div className="col-md-4">
-                  <h4>Data 1 - 6 dari {Math.ceil(TotalPage)} Halaman</h4>
+                  <h4>
+                    Data {indexOfFirstItem + 1} - {indexOfLastItem} dari{" "}
+                    {Math.ceil(TotalPage)} Halaman
+                  </h4>
                 </div>
                 <div className="col-md-4 ms-auto">
                   <ul className="pageNumbers">

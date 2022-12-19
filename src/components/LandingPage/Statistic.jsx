@@ -19,28 +19,28 @@ function Statistic() {
             </h3>
           </div>
           <div className="col ms-3" style={{marginTop:"4%"}}>
-            <h2 className="text-start ms-4" style={{fontSize:"70px"}}>10 +</h2>
+            <h2 className="text-start ms-4" style={{fontSize:"68px"}}>10 +</h2>
             <div className=" d-inline-flex justify-content-start fs-4 flex-shrink-0 me-3">
               <img src={PeopleLogo} alt="img" />
-              <p className="text-start w-25 ms-3" style={{ fontSize: "24px" }}>
+              <p className="text-start w-25 ms-3" style={{ fontSize: "22px" }}>
                 Medical Expert
               </p>
             </div>
           </div>
           <div className="col" style={{marginTop:"4%"}}>
-            <h2 className="text-start ms-4" style={{fontSize:"70px"}}>5 +</h2>
+            <h2 className="text-start ms-4" style={{fontSize:"68px"}}>5 +</h2>
             <div className=" d-inline-flex  justify-content-start fs-4 flex-shrink-0 me-3">
               <img src={Awards} alt="img" />
-              <p className="text-start ms-3 w-25" style={{ fontSize: "24px" }}>
+              <p className="text-start ms-3 w-25" style={{ fontSize: "22px" }}>
                 Awards Win
               </p>
             </div>
           </div>
           <div className="col" style={{marginTop:"4%"}}>
-            <h2 className="text-start ms-4" style={{fontSize:"70px"}}>1k +</h2>
+            <h2 className="text-start ms-4" style={{fontSize:"68px"}}>1k +</h2>
             <div className=" d-inline-flex  justify-content-start fs-4 flex-shrink-0 me-3">
               <img src={Smile} alt="img" />
-              <p className="text-start ms-3" style={{ fontSize: "24px" }}>
+              <p className="text-start ms-3" style={{ fontSize: "22px" }}>
                 Happy Patient
               </p>
             </div>

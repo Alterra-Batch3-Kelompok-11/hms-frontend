@@ -73,13 +73,13 @@ function PersonalCarousel() {
                   <div className="card-body">
                     <h5
                       className="card-title d-flex justify-content-center mt-4"
-                      style={{ fontSize: "25px", color: "#00395E" }}
+                      style={{ fontSize: "27px", color: "#00395E" }}
                     >
                       Dr. {item.name}
                     </h5>
                     <h5
                       className="mt-4"
-                      style={{ fontSize: "18px", color: "#00395E" }}
+                      style={{ fontSize: "16px", color: "#00395E" }}
                     >
                       This doctor has specialists {item.Spesialis}
                     </h5>

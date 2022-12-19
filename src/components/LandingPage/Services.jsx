@@ -14,7 +14,7 @@ function service() {
         className="position-absolute start-50 translate-middle"
         style={{ marginTop: "90px" }}
       >
-        <h1 style={{ marginTop: "7px", fontSize:'38px' }}>
+        <h1 style={{ marginTop: "7px", fontSize:'36px' }}>
           OUR <span style={{ color: "#0071BC" }}>SERVICES</span>
         </h1>
       </div>
@@ -25,10 +25,10 @@ function service() {
         style={{ fontFamily: "Poppins", width: "65%", marginTop: "223px" }}
       >
         <div className="pricing-header p-3 pb-md-4 mx-auto text-center w-100">
-          <h1 className=" fw-normal mb-4 mx-5" style={{ fontSize: "3rem" }}>
+          <h1 className=" fw-normal mb-4 mx-5" style={{ fontSize: "2.8rem" }}>
             Experienced in Multiple Medical Practices
           </h1>
-          <p className="fs-4">
+          <p style={{fontSize:"22px"}}>
             The services we provide are guided by our experienced and best
             medical personel
           </p>

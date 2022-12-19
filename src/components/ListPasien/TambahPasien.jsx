@@ -43,10 +43,10 @@ function ModalButton() {
       {/* // <!-- Button trigger modal --> */}
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn text-white"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
-        style={{ borderRadius: "12px", width: "190px", height: "51px" }}
+        style={{ borderRadius: "12px", width: "190px", height: "51px", backgroundColor:"#0071BC" }}
       >
         Tambah Pasien
       </button>
