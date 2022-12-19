@@ -412,14 +412,14 @@ const Patient = (props) => {
               }}
             >
               <div className="row" style={{ marginTop: "24px" }}>
-                <div className="col-md-4">
+                <div className="col-md-4" style={{fontSize:"18px", color:"#00395E"}}>
                   <h4>
                     Data {indexOfFirstItem + 1} - {indexOfLastItem} dari{" "}
                     {Math.ceil(TotalPage)} Halaman
                   </h4>
                 </div>
-                <div className="col-md-4 ms-auto">
-                  <ul className="pageNumbers">
+                <div className="col-md-4 ms-auto d-flex justify-content-center">
+                  <ul className="pageNumbers" style={{color:"#00395E", marginRight:"-50px", marginTop:"-10px"}}>
                     {/* <li>
                       <button onClick={handleLoadMore} className="loadmore">
                         <h5>View All</h5>
