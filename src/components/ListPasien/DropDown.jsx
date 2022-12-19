@@ -6,18 +6,16 @@ import swal from 'sweetalert';
 import { deleteData } from '../../API/InstanceWithToken';
 import Cookies from "js-cookie"
 import instance from '../../API/AxiosInstance';
+import RawatJalanComponent from './RawatJalan';
 
 function DropDown(props) {
   const [modalShow, setModalShow] = useState(false);
+  const [rawatShow, setRawatShow] = useState(false);
 
   const handleDelete = async (e) => {
     e.preventDefault()
 
     instance.defaults.headers.post['Authorization'] = 'Bearer ' + Cookies.get('token');
-
-
-    // console.log(Cookies.get('token'))
-    // console.log(props.id)
 
     await swal({
       title: "Are you sure?",
@@ -46,7 +44,7 @@ function DropDown(props) {
   <button type="button" className="btn btn-transparent" data-bs-toggle="dropdown" aria-expanded="false" >
   •••
   </button>
-  <ul className="dropdown-menu text-center poppins-font" >
+  <ul className="dropdown-menu text-center poppins-font"  >
     <li>
       <Button variant="btn-link text-decoration-none" style={{color:"#00395E", height: "30px"}} onClick={() => setModalShow(true)}>
         Edit Data
@@ -67,7 +65,13 @@ function DropDown(props) {
       </Link>
     </li>
     <li><hr className="dropdown-divider"></hr></li>
-    <li><a className="dropdown-item" style={{color:"#00395E"}} href="#">Tambah Rawat Jalan</a></li>
+    <li>
+      <Button variant="btn-link text-decoration-none" style={{color:"#00395E", height: "30px", fontSize: '10px'}} onClick={() => setRawatShow(true)}>
+        Tambah Rawat Jalan
+      </Button>
+
+      <RawatJalanComponent id={props} show={rawatShow} onHide={() => setRawatShow(false)} />
+    </li>
   </ul>
 </div>
   );

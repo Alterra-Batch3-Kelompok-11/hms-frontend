@@ -5,35 +5,68 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import instance from '../../API/AxiosInstance';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReligionComponent from '../../API/Religion';
+import { editData } from '../../API/InstanceWithToken';
+import swal from 'sweetalert';
+import moment from 'moment/moment';
 
 function EditDataPasienPage (props) {
-    const baseData = {}
-    const [data, setData] = useState(baseData)
-    let [name, setName] = useState("")
+    const [data, setData] = useState({
+        name: '',
+        nik: '',
+        gender: null,
+        address: '',
+        phone: '',
+        marital_status: null,
+        birth_date: '',
+        religion_id: null
+    })
 
     const id = props.id.id
-    
-    if (props.show === true) {
-        try {
-            instance.get('v1/patients/' + id)
-             .then(res => setName(res.data.data.name))
-             .catch(err => console.log(err))
+    const isModalShow = props.show === true ? true : false
 
-        } catch (error) {
-            console.log(error)
+    useEffect(() => {
+        if (isModalShow) {
+            try {
+                instance.get('v1/patients/' + id)
+                 .then(res => setData({
+                    name: res.data.data.name,
+                    nik: res.data.data.nik,
+                    gender: res.data.data.gender,
+                    address: res.data.data.address,
+                    phone: res.data.data.phone,
+                    marital_status: res.data.data.marital_status,
+                    birth_date: moment(res.data.data.birth_date).format("YYYY-MM-DD"),
+                    religion_id: res.data.data.religion_id
+                 }))
+                 .catch(err => console.log(err))
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }
+    }, [isModalShow, id])
 
     const handleEdit = (e) => {
         setData({...data, [e.target.name]: e.target.value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        console.log(name)
+        await editData(`v1/patients/${id}`, {
+            name: data.name,
+            nik: data.nik,
+            gender: data.gender,
+            address: data.address,
+            phone: data.phone,
+            marital_status: data.marital_status,
+            birth_date: moment(data.birth_date).format("DD-MM-YYYY"),
+            religion_id: data.religion_id
+        })
+
+        swal("Yeay", "Data Pasien Berhasil di edit", "success");
+        props.onHide()
     }
 
   return (
@@ -50,15 +83,15 @@ function EditDataPasienPage (props) {
                     <Col xs={6} md={6}>
                         <div className="mb-2">
                             <Form.Label>Nama</Form.Label>
-                            <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                            <Form.Control type="text" name='name' value={data?.name} onChange={(e) => handleEdit(e)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>NIK</Form.Label>
-                            <Form.Control type="text" value={data.nik} />
+                            <Form.Control type="text" name='nik' value={data?.nik} onChange={(e) => handleEdit(e)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>Nomor Hp</Form.Label>
-                            <Form.Control type="text" value={data?.phone} />
+                            <Form.Control type="text" name='phone' value={data?.phone} onChange={(e) => handleEdit(e)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>Agama</Form.Label>
@@ -70,22 +103,49 @@ function EditDataPasienPage (props) {
                     <Col xs={6} md={6}>
                         <div className="mb-2">
                             <Form.Label>Tanggal lahir</Form.Label>
-                            <Form.Control type="date" value={data?.birth_date} />
+                            <Form.Control type="date" name='birth_date' value={data?.birth_date} onChange={(e) => handleEdit(e)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>Alamat</Form.Label>
-                            <Form.Control type="text" value={data?.address} />
+                            <Form.Control type="text" name='address' value={data?.address} onChange={(e) => handleEdit(e)} />
                         </div>
                         <div className="mb-2">
                             <Form.Label>Jenis Kelamin</Form.Label>
-                            <Form.Select aria-label="Default select example">
-                            <option value="Laki-Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <Form.Select aria-label="Default select example" name='gender'>
+                                {
+                                    data?.gender === 1
+                                    ?  (
+                                        <>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value="Perempuan">Perempuan</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                        </>
+                                    )
+                                }
                             </Form.Select>
                         </div>
                         <div className="mb-2">
                             <Form.Label>Status Perkawinan</Form.Label>
-                            <Form.Control type="text" value={data?.marital_status === true ? 'Menikah' : 'Belum Menikah'}/>
+                            <Form.Select aria-label="Default select example" name='marital_status'>
+                                {
+                                    data?.marital_status === true
+                                    ?  (
+                                        <>
+                                            <option value={true}>Menikah</option>
+                                            <option value={false}>Belum Menikah</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value={false}>Belum Menikah</option>
+                                            <option value={true}>Menikah</option>
+                                        </>
+                                    )
+                                }
+                            </Form.Select>
                         </div>
                     </Col>
                 </Row>
