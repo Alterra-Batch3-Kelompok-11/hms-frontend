@@ -317,7 +317,15 @@ const Patient = (props) => {
               </div>
               <ModalButton />
             </div>
-            <div className="container border shadow">
+            <div
+              className="container border"
+              style={{
+                borderRadius: "6px",
+                boxShadow:
+                  "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+                  paddingLeft:"15px"
+              }}
+            >
               <div className="table-responsive">
                 <table
                   className="table table-borderless text-center poppins-font"
@@ -412,14 +420,24 @@ const Patient = (props) => {
               }}
             >
               <div className="row" style={{ marginTop: "24px" }}>
-                <div className="col-md-4" style={{fontSize:"18px", color:"#00395E"}}>
+                <div
+                  className="col-md-4"
+                  style={{ fontSize: "18px", color: "#00395E" }}
+                >
                   <h4>
                     Data {indexOfFirstItem + 1} - {indexOfLastItem} dari{" "}
                     {Math.ceil(TotalPage)} Halaman
                   </h4>
                 </div>
                 <div className="col-md-4 ms-auto d-flex justify-content-center">
-                  <ul className="pageNumbers" style={{color:"#00395E", marginRight:"-50px", marginTop:"-10px"}}>
+                  <ul
+                    className="pageNumbers"
+                    style={{
+                      color: "#00395E",
+                      marginRight: "-50px",
+                      marginTop: "-10px",
+                    }}
+                  >
                     {/* <li>
                       <button onClick={handleLoadMore} className="loadmore">
                         <h5>View All</h5>
