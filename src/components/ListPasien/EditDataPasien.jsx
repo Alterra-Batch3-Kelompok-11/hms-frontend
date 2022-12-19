@@ -130,7 +130,22 @@ function EditDataPasienPage (props) {
                         </div>
                         <div className="mb-2">
                             <Form.Label>Status Perkawinan</Form.Label>
-                            <Form.Control type="text" name='marital_status' value={data?.marital_status === true ? 'Menikah' : 'Belum Menikah'} onChange={(e) => handleEdit(e)}/>
+                            <Form.Select aria-label="Default select example" name='marital_status'>
+                                {
+                                    data?.marital_status === true
+                                    ?  (
+                                        <>
+                                            <option value={true}>Menikah</option>
+                                            <option value={false}>Belum Menikah</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value={false}>Belum Menikah</option>
+                                            <option value={true}>Menikah</option>
+                                        </>
+                                    )
+                                }
+                            </Form.Select>
                         </div>
                     </Col>
                 </Row>

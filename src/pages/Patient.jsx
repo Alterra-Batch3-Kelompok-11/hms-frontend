@@ -126,7 +126,7 @@ const Patient = (props) => {
             return (
               <div
                 className={`border ${style.PaddingTopBottom}`}
-                key={index}
+                key={val.id}
                 style={{
                   background: "#EBF2F9",
                   borderRadius: "12px",
@@ -226,7 +226,7 @@ const Patient = (props) => {
                       </ReactReadMoreReadLess>
                     </td>
                     <td>
-                      <DropDown />
+                      <DropDown id={val.id} />
                     </td>
                   </tr>
                 </tbody>
@@ -256,7 +256,7 @@ const Patient = (props) => {
                       width: "316px",
                     }}
                   >
-                    Pasien > Data Pasien
+                    Pasien &gt; Data Pasien
                   </h3>
                 </div>
                 <div
@@ -291,25 +291,25 @@ const Patient = (props) => {
           </Row>
           <Row>
             <div className="d-flex justify-content-end mb-4">
-              <div class="dropdown me-4">
+              <div className="dropdown me-4">
                 <img
                   src={Filter}
-                  class=""
+                  className=""
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 ></img>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li>
-                    <h6 class="dropdown-header">Dropdown header</h6>
+                    <h6 className="dropdown-header">Dropdown header</h6>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>

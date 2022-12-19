@@ -15,6 +15,8 @@ import Cookies from 'js-cookie';
 function RawatJalanComponent(props) {
     const [data, setData] = useState({})
     const [doctor, setDoctor] = useState([]) 
+    const d = new Date();
+    let year = d.getFullYear();
     const navigate = useNavigate()
     const keluhan = useRef('')
     const jam = useRef('')
@@ -103,7 +105,7 @@ function RawatJalanComponent(props) {
                     <Col xs={6} md={6}>
                         <div className="mb-2">
                             <Form.Label>Tanggal lahir</Form.Label>
-                            <Form.Control type="date" value={data?.birth_date}  disabled/>
+                            <Form.Control type="date" value={data?.birth_date} disabled/>
                         </div>
                         <div className="mb-2">
                             <Form.Label>Usia</Form.Label>
