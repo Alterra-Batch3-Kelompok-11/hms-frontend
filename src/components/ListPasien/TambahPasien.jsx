@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { postData } from "../../API/InstanceWithToken";
 import swal from 'sweetalert';
 import ReligionComponent from "../../API/Religion";
+import moment from "moment/moment";
 
 function ModalButton() {
   const nikID = useRef(null)
@@ -21,7 +22,7 @@ function ModalButton() {
     e.preventDefault()
 
     const birth = birthDay?.current?.value
-    const birthdayPatient = birth.replace("/", "-")
+    const birthdayPatient = moment(birth).format("DD-MM-YYYY")
 
     await postData('v1/patients', {
       nik: nikID?.current?.value,

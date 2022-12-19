@@ -61,7 +61,7 @@ function EditDataPasienPage (props) {
             address: data.address,
             phone: data.phone,
             marital_status: data.marital_status,
-            birth_date: data.birth_date,
+            birth_date: moment(data.birth_date).format("DD-MM-YYYY"),
             religion_id: data.religion_id
         })
 

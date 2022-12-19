@@ -52,17 +52,15 @@ function RawatJalanComponent(props) {
 
         const dataSend = await postData('v1/outpatient_sessions', {
             patient_id: id,
-            doctor_id: dokter?.current?.value,
+            doctor_id: parseInt(dokter?.current?.value),
             complaint: keluhan?.current?.value,
-            schedule_date: periksa?.current?.value,
-            schedule_time: jam?.current?.value
+            schedule_date: moment(periksa?.current?.value).format("DD-MM-YYYY"),
+            schedule_time: jam?.current?.value + ':00'
         })
 
-        console.log(dataSend)
-
-        // swal("Yeay", "Data Pasien Berhasil di input ", "success");
-        // props.onHide()
-        // navigate('/Admin/Outpatient')
+        swal("Yeay", "Data Pasien Berhasil di input ", "success");
+        props.onHide()
+        navigate('/Admin/Outpatient')
     }
 
   return (
