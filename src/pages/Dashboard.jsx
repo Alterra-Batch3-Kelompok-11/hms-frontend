@@ -50,12 +50,12 @@ function Dashboard() {
       <Row>
         <Col className="border px-3 pt-4 ms-2 ms-md-0">
           <h3 className="mb-4">Doctor jaga hari ini</h3>
-          { data?.today_doctors?.map(val => {
+          { data?.today_doctors?.map((val, index) => {
             return (
               <div
                 className="my-3 p-2"
                 style={{ background: "#CCE3F2", borderRadius: "5px" }}
-                key={val.day_int}
+                key={index}
               >
                 <h4>{val.name}</h4>
                 <div className="d-flex">

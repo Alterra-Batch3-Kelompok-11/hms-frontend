@@ -1,15 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
 import ManagePatientDoctor from './ManagePatientDoctor';
 import ModalButtonEdit from './ModalButtonEdit';
 import HisPatient from './HisPatient';
+import { useNavigate, useParams } from 'react-router-dom';
+import instance from '../../API/AxiosInstance';
+import { deleteData } from '../../API/InstanceWithToken';
+import swal from 'sweetalert';
+import Cookies from 'js-cookie';
 
 const ManageDoctor = () => {
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [tempdata, setTempdata] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [dataDokter, setDataDokter] = useState([])
+  const props = useParams()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    instance.get(`v1/doctors/${props.id}`)
+      .then(res => setDataDokter(res.data.data))
+      .catch(err => console.log(err))
+  }, [])
+
+  const handleDelete = async (e) => {
+    e.preventDefault()
+
+    instance.defaults.headers.post['Authorization'] = 'Bearer ' + Cookies.get('token');
+
+    await swal({
+      title: "Are you sure?",
+      text: "Apakah anda yakin menghapus data dokter berikut",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+
+        deleteData(`v1/doctors/${props.id}`)
+    
+        swal("Data Dokter Terhapus", {
+          icon: "success",
+        });
+
+        navigate('/Admin/DoctorList')
+      } else {
+        swal("Data Pasien Masih tersimpan");
+      }
+    });
+
+  }
   
   const handleShowModal = () => {
     setShowModal(true);
@@ -29,8 +72,6 @@ const ManageDoctor = () => {
 
   return (
     <>
-      {showModal && <ManagePatientDoctor closeModal={handleCloseModal} />}
-      {showEditModal && <ModalButtonEdit closeModal={handleCloseEditModal} />}
       <div className='container-fluid'>
         <div className="content container" style={{ width: "1150px" }}>
             <div className="container text-center">
@@ -55,25 +96,36 @@ const ManageDoctor = () => {
                 <div className='card' style={{width: "604px", height: "378px" , boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}}>
                     <div className='row'>
                         <div className='col-sm-4'>
-                            <img src={Ellipse2} style={{padding:"30px", width: "227px", height: "228px"}} />
+                            <img src={dataDokter?.profile_pic} style={{padding:"30px", width: "227px", height: "228px"}} />
                         </div>
                         <div className='col-sm-8' style={{fontFamily:"Poppins", padding:"30px", color: "#00395E", paddingLeft:"78px"}}>
-                            <h3 style={{fontWeight:"600", fontSize: "30px", lineHeight: "50px"}}>Dr. Bones</h3>
-                            <p style={{fontWeight:"400", fontSize: "18px", lineHeight: "25px"}}>9824820130492</p>
-                            <p style={{fontWeight:"600", fontSize: "16px", lineHeight: "20px"}}>Spesialist : Dokter Gigi</p>
-                            <table style={{fontWeight:"400", fontSize: "16px", lineHeight: "30px"}}>
-                              <tr>
-                              <td rowSpan="2" style={{paddingRight:"20px"}}><b>Jadwal :</b></td>
-                              <td>Senin-Kamis</td>
-                              </tr>
-                              <tr>
-                                <td>09.00 WIB - 13.00 WIB</td>
-                              </tr>
-                            </table>
-                            <button onClick={handleShowModal} type="button" className="btn btn-primary" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", 
-                            padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
-                            Lihat Details
-                            </button>
+                            <h3 style={{fontWeight:"600", fontSize: "30px", lineHeight: "50px"}}>Dr. {dataDokter?.name}</h3>
+                            <p style={{fontWeight:"400", fontSize: "18px", lineHeight: "25px"}}>{dataDokter?.license_number}</p>
+                            <p style={{fontWeight:"600", fontSize: "16px", lineHeight: "20px"}}>Spesialist : {dataDokter?.speciality_name}</p>
+                            {dataDokter?.doctor_schedules?.map(val => {
+                                return (
+                                  <>
+                                    <table style={{ fontWeight: "400", fontSize: "16px", lineHeight: "30px" }} key={val.id}>
+                                      <tr>
+                                        <td rowSpan="2" style={{ paddingRight: "20px" }}><b>Jadwal :</b></td>
+                                        <td>{val.day_string}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>{val.start_time} WIB - {val.end_time} WIB</td>
+                                      </tr>
+                                    </table>
+                                  </>
+                                )
+                            })}
+                            <div className='d-flex'>
+                              <button onClick={(e) => handleDelete(e)} type="button" className="btn btn-outline-primary" style={{display: "flex", flexDirection: "row", justifyContent: "center", padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
+                                Hapus Data
+                              </button>
+
+                              <button onClick={handleShowModal} type="button" className="btn btn-primary ms-3" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
+                                Lihat Details
+                              </button>
+                            </div>
                         </div>
                         </div>
                 </div>
@@ -110,9 +162,9 @@ const ManageDoctor = () => {
                   09.00 - 13.00 WIB</p>
               </div>
             </div>
-                <button onClick={handleShowEditModal} type="button" className="btn btn-primary">
-                  Edit Data
-                </button>
+                  <button onClick={handleShowEditModal} className="ms-5" type="button" style={{ backgroundColor: '#0071BC', color: 'white', border: '0'}}>
+                    Edit Data
+                  </button>
                 </td>
               </tr>
               <tr>

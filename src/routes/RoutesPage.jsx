@@ -31,7 +31,7 @@ function RoutesPage() {
           <Route path="/Admin/PatientRegistration" element={<PatientRegistration />} />
           {/* <Route path="/Admin/PatientEdit/:id" element={<PatientRegistration />} /> */}
           <Route path="/Admin/Outpatient" element={<SessionOutpatientPage />} />
-          <Route path="/Admin/ManageDoctor" element={<ManageDoctor />} />
+          <Route path="/Admin/ManageDoctor/:id" element={<ManageDoctor />} />
           <Route path="/Admin/DoctorList" element={<Doctors />} />
           <Route path="/Admin/ProfilePatient" element={<ProfilePatientPage />} />
           <Route path="/Admin/RiwayatPasien" element={<RiwayatPasien />} />

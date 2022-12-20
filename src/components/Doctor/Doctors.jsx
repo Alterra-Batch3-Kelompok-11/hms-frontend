@@ -103,17 +103,19 @@ const Doctors = (props) => {
               <h3 style={{fontFamily:"Poppins", fontWeight:"600", fontSize:"25px", lineHeight:"48px"}}>{val?.name}</h3>
               <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>{val?.license_number}</p>
               <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}} >{val?.speciality_name}</p>
-              <div className="row">
+              <div className="row mb-5">
                 <div className="col-sm-3">
                   <img src={Group1} alt="img" style={{width:"30px", height:"30px"}} />
                 </div>
                 <div className="col-sm-8" style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>
-                  {/* {val?.doctor_schedules === null ? <span>Belum di input</span> : <span>{val?.doctor_schedules}</span>} */}
-                  {/* <span>{val?.doctor_schedules ? val?.doctor_schedules : 'Belum diinput'}</span> */}
-                  {/* {val?.doctor_schedules && <span>{val?.doctor_schedules}</span>} */}
+                  {val?.doctor_schedules?.map(dokter => {
+                    return (
+                      <span>{dokter.day_string}</span>
+                    )
+                  })}
                 </div>    
-                </div>
-                  <a href="/Admin/ManageDoctor"><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
+              </div>
+                  <a href={`/Admin/ManageDoctor/${val?.id}`}><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
                   background: "#0071BC", flexDirection: "row", justifyContent:"center", alignItems:"center", padding:"10px", gap:"10px"}}>Lihat Detail</button></a> 
              </div>
             </div>
