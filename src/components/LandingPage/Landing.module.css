@@ -24,11 +24,25 @@
   height: auto;
 }
 
+.bgStatistic {
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: auto;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 23, 38, 0) 0%,
+      rgba(0, 23, 38, 0.195423) 0%,
+      rgba(0, 23, 38, 0.5) 70.99%
+    ),
+    url("../../assets/LandingPage/BgStatistic.svg");
+}
+
 .gradientText {
   text-align: center;
   background: -webkit-linear-gradient(to right, #2b2b2b, #0084db);
   background: linear-gradient(to right, #2b2b2b, #0084db);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -44,13 +58,30 @@
   );
 }
 
-.marginB{
+.marginB {
   margin-bottom: 500px;
 }
+
+.cardServices {
+  background-color: #ebf2f9;
+  width: 266px;
+  height: 325px;
+}
+
+.cardServicesText {
+  font-size: 22px;
+  color: #00395e;
+}
+
+.borderTop {
+  border-top: 8px solid #cce3f2;
+}
+
 
 .gradient {
   text-align: center;
   background: linear-gradient(to top, #2b2b2b, #0084db);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }

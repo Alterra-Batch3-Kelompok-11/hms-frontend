@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import style from "./Dashboard.module.css";
 import ReactReadMoreReadLess from "react-read-more-read-less";
 
-function ListPasienDashboard() {
+function ListPasienDashboard(props) {
   return (
     <Col className="shadow px-3 py-4 ms-2 ms-md-0 table-responsive" md={7}>
       <table
@@ -39,74 +39,31 @@ function ListPasienDashboard() {
         </div>
         <div>
           <tbody style={{ fontSize: "18px" }}>
-            <div className={`border border-1 border-dark ${style.border}`}>
-              <tr>
-                <th scope="row" className={`${style.NoWidth}`}>
-                  1
-                </th>
-                <td className={`${style.NamaUsiaWidth}`}>
-                  Jono bin Muhammad Salim
-                </td>
-                <td className={`${style.NamaUsiaWidth}`}>22</td>
-                <td className={`${style.KeluhanWidth}`}>
-                  <ReactReadMoreReadLess
-                    charLimit={10}
-                    readMoreText={"▼"}
-                    readLessText={"▲"}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi
-                  </ReactReadMoreReadLess>
-                </td>
-                <td className={`${style.JadwalWidth}`}>24-11-2021</td>
-              </tr>
-            </div>
-            <div className={`border border-1 border-dark ${style.border}`}>
-              <tr>
-                <th scope="row" className={`${style.NoWidth}`}>
-                  2
-                </th>
-                <td className={`${style.NamaUsiaWidth}`}>Joni fikri ali</td>
-                <td className={`${style.NamaUsiaWidth}`}>18</td>
-                <td className={`${style.KeluhanWidth}`}>
-                  <ReactReadMoreReadLess
-                    charLimit={10}
-                    readMoreText={"▼"}
-                    readLessText={"▲"}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi
-                  </ReactReadMoreReadLess>
-                </td>
-                <td className={`${style.JadwalWidth}`}>24-11-2021</td>
-              </tr>
-            </div>
-            <div className={`border border-1 border-dark ${style.border}`}>
-              <tr>
-                <th scope="row" className={`${style.NoWidth}`}>
-                  3
-                </th>
-                <td className={`${style.NamaUsiaWidth}`}>Rina Putri Yulia</td>
-                <td className={`${style.NamaUsiaWidth}`}>25</td>
-                <td className={`${style.KeluhanWidth}`}>
-                  <ReactReadMoreReadLess
-                    charLimit={10}
-                    readMoreText={"▼"}
-                    readLessText={"▲"}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi
-                  </ReactReadMoreReadLess>
-                </td>
-                <td className={`${style.JadwalWidth}`}>24-11-2021</td>
-              </tr>
-            </div>
+            {props?.data?.patients?.map((val, index) => {
+              return (
+                <div className={`border border-1 border-dark ${style.border}`} key={index}>
+                  <tr>
+                    <th scope="row" className={`${style.NoWidth}`}>
+                      {index + 1}
+                    </th>
+                    <td className={`${style.NamaUsiaWidth}`}>
+                      {val?.patient?.name}
+                    </td>
+                    <td className={`${style.NamaUsiaWidth}`}>{val?.patient?.age}</td>
+                    <td className={`${style.KeluhanWidth}`}>
+                      <ReactReadMoreReadLess
+                        charLimit={10}
+                        readMoreText={"▼"}
+                        readLessText={"▲"}
+                      >
+                        {val?.complaint}
+                      </ReactReadMoreReadLess>
+                    </td>
+                    <td className={`${style.JadwalWidth}`}>{val?.schedule_date}</td>
+                  </tr>
+                </div>
+              )
+            })}
           </tbody>
         </div>
       </table>
