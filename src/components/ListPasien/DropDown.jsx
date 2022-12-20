@@ -60,7 +60,7 @@ function DropDown(props) {
     </li>
     <li><hr className="dropdown-divider"></hr></li>
     <li>
-      <Link className="text-decoration-none" to={'/Admin/Outpatient'}>
+      <Link className="text-decoration-none" to={'/Admin/ProfilePatient'}>
         <span className="dropdown-item" style={{color:"#00395E"}}>Riwayat Pasien</span>
       </Link>
     </li>
