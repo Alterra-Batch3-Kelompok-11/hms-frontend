@@ -1,29 +1,30 @@
 import React from "react";
 import Search from "../../assets/icons/Search.svg";
-import DoctorList from "./DoctorList";
-import { useState } from "react";
+//import DoctorList from "./DoctorList";
+import { useState, useEffect } from "react";
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
+import TambahDoctorPage from "./TambahDoctor";
 import styles from "../Doctor/style.module.css";
 import Row from "react-bootstrap/Row";
 import UserSettingsAndNotification from "../UserSettingsAndNotification";
 import Button from 'react-bootstrap/Button';
-import ModalButton from "./ModalButtonTambah";
+import instance from "../../API/AxiosInstance";
+// import ModalButton from "./ModalButtonTambah";
 
 
 const Doctors = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
+  const [modalShow, setModalShow] = useState(false);
+  const [doctorList, setDoctorList] = useState([])
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  useEffect(() => {
+    instance.get('v1/doctors')
+      .then(res => setDoctorList(res.data.data))
+      .catch(err => console.log(err))
+  }, [])
+  
   return (
     <>
-      {showModal && <ModalButton closeModal={handleCloseModal} />}
       <Row style={{ minHeight: "100vh", paddingBottom:"30px" }}>
         <div className="content container-fluid" style={{ width: "1150px" }}>
         <Row>
@@ -74,15 +75,15 @@ const Doctors = (props) => {
             <div className="col"></div>
 
             <div className="ms-auto" style={{width: "160px"}}>
-              <p>
-                <Button variant="primary" onClick={handleShowModal}>
-                  Tambah Pasien
-                </Button>
-              </p>
+              <Button variant="btn btn-primary" style={{float:"right", width:"150px"}} onClick={() => setModalShow(true)}>
+                Tambah Dokter
+              </Button>
+              
+              <TambahDoctorPage show={modalShow} onHide={() => setModalShow(false)} />
             </div>
           </Row>
           <div className={styles.home}>  
-          {DoctorList.filter((val) => {
+          {doctorList?.filter((val) => {
             if (searchTerm === "") {
               return val;
             } else if (
@@ -90,29 +91,31 @@ const Doctors = (props) => {
             ) {
               return val;
             }
-          }).map((val, doctor) => {
-            val.quantity = 1;
+          }).map((val) => {
           return (
-          <div className={styles.col1}>  
-          <div className={styles.card} key={val}>
+          <div className={styles.col1} key={val?.id}>  
+          <div className={styles.card}>
             <div className="row">
              <div className="col-sm-4" style={{marginRight:"49px"}}> 
-              <img src={val.avatar} style={{width:"162px", height:"310px"}}/>                       
+              <img src={val?.profile_pic} style={{width:"162px", height:"310px"}}/>                       
              </div>
              <div className="col-sm-6">  
-              <h3 style={{fontFamily:"Poppins", fontWeight:"600", fontSize:"25px", lineHeight:"48px"}}>{val.name}</h3>
-              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>{val.nim}</p>
-              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}} >{val.Spesialis}</p>
-              <div className="row">
+              <h3 style={{fontFamily:"Poppins", fontWeight:"600", fontSize:"25px", lineHeight:"48px"}}>{val?.name}</h3>
+              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>{val?.license_number}</p>
+              <p style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}} >{val?.speciality_name}</p>
+              <div className="row mb-5">
                 <div className="col-sm-3">
                   <img src={Group1} alt="img" style={{width:"30px", height:"30px"}} />
                 </div>
                 <div className="col-sm-8" style={{fontFamily:"Poppins", fontWeight:"400", fontSize:"20px", lineHeight:"30px"}}>
-                  <p>Senin - Kamis
-                  <br />09.00 - 13.00 WIB</p>
+                  {val?.doctor_schedules?.map(dokter => {
+                    return (
+                      <span>{dokter.day_string}</span>
+                    )
+                  })}
                 </div>    
-                </div>
-                  <a href="/Admin/ManageDoctor"><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
+              </div>
+                  <a href={`/Admin/ManageDoctor/${val?.id}`}><button type="button" className="btn btn-primary" style={{width: "141px", height: "47px", display: "flex",
                   background: "#0071BC", flexDirection: "row", justifyContent:"center", alignItems:"center", padding:"10px", gap:"10px"}}>Lihat Detail</button></a> 
              </div>
             </div>
@@ -120,7 +123,7 @@ const Doctors = (props) => {
           </div>
         );
       })}
-    </div>  
+          </div>  
         </div>
       </Row>
     </>

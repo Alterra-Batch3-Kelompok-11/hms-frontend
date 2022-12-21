@@ -17,7 +17,7 @@ function Sidebar() {
   return (
     <Col
       xs={2}
-      className="shadow sidebar"
+      className="shadow sidebar sticky-top"
       style={{ color: "#00395E", height: "98vh", paddingRight: "0px" }}
     >
       <div
@@ -95,7 +95,7 @@ function Sidebar() {
                   </li>
                   <li className="link">
                     <a
-                      href="#"
+                      href="/Admin/Outpatient"
                       className="link-dark d-inline-flex text-decoration-none rounded"
                     >
                       <p className="poppins-font" style={{ fontSize: "15px", marginLeft:"70px" }}>
