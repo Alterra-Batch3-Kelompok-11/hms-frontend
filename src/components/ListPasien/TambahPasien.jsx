@@ -18,6 +18,36 @@ function ModalButton() {
   const birthDay = useRef(null)
   const agama = useRef(0)
 
+  const [errMsg, setErrMsg] = useState();
+  const regexNama = /^[A-Za-z ]*$/
+  const regexNIK = /^\\d{16}$/
+  const regexNomor = /^(\+62|62)?[\s-]?0?8[1-9]{1}\d{1}[\s-]?\d{4}[\s-]?\d{2,5}$/
+
+  const handleInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    if (name === "name") {
+      if (regexNama.test(value)) {
+        setErrMsg("")
+      } else {
+        setErrMsg("Nama harus berupa huruf")
+      }
+    } else if (name === "nik") {
+      if (regexNIK.test(value)) {
+        setErrMsg("")
+      } else {
+        setErrMsg("NIK tidak sesuai")
+      }
+    } else if (name === "phone") {
+      if (regexNomor.test(value)) {
+        setErrMsg("")
+      } else {
+        setErrMsg("No Handphone tidak sesuai")
+      }
+    }
+  }
+
   const handleClick = async (e) => {
     e.preventDefault()
 
@@ -88,15 +118,15 @@ function ModalButton() {
                 <Col xs={12} md={5}>
                   <div className="mb-2">
                     <Form.Label>Nama</Form.Label>
-                    <Form.Control type="text" ref={nama} />
+                    <Form.Control type="text" ref={nama} name="name" onChange={handleInput} />
                   </div>
                   <div className="mb-2">
                     <Form.Label>NIK</Form.Label>
-                    <Form.Control type="text" ref={nikID}/>
+                    <Form.Control type="text" ref={nikID} name="nik" onChange={handleInput} />
                   </div>
                   <div className="mb-2">
                     <Form.Label>Nomor Hp</Form.Label>
-                    <Form.Control type="text" ref={hp}/>
+                    <Form.Control type="text" ref={hp} name="phone" onChange={handleInput} />
                   </div>
                   <div className="mb-2">
                     <Form.Label>Agama</Form.Label>
@@ -130,6 +160,15 @@ function ModalButton() {
                   </div>
                 </Col>
               </Row>
+            </div>
+            <div>
+              <p style={{color: "#B3261E",
+                width: "380px",
+                textAlign: "justify",
+                fontSize: "12px",
+                fontStyle: "italic"}}>
+                {errMsg}
+              </p>
             </div>
             <div className="modal-footer" style={{float:"left"}}>
               <Button onClick={(e) => handleClick(e)} variant="primary" type="submit">
