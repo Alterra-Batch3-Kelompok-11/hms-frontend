@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import Ellipse2 from '../../assets/icons/ManageDoctor/Ellipse2.svg';
 import Group1 from "../../assets/icons/ListDoctor/Group1.svg";
-import ManagePatientDoctor from './ManagePatientDoctor';
-import ModalButtonEdit from './ModalButtonEdit';
 import HisPatient from './HisPatient';
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../API/AxiosInstance';
 import { deleteData } from '../../API/InstanceWithToken';
 import swal from 'sweetalert';
 import Cookies from 'js-cookie';
+import { Button } from 'react-bootstrap';
+import EditDoctorPage from './EditDoctor';
 
 const ManageDoctor = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [tempdata, setTempdata] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [dataDokter, setDataDokter] = useState([])
+  const [jadwalDokter, setJadwalDokter] = useState([])
+  const d = new Date();
+  let year = d.getFullYear();
   const props = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
     instance.get(`v1/doctors/${props.id}`)
       .then(res => setDataDokter(res.data.data))
+      .catch(err => console.log(err))
+
+    instance.get(`v1/outpatient_sessions/doctor/${props.id}`)
+      .then(res => setJadwalDokter(res.data.data))
       .catch(err => console.log(err))
   }, [])
 
@@ -53,22 +57,6 @@ const ManageDoctor = () => {
     });
 
   }
-  
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleShowEditModal = () => {
-    setShowEditModal(true);
-  };
-
-  const handleCloseEditModal = () => {
-    setShowEditModal(false);
-  };
 
   return (
     <>
@@ -122,9 +110,9 @@ const ManageDoctor = () => {
                                 Hapus Data
                               </button>
 
-                              <button onClick={handleShowModal} type="button" className="btn btn-primary ms-3" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
+                              {/* <button onClick={handleShowModal} type="button" className="btn btn-primary ms-3" style={{background: "#0071BC", display: "flex", flexDirection: "row", justifyContent: "center", padding: "10px", gap: "10px", borderRadius:"10px", marginTop:"49px"}}>
                                 Lihat Details
-                              </button>
+                              </button> */}
                             </div>
                         </div>
                         </div>
@@ -132,39 +120,31 @@ const ManageDoctor = () => {
                 </td>
                 <td rowSpan="2">
                 <div className='card' style={{ top:'-31px',  marginLeft:'61px', width:"342px", height:"730px", boxShadow:"0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)", borderRadius: "10px"}} >
-                  <h4
-                      className="poppins-font"
-                      style={{color: "#00395E", width:"250px", padding:"20px 40px ", fontWeight: "600", fontSize: "18px", lineHeight: "27px"}}
-                    >
-                      Appointment
-                    </h4>
-                    <div style={{background: "#00395E", height:"49px", verticalAlign:"center"}}>
-                    <h4
-                      className="poppins-font"
-                      style={{textAlign:"center", color: "white", fontSize:"18px"}}
-                    >
-                      November 2022
-                    </h4>
-                </div>
-              <div style={{padding:"10px 40px"}}>
-              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
-                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
-                  09.00 - 13.00 WIB</p>
-              </div>
-              <div style={{padding:"10px 40px"}}>
-              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
-                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
-                  09.00 - 13.00 WIB</p>
-              </div>
-              <div style={{padding:"10px 40px"}}>
-              <p className="poppins-font border-bottom" style={{color: "#00395E"}}>Monday, November 21</p>
-                <p><span style={{paddingRight:"10px"}}><img src={Group1} /></span>
-                  09.00 - 13.00 WIB</p>
-              </div>
+                    <div className='pt-3 mb-3' style={{background: "#00395E", height:"49px", verticalAlign:"center"}}>
+                      <h4
+                        className="poppins-font"
+                        style={{textAlign:"center", color: "white", fontSize:"18px"}}
+                      >
+                        Jadwal Saya
+                      </h4>
+                    </div>
+                    {jadwalDokter?.map(val => {
+                      return (
+                        <div style={{padding:"10px 40px"}} key={val?.id}>
+                          <p className="poppins-font border-bottom" style={{color: "#00395E"}}>{val?.schedule_date_indo}</p>
+                          <p>
+                            <span style={{paddingRight:"10px"}}><img src={Group1} /></span>
+                            {val?.schedule_time} - {val?.finished_at_time} WIB
+                          </p>
+                        </div>
+                      )
+                    })}
             </div>
-                  <button onClick={handleShowEditModal} className="ms-5" type="button" style={{ backgroundColor: '#0071BC', color: 'white', border: '0'}}>
+                  <Button variant="btn" className='ms-5' style={{backgroundColor: '#0071BC', color: 'white', border: '0'}} onClick={() => setShowModal(true)}>
                     Edit Data
-                  </button>
+                  </Button>
+
+                  <EditDoctorPage id={props} show={showModal} onHide={() => setShowModal(false)} />
                 </td>
               </tr>
               <tr>
@@ -186,32 +166,32 @@ const ManageDoctor = () => {
                         <th scope='col'>Jadwal Temu</th>
                       </tr>
                     </thead>
-                    {HisPatient.filter((val) => {
+                    {jadwalDokter?.filter((val) => {
                     if (searchTerm === "") {
                       return val;
                     } else if (
-                      val.nama.toLowerCase().includes(searchTerm.toLowerCase())
+                      val?.patient?.name.toLowerCase().includes(searchTerm.toLowerCase())
                     ) {
                       return val;
                     }
-                    }).map((val, patient) => {
+                    }).map((val, index) => {
                     return (
                       
-                      <tbody key={patient} style={{background: "#CCE3F2", borderRadius:"50px", textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "500", fontSize: "14px", lineHeight: "30px"}}>
+                      <tbody key={val?.patient?.id} style={{background: "#CCE3F2", borderRadius:"50px", textAlign:"center" , fontFamily: "Poppins", fontStyle: "normal", fontWeight: "500", fontSize: "14px", lineHeight: "30px"}}>
                         <tr style={{borderRadius:"20px"}}>
                           
-                            <td>{val.id}</td>
-                            <td>{val.name}</td>
-                            <td>{val.usia}</td>
-                            <td>{val.keluhan}</td>
-                            <td>{val.tanggal}</td>
+                            <td>{index + 1}</td>
+                            <td>{val?.patient?.name}</td>
+                            <td>{year - val?.patient?.birth_date.slice(0, 4)}</td>
+                            <td>{val?.complaint}</td>
+                            <td>{val?.schedule_date}</td>
                         </tr>
                       </tbody>
                       
                     );
                     })}
                     </table>
-              <p style={{color:"#0071BC", float:"right"}}>Selengkapnya</p>
+              {jadwalDokter && <p style={{color:"#0071BC", float:"right"}}>Selengkapnya</p>}
               </div>
                 </td>
               </tr>
